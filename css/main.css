@@ -1098,6 +1098,7 @@ pre code {
   display: flex;
   flex-shrink: 0;
   padding: 0 10px;
+  border-radius: 18.8px 18.8px 0 0;
 }
 .use-motion .column,
 .use-motion .site-brand-container .toggle {
@@ -1308,7 +1309,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #5e65ff;
+    background: #ffd2e3;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2892,8 +2893,8 @@ header.header {
   }
 }
 body {
-  background: url("/images/background.jpg");
-  background-size: cover;
+  background-image: url("/images/background.jpg");
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
