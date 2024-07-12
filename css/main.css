@@ -1309,7 +1309,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff39e8;
+    background: #f253ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2633,7 +2633,7 @@ header.header {
   }
 }
 .site-brand-container {
-  background: url("/images/3.jpg");
+  background: url("https://images.unsplash.com/photo-1668765005700-021ea0bb9250?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMDN8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60");
 }
 @media (max-width: 991px) {
   .site-nav-on .site-brand-container {
@@ -2893,7 +2893,7 @@ header.header {
   }
 }
 body {
-  background-image: url("/images/4.jpg");
+  background-image: url("/images/8.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
