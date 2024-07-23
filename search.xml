@@ -23,6 +23,70 @@
       </categories>
   </entry>
   <entry>
+    <title>导数&amp;微分&amp;积分</title>
+    <url>/posts/7b740b99/</url>
+    <content><![CDATA[<p>施工中</p>
+<span id="more"></span>
+
+<p><strong>一句话总结:</strong></p>
+<p>导数求变化率</p>
+<p>微分求变化量</p>
+<p>积分求原函数</p>
+<h1 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>设函数$$y&#x3D;f(x)$$在点$$x_0$$的某一个邻域内有定义，当自变量x在 $$ x_0$$ 处有增量$$\vartriangle x$$，$$(x_0+_\vartriangle x)$$也在该邻域内时，相应的函数取得增量$$\vartriangle y&#x3D;f(x_0+\vartriangle x)-f(x+0)$$；如果$$\vartriangle y$$与$$\vartriangle x$$之比当$$\vartriangle x \rightarrow 0$$时极限存在，则称函数$$y&#x3D;f(x)$$在点$$x_0$$处可导，并称这个极限为函数$$y&#x3D;f(x)$$在点$$x_0$$处的导数，记作$$f’(x_0)$$，$$y’|x&#x3D;x_0$$,$$\frac{dy}{dx}|x&#x3D;x_0$$即 :</p>
+<p>$$f’(x_0)&#x3D;\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}&#x3D; \lim_{\vartriangle x \to 0} \frac{f(x_0+\vartriangle x)-f(x_0)}{\vartriangle x}$$</p>
+<p><strong>函数在某点时，因变量随自变量变化的变化率情况。</strong></p>
+<p>eg. 求某函数在某点上的切线的斜率 （导数的几何意义）</p>
+<p>**注 **: 不要把导数与导函数混为一谈。导数是一个值，是函数在某一点的变化率；导函数是函数上每一个点的变化率构成的一个新的函数。</p>
+<h2 id="连续性与可导性"><a href="#连续性与可导性" class="headerlink" title="连续性与可导性"></a>连续性与可导性</h2><p>若一个函数在区间x上的所有点都可导，则成这个函数在该区间上为可导函数。</p>
+<p>函数可导 —-&gt; 函数连续</p>
+<p>函数连续 -$$\times$$-&gt; 函数可导</p>
+<h1 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>若函数$$y&#x3D;f(x)$$在点$$x_0$$的增量可以表示为$$\vartriangle y&#x3D;f(x_0+\vartriangle x)-f(x_0)&#x3D;A\centerdot \vartriangle x+o(\vartriangle x)$$,其中A是与$$\vartriangle x $$无关的常数，则称函数$$y&#x3D;f(x)$$在点$$x_0$$可微，并称$$A\centerdot\vartriangle x$$为函数$$y&#x3D;f(x)$$在点$$x_0$$的微分，记作 ：</p>
+<p>​                                                                     $$dy|<em>{x&#x3D;x_0}$$或$$df(x_0)$$,即$$dy|</em>{x&#x3D;x_0}&#x3D;A\centerdot\vartriangle x$$</p>
+<p><strong>注</strong> : 导数与微分不能混为一谈，导数是极限值，微分是函数因变量的增量近似值</p>
+<h2 id="微分的几何意义"><a href="#微分的几何意义" class="headerlink" title="微分的几何意义"></a>微分的几何意义</h2><img src="/posts/7b740b99/7b740b99/image-20240717103652538.png" class title="image-20240717103652538">
+
+<p>当自变量由$$x_0$$增加到$$x_0+\vartriangle x $$时，函数增量$$ \vartriangle y &#x3D; f(x_0 + \vartriangle x)-f(x_0) &#x3D; RQ$$</p>
+<p>微分是指在点P处的切线与 $$\vartriangle x $$所对应的增量，即求的是在$$x_0$$处的切线，在x轴增加$$\vartriangle x$$后，y轴对应增量 : $$dy &#x3D; f’(x_0)\vartriangle x &#x3D; RQ’$$</p>
+<h2 id="可导与可微"><a href="#可导与可微" class="headerlink" title="可导与可微"></a>可导与可微</h2><p>可导是可微的充要条件</p>
+<p><strong>eg.</strong> 求 $$\sqrt[3]{998.5}$$</p>
+<ol>
+<li><p>取$$\sqrt[3]{1000}$$，并求导</p>
+</li>
+<li><p>$$\vartriangle x&#x3D;998.5-1000&#x3D;-1.5$$</p>
+</li>
+<li><p>$$f(x_0)’&#x3D;(\sqrt[3]{1000})’&#x3D;(1000^{\frac{1}{3}})’&#x3D;\frac{1}{3}1000^{1-\frac{1}{3}}&#x3D;\frac{1}{3}\sqrt[3]{(\frac{1}{1000})^2}&#x3D;\frac{1}{3}\times \frac{1}{100}&#x3D;\frac{1}{300}$$</p>
+</li>
+<li><p>求$$dy$$，即$$\sqrt[3]{998.5}-\sqrt[3]{1000}$$, $$dy&#x3D;f(x_0)’\centerdot \vartriangle x&#x3D;\frac{1}{300}\times -1.5&#x3D;-\frac{1}{200}$$</p>
+</li>
+<li><p>$$\sqrt[3]{998.5}&#x3D;\sqrt[3]{1000}+dy&#x3D;10-\frac{1}{200}&#x3D;9.995$$</p>
+</li>
+<li><p>计算器计算结果: </p>
+<img src="/posts/7b740b99/7b740b99/image-20240717113911665.png" class title="image-20240717113911665"></li>
+</ol>
+<h1 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><h3 id="原函数"><a href="#原函数" class="headerlink" title="原函数"></a>原函数</h3><p>如果在区间 I 上，$$F’(x)&#x3D;f(x)$$ 或 $$dF(x)&#x3D;f(x)dx$$ , 则称 F(x) 为 f(x) 在 I 上的一个<strong>原函数</strong></p>
+<h3 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h3><p>设 F(x) 是 f(x )的任一原函数，则f(x)的全部原函数的一般表达式 F(x)+C 称为 f(x) 的<strong>不定积分</strong>，记为 $$\int f(x)dx$$</p>
+<p>不定积分是一种运算，与微分运算互逆</p>
+<h3 id="定积分"><a href="#定积分" class="headerlink" title="定积分"></a>定积分</h3><p>设函数f(x)在[a,b]上有界，在[a,b]中&#x3D;&#x3D;任意&#x3D;&#x3D;插入若干分点$$a&#x3D;x_0&lt;x_1&lt;x_2&lt;…&lt;x_{n-1}&lt;x_n&#x3D;b$$,把区间[a,b]分成n个小区间，各小区间长度依次为$$\Delta x_i&#x3D;x_i-x_{i-1},(i&#x3D;1,2,…,n)$$,在各小区间上&#x3D;&#x3D;任取&#x3D;&#x3D;一点$$\xi_i(\xi_i \in \Delta x_i)$$,作乘积$$f(\xi_i)\Delta x_i(i&#x3D;1,2,…,n)$$，并作和$$S&#x3D;\sum_{i&#x3D;1}^n{f(\xi_i)\Delta x_i}$$</p>
+<p>定积分是一种求和运算，求一个具体的函数在具体的区间内，与x轴围成图形的具体面积</p>
+<img src="/posts/7b740b99/7b740b99/20200523164722792.png" class width="20200523164722792">
+
+
+
+<p>参考链接 :</p>
+<p><a href="https://blog.csdn.net/baidu_39491365/article/details/89856302">什么是微分？导数和微分的区别是什么？微分和积分的联系？_微分积分的区别和联系-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/weixin_43148062/article/details/106302533">高等数学导数公式、微分公式和积分公式大全_常用微分公式 知乎-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/weixin_40163242/article/details/89003225">高等数学上核心概念：谈谈导数，微分，积分之间的关系（导数篇）_微分、积分、微积分、导数之详细辨别-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/weixin_40163242/article/details/89004822">高等数学上核心概念：谈谈导数，微分，积分之间的关系（微分篇）_极限导数微分积分四者关系图-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/m0_37827994/article/details/85004004">导数、微分、积分的几何理解_微分和积分的几何意义-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/liuyiming2019/article/details/108938333">【高数】高数第四章节——不定积分&amp;换元积分&amp;分部积分_四种典型部分分式的积分-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/liuyiming2019/article/details/108942293">【高数】高数第五章节——定积分&amp;积分上限函数&amp;牛顿——莱布尼兹公式&amp;反常积分与广义积分_定积分求导法则在高数的那一节-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/hsl1958941040/article/details/123841175">不定积分、定积分的区别与联系_定积分和不定积分区别-CSDN博客</a></p>
+]]></content>
+      <categories>
+        <category>math</category>
+      </categories>
+  </entry>
+  <entry>
     <title>test_test</title>
     <url>/posts/dd0654c3/</url>
     <content><![CDATA[<p>测试各种模块编辑效果</p>
@@ -91,7 +155,7 @@
     <content><![CDATA[<p>施工中</p>
 <span id="more"></span>
 
-<p>[TOC]</p>
+
 <h1 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h1><p>格式:</p>
 <p><code> 指针类型 (*函数指针名称)(函数指针参数)</code></p>
 <ul>
@@ -142,17 +206,17 @@
 <span id="more"></span>
 
 
-<p>[TOC]</p>
-<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><style>.myusmjmhvopq{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="myusmjmhvopq" alt="img">
 
-<style>.pyxtxghvxdqe{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="pyxtxghvxdqe" alt="img">
+<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><style>.jyjkbvieqquz{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="jyjkbvieqquz" alt="img">
+
+<style>.pbvpbyfeqsxu{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="pbvpbyfeqsxu" alt="img">
 
 <p>坐标轴以原点为圆心转动，不管怎么转，转后坐标系都可以通过三个角在原坐标系上表达。</p>
 <p>欧拉角可能会导致万向节死锁情况出现，任一坐标轴旋转角度为90度时，就会由两个轴的旋转动作起到的作用相同，形成死锁</p>
-<style>.ieeqoekuggjz{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="ieeqoekuggjz" alt="img">
+<style>.iuegectjxwnc{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="iuegectjxwnc" alt="img">
 
 <h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>1.坐标变换</p>
-<style>.btmdaanxgmcc{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722102204803.png" class="btmdaanxgmcc" alt="image-20240722102204803">
+<style>.rkttvjdjpphv{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722102204803.png" class="rkttvjdjpphv" alt="image-20240722102204803">
 
 <p>如图所示，对于点P在不同坐标系下的表示，红色坐标系由黑色坐标系绕原点旋转$$\alpha $$°得来；</p>
 <p>其坐标变换关系如下 :</p>
@@ -163,19 +227,19 @@
 <p>由上述式子可得矩阵 :</p>
 <img src="/posts/68728ca3/68728ca3/image-20240722103355214.png" class title="image-20240722103355214">
 
-<style>.nrericrgwlji{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104206337.png" class="nrericrgwlji" alt="image-20240722104206337">
+<style>.pyxlvmnkjuis{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104206337.png" class="pyxlvmnkjuis" alt="image-20240722104206337">
 
 <p>想写出坐标系B相对于坐标系A的旋转矩阵，只需将坐标系B相对于坐标系A的方向余弦写成矩阵形式 :</p>
-<style>.wunwwxgileri{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104249976.png" class="wunwwxgileri" alt="image-20240722104249976">
+<style>.figiolvkurnp{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104249976.png" class="figiolvkurnp" alt="image-20240722104249976">
 
-<style>.ruqqycweeina{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104500401.png" class="ruqqycweeina" alt="image-20240722104500401">
+<style>.huloxbsyvwhx{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104500401.png" class="huloxbsyvwhx" alt="image-20240722104500401">
 
-<style>.rnyegotoahbt{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722112100493.png" class="rnyegotoahbt" alt="image-20240722112100493">
+<style>.snfxuzxyjprm{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722112100493.png" class="snfxuzxyjprm" alt="image-20240722112100493">
 
 <img src="/posts/68728ca3/68728ca3/image-20240722112317352.png" class title="image-20240722112317352">
 
 <p>上为坐标系旋转，下为向量旋转</p>
-<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><style>.polrtdhyfoyc{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240715145743748.png" class="polrtdhyfoyc" alt="image-20240715145743748">
+<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><style>.pgtyoxxmpglw{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240715145743748.png" class="pgtyoxxmpglw" alt="image-20240715145743748">
 
 <p>物理意义：按照特定的方向旋转90度</p>
 <h2 id="四元数的定义"><a href="#四元数的定义" class="headerlink" title="四元数的定义"></a>四元数的定义</h2><p>· 对于基{ 1,i,j,k }的线性组合，向量形式 : $$q &#x3D; \begin{bmatrix}a\b\c\d\end{bmatrix}$$，( $$i^2&#x3D;j^2&#x3D;k^2&#x3D;ijk&#x3D;-1$$ )</p>
@@ -186,7 +250,7 @@
 <p>$$&#x3D;[ae-\vec{v}\centerdot\vec{u}， a\vec{u}+e\vec{v}+\vec{v}\times\vec{u}]$$    ( 矢量式 )</p>
 <p>矩阵形式 : </p>
 <p>$$q_1q_2\neq q_2q_1$$    &#x3D;&#x3D;左乘不等于右乘&#x3D;</p>
-<style>.oopuikhenhoh{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="oopuikhenhoh" alt="img">
+<style>.jicckxufspon{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="jicckxufspon" alt="img">
 
 <p>$$q_1q_2&#x3D; \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\b&amp;a&amp;-d&amp;c\c&amp;d&amp;a&amp;-b\d&amp;-c&amp;b&amp;a\end{bmatrix}\begin{bmatrix}e\f\g\h\end{bmatrix}$$</p>
 <p>$$q_2q_1&#x3D; \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\b&amp;a&amp;d&amp;-c\c&amp;-d&amp;a&amp;b\d&amp;c&amp;-b&amp;a\end{bmatrix}\begin{bmatrix}e\f\g\h\end{bmatrix}$$</p>
@@ -260,7 +324,7 @@
 <p>$$q_aq_b&#x3D;[−a\centerdot b,s_ba+a×b]$$</p>
 <p>作者：Jormungand<br>链接：<a href="https://juejin.cn/post/7140527372100435976">https://juejin.cn/post/7140527372100435976</a><br>来源：稀土掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 <h2 id="四元数与三维旋转"><a href="#四元数与三维旋转" class="headerlink" title="四元数与三维旋转"></a>四元数与三维旋转</h2><p>虚数 * i（$$i^2&#x3D;-1$$），即该虚数所在点绕圆心逆时针旋转90度；同理 *-i即顺时针旋转90度</p>
-<style>.hflmnklbvlpm{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/image-20240716084319542.png" class="hflmnklbvlpm" alt="image-20240716084319542">
+<style>.dtmbcgbhgdcy{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/image-20240716084319542.png" class="dtmbcgbhgdcy" alt="image-20240716084319542">
 
 <h3 id="推导-（纯四元数）"><a href="#推导-（纯四元数）" class="headerlink" title="推导 （纯四元数）"></a>推导 （纯四元数）</h3><ol>
 <li><p>定义一个四元数q，使要旋转的向量旋转$$\theta$$ 度，v是单位化转轴方向</p>
@@ -291,7 +355,7 @@
 <p>​                <img src="/posts/68728ca3/68728ca3/image-20240716151737501.png" class title="image-20240716151737501"></p>
 <ol start="4">
 <li>若 $$p’&#x3D;pq$$ ,则结果为 $$[0,\sqrt{2}i-\sqrt{2}j]$$,旋转方向相反</li>
-<li>红色绕蓝色逆时针旋转45度得到黄色<br> <style>.etszqwsbikfr{zoom: 50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-13.png" class="etszqwsbikfr" alt="img"></li>
+<li>红色绕蓝色逆时针旋转45度得到黄色<br> <style>.yhoyqpvbfdhr{zoom: 50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-13.png" class="yhoyqpvbfdhr" alt="img"></li>
 </ol>
 <h3 id="非纯四元数旋转"><a href="#非纯四元数旋转" class="headerlink" title="非纯四元数旋转"></a>非纯四元数旋转</h3><ol>
 <li><p>一个正常四元数q，与p不正交(p仍为上文中的p&#x3D;[0.2i])，设定q的矢量部分与p夹角为45度,计算p绕q旋转$$\theta$$角度后得到的向量</p>
@@ -305,7 +369,7 @@
 </li>
 <li><p>计算结果已经不是纯四元数，且没有旋转45度，模长也不是2（而是$$\sqrt{3}$$）,用图像表示 :</p>
 </li>
-<li><style>.xacclazfejtj{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-2.png" class="xacclazfejtj" alt="img"></li>
+<li><style>.lnutmfqlcojr{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-2.png" class="lnutmfqlcojr" alt="img"></li>
 </ol>
 <ol start="6">
 <li>如何将其转变为纯四元数？Hamilton发现，将qp右乘q的逆，将得到一个纯四元数，且该四元数的向量部分保持不变 :  (因为q为单位四元数，此时q的逆等于q的共轭四元数)</li>
@@ -317,7 +381,7 @@
 <p>​                   记$$qpq^-1$$为$$p’$$</p>
 <p>​                 <img src="/posts/68728ca3/68728ca3/image-20240716155404171.png" class title="image-20240716155404171"></p>
 <p>​                  求得p’的模长与p相等</p>
-<p>​				<style>.hfxppqlryfqo{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-3.png" class="hfxppqlryfqo" alt="img"></p>
+<p>​				<style>.qvqnpldodxum{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-3.png" class="qvqnpldodxum" alt="img"></p>
 <ol start="7">
 <li><p>观察上图可发现，红色向量绕紫色向量旋转了90度而非45度，得到黄色向量，因此为了正确的让一个向量绕某个轴向量旋转某个角度，必须以目标角度的一般来计算 ，得到&#x3D;&#x3D;<strong>旋转四元数</strong>&#x3D;&#x3D;的一般形式:</p>
 <img src="/posts/68728ca3/68728ca3/image-20240716161001706.png" class title="image-20240716161001706"></li>
@@ -349,70 +413,6 @@
 <p><a href="https://gitcode.csdn.net/662b46fac647e032687df7f1.html?dp_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mzc3MDE0NSwiZXhwIjoxNzIxNzI3MzQ5LCJpYXQiOjE3MjExMjI1NDksInVzZXJuYW1lIjoid2VpeGluXzQ4NTUxNDExIn0.XNQEvQZ0hsGNzhkasX1q7Q9K-oWgF5Sn_l199R6cyIc">四元数——姿态解算_线性代数_m0_73654084-GitCode 开源社区 (csdn.net)</a></p>
 <p>&#x3D;&#x3D;<a href="https://blog.csdn.net/zhangyufeikk/article/details/94594646">从原理到代码 梳理姿态更新计算的四元数算法_四元数姿态解算原理-CSDN博客</a>&#x3D;&#x3D;</p>
 <p><a href="https://blog.csdn.net/weixin_45632220/article/details/117735223">旋转矩阵及左右乘的意义，看这一篇就够了_旋转矩阵左乘和右乘的几何意义-CSDN博客</a></p>
-]]></content>
-      <categories>
-        <category>math</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>导数&amp;微分&amp;积分</title>
-    <url>/posts/7b740b99/</url>
-    <content><![CDATA[<p>施工中</p>
-<span id="more"></span>
-
-<p><strong>一句话总结:</strong></p>
-<p>导数求变化率</p>
-<p>微分求变化量</p>
-<p>积分求原函数</p>
-<h1 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>设函数$$y&#x3D;f(x)$$在点$$x_0$$的某一个邻域内有定义，当自变量x在 $$ x_0$$ 处有增量$$\vartriangle x$$，$$(x_0+_\vartriangle x)$$也在该邻域内时，相应的函数取得增量$$\vartriangle y&#x3D;f(x_0+\vartriangle x)-f(x+0)$$；如果$$\vartriangle y$$与$$\vartriangle x$$之比当$$\vartriangle x \rightarrow 0$$时极限存在，则称函数$$y&#x3D;f(x)$$在点$$x_0$$处可导，并称这个极限为函数$$y&#x3D;f(x)$$在点$$x_0$$处的导数，记作$$f’(x_0)$$，$$y’|x&#x3D;x_0$$,$$\frac{dy}{dx}|x&#x3D;x_0$$即 :</p>
-<p>$$f’(x_0)&#x3D;\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}&#x3D; \lim_{\vartriangle x \to 0} \frac{f(x_0+\vartriangle x)-f(x_0)}{\vartriangle x}$$</p>
-<p><strong>函数在某点时，因变量随自变量变化的变化率情况。</strong></p>
-<p>eg. 求某函数在某点上的切线的斜率 （导数的几何意义）</p>
-<p>**注 **: 不要把导数与导函数混为一谈。导数是一个值，是函数在某一点的变化率；导函数是函数上每一个点的变化率构成的一个新的函数。</p>
-<h2 id="连续性与可导性"><a href="#连续性与可导性" class="headerlink" title="连续性与可导性"></a>连续性与可导性</h2><p>若一个函数在区间x上的所有点都可导，则成这个函数在该区间上为可导函数。</p>
-<p>函数可导 —-&gt; 函数连续</p>
-<p>函数连续 -$$\times$$-&gt; 函数可导</p>
-<h1 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>若函数$$y&#x3D;f(x)$$在点$$x_0$$的增量可以表示为$$\vartriangle y&#x3D;f(x_0+\vartriangle x)-f(x_0)&#x3D;A\centerdot \vartriangle x+o(\vartriangle x)$$,其中A是与$$\vartriangle x $$无关的常数，则称函数$$y&#x3D;f(x)$$在点$$x_0$$可微，并称$$A\centerdot\vartriangle x$$为函数$$y&#x3D;f(x)$$在点$$x_0$$的微分，记作 ：</p>
-<p>​                                                                     $$dy|<em>{x&#x3D;x_0}$$或$$df(x_0)$$,即$$dy|</em>{x&#x3D;x_0}&#x3D;A\centerdot\vartriangle x$$</p>
-<p><strong>注</strong> : 导数与微分不能混为一谈，导数是极限值，微分是函数因变量的增量近似值</p>
-<h2 id="微分的几何意义"><a href="#微分的几何意义" class="headerlink" title="微分的几何意义"></a>微分的几何意义</h2><img src="/posts/7b740b99/7b740b99/image-20240717103652538.png" class title="image-20240717103652538">
-
-<p>当自变量由$$x_0$$增加到$$x_0+\vartriangle x $$时，函数增量$$ \vartriangle y &#x3D; f(x_0 + \vartriangle x)-f(x_0) &#x3D; RQ$$</p>
-<p>微分是指在点P处的切线与 $$\vartriangle x $$所对应的增量，即求的是在$$x_0$$处的切线，在x轴增加$$\vartriangle x$$后，y轴对应增量 : $$dy &#x3D; f’(x_0)\vartriangle x &#x3D; RQ’$$</p>
-<h2 id="可导与可微"><a href="#可导与可微" class="headerlink" title="可导与可微"></a>可导与可微</h2><p>可导是可微的充要条件</p>
-<p><strong>eg.</strong> 求 $$\sqrt[3]{998.5}$$</p>
-<ol>
-<li><p>取$$\sqrt[3]{1000}$$，并求导</p>
-</li>
-<li><p>$$\vartriangle x&#x3D;998.5-1000&#x3D;-1.5$$</p>
-</li>
-<li><p>$$f(x_0)’&#x3D;(\sqrt[3]{1000})’&#x3D;(1000^{\frac{1}{3}})’&#x3D;\frac{1}{3}1000^{1-\frac{1}{3}}&#x3D;\frac{1}{3}\sqrt[3]{(\frac{1}{1000})^2}&#x3D;\frac{1}{3}\times \frac{1}{100}&#x3D;\frac{1}{300}$$</p>
-</li>
-<li><p>求$$dy$$，即$$\sqrt[3]{998.5}-\sqrt[3]{1000}$$, $$dy&#x3D;f(x_0)’\centerdot \vartriangle x&#x3D;\frac{1}{300}\times -1.5&#x3D;-\frac{1}{200}$$</p>
-</li>
-<li><p>$$\sqrt[3]{998.5}&#x3D;\sqrt[3]{1000}+dy&#x3D;10-\frac{1}{200}&#x3D;9.995$$</p>
-</li>
-<li><p>计算器计算结果: </p>
-<img src="/posts/7b740b99/7b740b99/image-20240717113911665.png" class title="image-20240717113911665"></li>
-</ol>
-<h1 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><h3 id="原函数"><a href="#原函数" class="headerlink" title="原函数"></a>原函数</h3><p>如果在区间 I 上，$$F’(x)&#x3D;f(x)$$ 或 $$dF(x)&#x3D;f(x)dx$$ , 则称 F(x) 为 f(x) 在 I 上的一个<strong>原函数</strong></p>
-<h3 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h3><p>设 F(x) 是 f(x )的任一原函数，则f(x)的全部原函数的一般表达式 F(x)+C 称为 f(x) 的<strong>不定积分</strong>，记为 $$\int f(x)dx$$</p>
-<p>不定积分是一种运算，与微分运算互逆</p>
-<h3 id="定积分"><a href="#定积分" class="headerlink" title="定积分"></a>定积分</h3><p>设函数f(x)在[a,b]上有界，在[a,b]中&#x3D;&#x3D;任意&#x3D;&#x3D;插入若干分点$$a&#x3D;x_0&lt;x_1&lt;x_2&lt;…&lt;x_{n-1}&lt;x_n&#x3D;b$$,把区间[a,b]分成n个小区间，各小区间长度依次为$$\Delta x_i&#x3D;x_i-x_{i-1},(i&#x3D;1,2,…,n)$$,在各小区间上&#x3D;&#x3D;任取&#x3D;&#x3D;一点$$\xi_i(\xi_i \in \Delta x_i)$$,作乘积$$f(\xi_i)\Delta x_i(i&#x3D;1,2,…,n)$$，并作和$$S&#x3D;\sum_{i&#x3D;1}^n{f(\xi_i)\Delta x_i}$$</p>
-<p>定积分是一种求和运算，求一个具体的函数在具体的区间内，与x轴围成图形的具体面积</p>
-<img src="/posts/7b740b99/7b740b99/20200523164722792.png" class title="在这里插入图片描述">
-
-
-
-<p>参考链接 :</p>
-<p><a href="https://blog.csdn.net/baidu_39491365/article/details/89856302">什么是微分？导数和微分的区别是什么？微分和积分的联系？_微分积分的区别和联系-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/weixin_43148062/article/details/106302533">高等数学导数公式、微分公式和积分公式大全_常用微分公式 知乎-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/weixin_40163242/article/details/89003225">高等数学上核心概念：谈谈导数，微分，积分之间的关系（导数篇）_微分、积分、微积分、导数之详细辨别-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/weixin_40163242/article/details/89004822">高等数学上核心概念：谈谈导数，微分，积分之间的关系（微分篇）_极限导数微分积分四者关系图-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/m0_37827994/article/details/85004004">导数、微分、积分的几何理解_微分和积分的几何意义-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/liuyiming2019/article/details/108938333">【高数】高数第四章节——不定积分&amp;换元积分&amp;分部积分_四种典型部分分式的积分-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/liuyiming2019/article/details/108942293">【高数】高数第五章节——定积分&amp;积分上限函数&amp;牛顿——莱布尼兹公式&amp;反常积分与广义积分_定积分求导法则在高数的那一节-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/hsl1958941040/article/details/123841175">不定积分、定积分的区别与联系_定积分和不定积分区别-CSDN博客</a></p>
 ]]></content>
       <categories>
         <category>math</category>
