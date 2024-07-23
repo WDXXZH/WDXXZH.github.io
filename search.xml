@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test_test</title>
-    <url>/posts/dd0654c3/</url>
-    <content><![CDATA[<p>测试各种模块编辑效果</p>
-<span id="more"></span>
-
-<h1 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h1><p>语句:<br><img src="/posts/dd0654c3/insertimg.png" alt="insertimg"></p>
-<p>效果:<br><img src="/posts/dd0654c3/kafuka.jpg" alt="kafuka"></p>
-<h1 id="插入网页连接"><a href="#插入网页连接" class="headerlink" title="插入网页连接"></a>插入网页连接</h1><p>直接输入即可<br><a href="https://github.com/WDXXZH">https://github.com/WDXXZH</a></p>
-<h1 id="插入代码块"><a href="#插入代码块" class="headerlink" title="插入代码块"></a>插入代码块</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++&gt;)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;OK\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>test</category>
-      </categories>
-  </entry>
-  <entry>
     <title>PID</title>
     <url>/posts/c3f78667/</url>
     <content><![CDATA[<p>施工中</p>
@@ -35,6 +20,23 @@
 ]]></content>
       <categories>
         <category>PID</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>test_test</title>
+    <url>/posts/dd0654c3/</url>
+    <content><![CDATA[<p>测试各种模块编辑效果</p>
+<span id="more"></span>
+
+<h1 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h1><p>语句:<br><img src="/posts/dd0654c3/insertimg.png" alt="insertimg"></p>
+<p>效果:<br><img src="/posts/dd0654c3/kafuka.jpg" alt="kafuka"></p>
+<img src="/posts/dd0654c3/dd0654c3/kafuka.jpg" class title="kafuka">
+
+<h1 id="插入网页连接"><a href="#插入网页连接" class="headerlink" title="插入网页连接"></a>插入网页连接</h1><p>直接输入即可<br><a href="https://github.com/WDXXZH">https://github.com/WDXXZH</a></p>
+<h1 id="插入代码块"><a href="#插入代码块" class="headerlink" title="插入代码块"></a>插入代码块</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++&gt;)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;OK\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>test</category>
       </categories>
   </entry>
   <entry>
@@ -58,6 +60,30 @@
 ]]></content>
       <categories>
         <category>test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>伺服电机控制探究</title>
+    <url>/posts/83e63798/</url>
+    <content><![CDATA[<p>施工中</p>
+<span id="more"></span>
+
+<h1 id="伺服电机"><a href="#伺服电机" class="headerlink" title="伺服电机"></a>伺服电机</h1><p>—–《电力拖动自动控制系统(第5版)(陈伯时)》—-</p>
+<h2 id="位置传感器"><a href="#位置传感器" class="headerlink" title="位置传感器"></a>位置传感器</h2><h3 id="电位器"><a href="#电位器" class="headerlink" title="电位器"></a>电位器</h3><h3 id="基于电磁感应原理的位置传感器"><a href="#基于电磁感应原理的位置传感器" class="headerlink" title="基于电磁感应原理的位置传感器"></a>基于电磁感应原理的位置传感器</h3><h3 id="光电编码器"><a href="#光电编码器" class="headerlink" title="光电编码器"></a>光电编码器</h3><p>由光源、光栅码盘和光敏元件3部分组成，直接输出数字是的电脉冲信号</p>
+<h4 id="增量式编码器"><a href="#增量式编码器" class="headerlink" title="增量式编码器"></a>增量式编码器</h4><p>脉冲数与位移的增量成正比（只输出变化量）</p>
+<h4 id="绝对值编码器"><a href="#绝对值编码器" class="headerlink" title="绝对值编码器"></a>绝对值编码器</h4><p>码盘由若干同心圆环构成的码道组成，码道的道数与二进制的位数相同。码盘一周的总集数为$$N &#x3D; 2^n$$，n为码道数</p>
+<h5 id="二进制码盘"><a href="#二进制码盘" class="headerlink" title="二进制码盘"></a>二进制码盘</h5><h5 id="循环码码盘"><a href="#循环码码盘" class="headerlink" title="循环码码盘"></a>循环码码盘</h5><h4 id="磁性编码器"><a href="#磁性编码器" class="headerlink" title="磁性编码器"></a>磁性编码器</h4><p>将位移量转变为数字式脉冲信号的传感器</p>
+<h2 id="伺服控制系统"><a href="#伺服控制系统" class="headerlink" title="伺服控制系统"></a>伺服控制系统</h2><p>伺服系统控制对象包括伺服电动机，驱动装置，机械传动系统</p>
+<h3 id="直流伺服系统"><a href="#直流伺服系统" class="headerlink" title="直流伺服系统"></a>直流伺服系统</h3><h3 id="交流伺服系统"><a href="#交流伺服系统" class="headerlink" title="交流伺服系统"></a>交流伺服系统</h3><p>常用电机：三相异步电动机，永磁式同步电动机，磁阻式步进电动机，经过矢量变换、磁链定向和电流闭环控制均可等效为电流控制的直流电动机</p>
+<h3 id="伺服系统的设计"><a href="#伺服系统的设计" class="headerlink" title="伺服系统的设计"></a>伺服系统的设计</h3><p>常用调节器：PI、PD、PID（P-比例；I-积分；D-微分）</p>
+<p>内-&gt;外</p>
+<p>电流(转矩)环+速度(转速)环+位置环</p>
+<p>—–《电力拖动自动控制系统(第5版)(陈伯时)》—-</p>
+<img src="/posts/83e63798/83e63798/2c1f7f58eba9482a97bd27cc4ba22005.png" class title="img">
+
+]]></content>
+      <categories>
+        <category>伺服电机</category>
       </categories>
   </entry>
   <entry>
@@ -111,30 +137,6 @@
       </categories>
   </entry>
   <entry>
-    <title>伺服电机控制探究</title>
-    <url>/posts/83e63798/</url>
-    <content><![CDATA[<p>施工中</p>
-<span id="more"></span>
-
-<h1 id="伺服电机"><a href="#伺服电机" class="headerlink" title="伺服电机"></a>伺服电机</h1><p>—–《电力拖动自动控制系统(第5版)(陈伯时)》—-</p>
-<h2 id="位置传感器"><a href="#位置传感器" class="headerlink" title="位置传感器"></a>位置传感器</h2><h3 id="电位器"><a href="#电位器" class="headerlink" title="电位器"></a>电位器</h3><h3 id="基于电磁感应原理的位置传感器"><a href="#基于电磁感应原理的位置传感器" class="headerlink" title="基于电磁感应原理的位置传感器"></a>基于电磁感应原理的位置传感器</h3><h3 id="光电编码器"><a href="#光电编码器" class="headerlink" title="光电编码器"></a>光电编码器</h3><p>由光源、光栅码盘和光敏元件3部分组成，直接输出数字是的电脉冲信号</p>
-<h4 id="增量式编码器"><a href="#增量式编码器" class="headerlink" title="增量式编码器"></a>增量式编码器</h4><p>脉冲数与位移的增量成正比（只输出变化量）</p>
-<h4 id="绝对值编码器"><a href="#绝对值编码器" class="headerlink" title="绝对值编码器"></a>绝对值编码器</h4><p>码盘由若干同心圆环构成的码道组成，码道的道数与二进制的位数相同。码盘一周的总集数为$$N &#x3D; 2^n$$，n为码道数</p>
-<h5 id="二进制码盘"><a href="#二进制码盘" class="headerlink" title="二进制码盘"></a>二进制码盘</h5><h5 id="循环码码盘"><a href="#循环码码盘" class="headerlink" title="循环码码盘"></a>循环码码盘</h5><h4 id="磁性编码器"><a href="#磁性编码器" class="headerlink" title="磁性编码器"></a>磁性编码器</h4><p>将位移量转变为数字式脉冲信号的传感器</p>
-<h2 id="伺服控制系统"><a href="#伺服控制系统" class="headerlink" title="伺服控制系统"></a>伺服控制系统</h2><p>伺服系统控制对象包括伺服电动机，驱动装置，机械传动系统</p>
-<h3 id="直流伺服系统"><a href="#直流伺服系统" class="headerlink" title="直流伺服系统"></a>直流伺服系统</h3><h3 id="交流伺服系统"><a href="#交流伺服系统" class="headerlink" title="交流伺服系统"></a>交流伺服系统</h3><p>常用电机：三相异步电动机，永磁式同步电动机，磁阻式步进电动机，经过矢量变换、磁链定向和电流闭环控制均可等效为电流控制的直流电动机</p>
-<h3 id="伺服系统的设计"><a href="#伺服系统的设计" class="headerlink" title="伺服系统的设计"></a>伺服系统的设计</h3><p>常用调节器：PI、PD、PID（P-比例；I-积分；D-微分）</p>
-<p>内-&gt;外</p>
-<p>电流(转矩)环+速度(转速)环+位置环</p>
-<p>—–《电力拖动自动控制系统(第5版)(陈伯时)》—-</p>
-<img src="/posts/83e63798/83e63798/2c1f7f58eba9482a97bd27cc4ba22005.png" class title="img">
-
-]]></content>
-      <categories>
-        <category>伺服电机</category>
-      </categories>
-  </entry>
-  <entry>
     <title>坐标系旋转</title>
     <url>/posts/68728ca3/</url>
     <content><![CDATA[<p>施工中</p>
@@ -142,16 +144,16 @@
 
 
 <p>[TOC]</p>
-<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><style>.kdpciidwzjui{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="kdpciidwzjui" alt="img">
+<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><style>.dlwttekpwkje{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="dlwttekpwkje" alt="img">
 
-<style>.hgylhrnmnjgj{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="hgylhrnmnjgj" alt="img">
+<style>.dmnhvmqssewt{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="dmnhvmqssewt" alt="img">
 
 <p>坐标轴以原点为圆心转动，不管怎么转，转后坐标系都可以通过三个角在原坐标系上表达。</p>
 <p>欧拉角可能会导致万向节死锁情况出现，任一坐标轴旋转角度为90度时，就会由两个轴的旋转动作起到的作用相同，形成死锁</p>
-<style>.qfeqijxwvdjo{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="qfeqijxwvdjo" alt="img">
+<style>.hftkxhyvvyjl{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="hftkxhyvvyjl" alt="img">
 
 <h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>1.坐标变换</p>
-<style>.xqtokcajrzeo{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722102204803.png" class="xqtokcajrzeo" alt="image-20240722102204803">
+<style>.hlyjmkrjmnmb{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722102204803.png" class="hlyjmkrjmnmb" alt="image-20240722102204803">
 
 <p>如图所示，对于点P在不同坐标系下的表示，红色坐标系由黑色坐标系绕原点旋转$$\alpha $$°得来；</p>
 <p>其坐标变换关系如下 :</p>
@@ -162,19 +164,19 @@
 <p>由上述式子可得矩阵 :</p>
 <img src="/posts/68728ca3/68728ca3/image-20240722103355214.png" class title="image-20240722103355214">
 
-<style>.qowpgfgwmglb{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104206337.png" class="qowpgfgwmglb" alt="image-20240722104206337">
+<style>.ikgvfhwzyxai{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104206337.png" class="ikgvfhwzyxai" alt="image-20240722104206337">
 
 <p>想写出坐标系B相对于坐标系A的旋转矩阵，只需将坐标系B相对于坐标系A的方向余弦写成矩阵形式 :</p>
-<style>.yovjukhctycf{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104249976.png" class="yovjukhctycf" alt="image-20240722104249976">
+<style>.hoggctfnckdc{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104249976.png" class="hoggctfnckdc" alt="image-20240722104249976">
 
-<style>.okougizgpnql{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104500401.png" class="okougizgpnql" alt="image-20240722104500401">
+<style>.juonsqseqhvj{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104500401.png" class="juonsqseqhvj" alt="image-20240722104500401">
 
-<style>.qvbqjgeqtvvn{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722112100493.png" class="qvbqjgeqtvvn" alt="image-20240722112100493">
+<style>.twutjuqmkbsk{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722112100493.png" class="twutjuqmkbsk" alt="image-20240722112100493">
 
 <img src="/posts/68728ca3/68728ca3/image-20240722112317352.png" class title="image-20240722112317352">
 
 <p>上为坐标系旋转，下为向量旋转</p>
-<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><style>.fspentputyse{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240715145743748.png" class="fspentputyse" alt="image-20240715145743748">
+<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><style>.pblpgzxppzpj{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240715145743748.png" class="pblpgzxppzpj" alt="image-20240715145743748">
 
 <p>物理意义：按照特定的方向旋转90度</p>
 <h2 id="四元数的定义"><a href="#四元数的定义" class="headerlink" title="四元数的定义"></a>四元数的定义</h2><p>· 对于基{ 1,i,j,k }的线性组合，向量形式 : $$q &#x3D; \begin{bmatrix}a\b\c\d\end{bmatrix}$$，( $$i^2&#x3D;j^2&#x3D;k^2&#x3D;ijk&#x3D;-1$$ )</p>
@@ -185,7 +187,7 @@
 <p>$$&#x3D;[ae-\vec{v}\centerdot\vec{u}， a\vec{u}+e\vec{v}+\vec{v}\times\vec{u}]$$    ( 矢量式 )</p>
 <p>矩阵形式 : </p>
 <p>$$q_1q_2\neq q_2q_1$$    &#x3D;&#x3D;左乘不等于右乘&#x3D;</p>
-<style>.opnqgyataitk{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="opnqgyataitk" alt="img">
+<style>.aweivmthdeqr{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="aweivmthdeqr" alt="img">
 
 <p>$$q_1q_2&#x3D; \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\b&amp;a&amp;-d&amp;c\c&amp;d&amp;a&amp;-b\d&amp;-c&amp;b&amp;a\end{bmatrix}\begin{bmatrix}e\f\g\h\end{bmatrix}$$</p>
 <p>$$q_2q_1&#x3D; \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\b&amp;a&amp;d&amp;-c\c&amp;-d&amp;a&amp;b\d&amp;c&amp;-b&amp;a\end{bmatrix}\begin{bmatrix}e\f\g\h\end{bmatrix}$$</p>
@@ -259,7 +261,7 @@
 <p>$$q_aq_b&#x3D;[−a\centerdot b,s_ba+a×b]$$</p>
 <p>作者：Jormungand<br>链接：<a href="https://juejin.cn/post/7140527372100435976">https://juejin.cn/post/7140527372100435976</a><br>来源：稀土掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 <h2 id="四元数与三维旋转"><a href="#四元数与三维旋转" class="headerlink" title="四元数与三维旋转"></a>四元数与三维旋转</h2><p>虚数 * i（$$i^2&#x3D;-1$$），即该虚数所在点绕圆心逆时针旋转90度；同理 *-i即顺时针旋转90度</p>
-<style>.dmcsysbqkzye{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/image-20240716084319542.png" class="dmcsysbqkzye" alt="image-20240716084319542">
+<style>.knsplkwlwvrw{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/image-20240716084319542.png" class="knsplkwlwvrw" alt="image-20240716084319542">
 
 <h3 id="推导-（纯四元数）"><a href="#推导-（纯四元数）" class="headerlink" title="推导 （纯四元数）"></a>推导 （纯四元数）</h3><ol>
 <li><p>定义一个四元数q，使要旋转的向量旋转$$\theta$$ 度，v是单位化转轴方向</p>
@@ -290,7 +292,7 @@
 <p>​                <img src="/posts/68728ca3/68728ca3/image-20240716151737501.png" class title="image-20240716151737501"></p>
 <ol start="4">
 <li>若 $$p’&#x3D;pq$$ ,则结果为 $$[0,\sqrt{2}i-\sqrt{2}j]$$,旋转方向相反</li>
-<li>红色绕蓝色逆时针旋转45度得到黄色<br> <style>.rqkdjqvozrig{zoom: 50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-13.png" class="rqkdjqvozrig" alt="img"></li>
+<li>红色绕蓝色逆时针旋转45度得到黄色<br> <style>.ajwxvfioydup{zoom: 50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-13.png" class="ajwxvfioydup" alt="img"></li>
 </ol>
 <h3 id="非纯四元数旋转"><a href="#非纯四元数旋转" class="headerlink" title="非纯四元数旋转"></a>非纯四元数旋转</h3><ol>
 <li><p>一个正常四元数q，与p不正交(p仍为上文中的p&#x3D;[0.2i])，设定q的矢量部分与p夹角为45度,计算p绕q旋转$$\theta$$角度后得到的向量</p>
@@ -304,7 +306,7 @@
 </li>
 <li><p>计算结果已经不是纯四元数，且没有旋转45度，模长也不是2（而是$$\sqrt{3}$$）,用图像表示 :</p>
 </li>
-<li><style>.pjjvkqxrmzux{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-2.png" class="pjjvkqxrmzux" alt="img"></li>
+<li><style>.fuiujbxctoki{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-2.png" class="fuiujbxctoki" alt="img"></li>
 </ol>
 <ol start="6">
 <li>如何将其转变为纯四元数？Hamilton发现，将qp右乘q的逆，将得到一个纯四元数，且该四元数的向量部分保持不变 :  (因为q为单位四元数，此时q的逆等于q的共轭四元数)</li>
@@ -316,7 +318,7 @@
 <p>​                   记$$qpq^-1$$为$$p’$$</p>
 <p>​                 <img src="/posts/68728ca3/68728ca3/image-20240716155404171.png" class title="image-20240716155404171"></p>
 <p>​                  求得p’的模长与p相等</p>
-<p>​				<style>.sdyqcynkucqq{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-3.png" class="sdyqcynkucqq" alt="img"></p>
+<p>​				<style>.gwtjlpbukmnf{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-3.png" class="gwtjlpbukmnf" alt="img"></p>
 <ol start="7">
 <li><p>观察上图可发现，红色向量绕紫色向量旋转了90度而非45度，得到黄色向量，因此为了正确的让一个向量绕某个轴向量旋转某个角度，必须以目标角度的一般来计算 ，得到&#x3D;&#x3D;<strong>旋转四元数</strong>&#x3D;&#x3D;的一般形式:</p>
 <img src="/posts/68728ca3/68728ca3/image-20240716161001706.png" class title="image-20240716161001706"></li>
