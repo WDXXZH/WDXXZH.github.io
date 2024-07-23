@@ -29,9 +29,8 @@
 <span id="more"></span>
 
 <h1 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h1><p>语句:<br><img src="/posts/dd0654c3/insertimg.png" alt="insertimg"></p>
-<p>效果:<br><img src="/posts/dd0654c3/kafuka.jpg" alt="kafuka"></p>
-<img src="/posts/dd0654c3/dd0654c3/kafuka.jpg" class title="kafuka">
-
+<p>效果:</p>
+<p><img src="/posts/dd0654c3/kafuka.jpg" alt="kafuka"></p>
 <h1 id="插入网页连接"><a href="#插入网页连接" class="headerlink" title="插入网页连接"></a>插入网页连接</h1><p>直接输入即可<br><a href="https://github.com/WDXXZH">https://github.com/WDXXZH</a></p>
 <h1 id="插入代码块"><a href="#插入代码块" class="headerlink" title="插入代码块"></a>插入代码块</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++&gt;)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;OK\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
@@ -144,16 +143,16 @@
 
 
 <p>[TOC]</p>
-<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><style>.dlwttekpwkje{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="dlwttekpwkje" alt="img">
+<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><style>.amboodpgpkmg{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="amboodpgpkmg" alt="img">
 
-<style>.dmnhvmqssewt{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="dmnhvmqssewt" alt="img">
+<style>.uadklstjilla{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="uadklstjilla" alt="img">
 
 <p>坐标轴以原点为圆心转动，不管怎么转，转后坐标系都可以通过三个角在原坐标系上表达。</p>
 <p>欧拉角可能会导致万向节死锁情况出现，任一坐标轴旋转角度为90度时，就会由两个轴的旋转动作起到的作用相同，形成死锁</p>
-<style>.hftkxhyvvyjl{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="hftkxhyvvyjl" alt="img">
+<style>.vypsvnugyoxe{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="vypsvnugyoxe" alt="img">
 
 <h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>1.坐标变换</p>
-<style>.hlyjmkrjmnmb{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722102204803.png" class="hlyjmkrjmnmb" alt="image-20240722102204803">
+<style>.qxlcsytbtznv{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722102204803.png" class="qxlcsytbtznv" alt="image-20240722102204803">
 
 <p>如图所示，对于点P在不同坐标系下的表示，红色坐标系由黑色坐标系绕原点旋转$$\alpha $$°得来；</p>
 <p>其坐标变换关系如下 :</p>
@@ -164,19 +163,19 @@
 <p>由上述式子可得矩阵 :</p>
 <img src="/posts/68728ca3/68728ca3/image-20240722103355214.png" class title="image-20240722103355214">
 
-<style>.ikgvfhwzyxai{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104206337.png" class="ikgvfhwzyxai" alt="image-20240722104206337">
+<style>.hfrwwlyvosuw{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104206337.png" class="hfrwwlyvosuw" alt="image-20240722104206337">
 
 <p>想写出坐标系B相对于坐标系A的旋转矩阵，只需将坐标系B相对于坐标系A的方向余弦写成矩阵形式 :</p>
-<style>.hoggctfnckdc{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104249976.png" class="hoggctfnckdc" alt="image-20240722104249976">
+<style>.xufmfsgaseib{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104249976.png" class="xufmfsgaseib" alt="image-20240722104249976">
 
-<style>.juonsqseqhvj{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104500401.png" class="juonsqseqhvj" alt="image-20240722104500401">
+<style>.cicgtqdlobsf{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104500401.png" class="cicgtqdlobsf" alt="image-20240722104500401">
 
-<style>.twutjuqmkbsk{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722112100493.png" class="twutjuqmkbsk" alt="image-20240722112100493">
+<style>.pcjsibdckbgv{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722112100493.png" class="pcjsibdckbgv" alt="image-20240722112100493">
 
 <img src="/posts/68728ca3/68728ca3/image-20240722112317352.png" class title="image-20240722112317352">
 
 <p>上为坐标系旋转，下为向量旋转</p>
-<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><style>.pblpgzxppzpj{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240715145743748.png" class="pblpgzxppzpj" alt="image-20240715145743748">
+<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><style>.bqwxbtceycdr{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240715145743748.png" class="bqwxbtceycdr" alt="image-20240715145743748">
 
 <p>物理意义：按照特定的方向旋转90度</p>
 <h2 id="四元数的定义"><a href="#四元数的定义" class="headerlink" title="四元数的定义"></a>四元数的定义</h2><p>· 对于基{ 1,i,j,k }的线性组合，向量形式 : $$q &#x3D; \begin{bmatrix}a\b\c\d\end{bmatrix}$$，( $$i^2&#x3D;j^2&#x3D;k^2&#x3D;ijk&#x3D;-1$$ )</p>
@@ -187,7 +186,7 @@
 <p>$$&#x3D;[ae-\vec{v}\centerdot\vec{u}， a\vec{u}+e\vec{v}+\vec{v}\times\vec{u}]$$    ( 矢量式 )</p>
 <p>矩阵形式 : </p>
 <p>$$q_1q_2\neq q_2q_1$$    &#x3D;&#x3D;左乘不等于右乘&#x3D;</p>
-<style>.aweivmthdeqr{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="aweivmthdeqr" alt="img">
+<style>.qgbuvocgjobf{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="qgbuvocgjobf" alt="img">
 
 <p>$$q_1q_2&#x3D; \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\b&amp;a&amp;-d&amp;c\c&amp;d&amp;a&amp;-b\d&amp;-c&amp;b&amp;a\end{bmatrix}\begin{bmatrix}e\f\g\h\end{bmatrix}$$</p>
 <p>$$q_2q_1&#x3D; \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\b&amp;a&amp;d&amp;-c\c&amp;-d&amp;a&amp;b\d&amp;c&amp;-b&amp;a\end{bmatrix}\begin{bmatrix}e\f\g\h\end{bmatrix}$$</p>
@@ -261,7 +260,7 @@
 <p>$$q_aq_b&#x3D;[−a\centerdot b,s_ba+a×b]$$</p>
 <p>作者：Jormungand<br>链接：<a href="https://juejin.cn/post/7140527372100435976">https://juejin.cn/post/7140527372100435976</a><br>来源：稀土掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 <h2 id="四元数与三维旋转"><a href="#四元数与三维旋转" class="headerlink" title="四元数与三维旋转"></a>四元数与三维旋转</h2><p>虚数 * i（$$i^2&#x3D;-1$$），即该虚数所在点绕圆心逆时针旋转90度；同理 *-i即顺时针旋转90度</p>
-<style>.knsplkwlwvrw{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/image-20240716084319542.png" class="knsplkwlwvrw" alt="image-20240716084319542">
+<style>.mqdxrbonjuyu{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/image-20240716084319542.png" class="mqdxrbonjuyu" alt="image-20240716084319542">
 
 <h3 id="推导-（纯四元数）"><a href="#推导-（纯四元数）" class="headerlink" title="推导 （纯四元数）"></a>推导 （纯四元数）</h3><ol>
 <li><p>定义一个四元数q，使要旋转的向量旋转$$\theta$$ 度，v是单位化转轴方向</p>
@@ -292,7 +291,7 @@
 <p>​                <img src="/posts/68728ca3/68728ca3/image-20240716151737501.png" class title="image-20240716151737501"></p>
 <ol start="4">
 <li>若 $$p’&#x3D;pq$$ ,则结果为 $$[0,\sqrt{2}i-\sqrt{2}j]$$,旋转方向相反</li>
-<li>红色绕蓝色逆时针旋转45度得到黄色<br> <style>.ajwxvfioydup{zoom: 50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-13.png" class="ajwxvfioydup" alt="img"></li>
+<li>红色绕蓝色逆时针旋转45度得到黄色<br> <style>.qdeivxnstqzo{zoom: 50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-13.png" class="qdeivxnstqzo" alt="img"></li>
 </ol>
 <h3 id="非纯四元数旋转"><a href="#非纯四元数旋转" class="headerlink" title="非纯四元数旋转"></a>非纯四元数旋转</h3><ol>
 <li><p>一个正常四元数q，与p不正交(p仍为上文中的p&#x3D;[0.2i])，设定q的矢量部分与p夹角为45度,计算p绕q旋转$$\theta$$角度后得到的向量</p>
@@ -306,7 +305,7 @@
 </li>
 <li><p>计算结果已经不是纯四元数，且没有旋转45度，模长也不是2（而是$$\sqrt{3}$$）,用图像表示 :</p>
 </li>
-<li><style>.fuiujbxctoki{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-2.png" class="fuiujbxctoki" alt="img"></li>
+<li><style>.ntfbtqemjbmm{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-2.png" class="ntfbtqemjbmm" alt="img"></li>
 </ol>
 <ol start="6">
 <li>如何将其转变为纯四元数？Hamilton发现，将qp右乘q的逆，将得到一个纯四元数，且该四元数的向量部分保持不变 :  (因为q为单位四元数，此时q的逆等于q的共轭四元数)</li>
@@ -318,7 +317,7 @@
 <p>​                   记$$qpq^-1$$为$$p’$$</p>
 <p>​                 <img src="/posts/68728ca3/68728ca3/image-20240716155404171.png" class title="image-20240716155404171"></p>
 <p>​                  求得p’的模长与p相等</p>
-<p>​				<style>.gwtjlpbukmnf{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-3.png" class="gwtjlpbukmnf" alt="img"></p>
+<p>​				<style>.onzsgteafewx{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-3.png" class="onzsgteafewx" alt="img"></p>
 <ol start="7">
 <li><p>观察上图可发现，红色向量绕紫色向量旋转了90度而非45度，得到黄色向量，因此为了正确的让一个向量绕某个轴向量旋转某个角度，必须以目标角度的一般来计算 ，得到&#x3D;&#x3D;<strong>旋转四元数</strong>&#x3D;&#x3D;的一般形式:</p>
 <img src="/posts/68728ca3/68728ca3/image-20240716161001706.png" class title="image-20240716161001706"></li>
