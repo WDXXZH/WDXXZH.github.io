@@ -80,7 +80,7 @@
 <meta property="og:image" content="http://wdxxzh.github.io/posts/68728ca3/image-20240716161001706.png">
 <meta property="og:image" content="http://wdxxzh.github.io/posts/68728ca3/image-20240716173419183.png">
 <meta property="article:published_time" content="2024-07-15T05:45:23.100Z">
-<meta property="article:modified_time" content="2024-07-24T02:52:21.398Z">
+<meta property="article:modified_time" content="2024-07-24T02:59:03.665Z">
 <meta property="article:author" content="。">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://wdxxzh.github.io/posts/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif">
@@ -544,7 +544,7 @@ if(canvas.getContext){
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-24 10:52:21" itemprop="dateModified" datetime="2024-07-24T10:52:21+08:00">2024-07-24</time>
+      <time title="修改时间：2024-07-24 10:59:03" itemprop="dateModified" datetime="2024-07-24T10:59:03+08:00">2024-07-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -567,26 +567,29 @@ if(canvas.getContext){
     
     <div class="post-body" itemprop="articleBody"><p>施工中</p>
 <span id="more"></span>
-<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><p><style>.tmynaoxmqsja{zoom:80%;}</style><img data-src="/posts/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="tmynaoxmqsja" alt="img"></p>
-<p><style>.fyibbhohmezk{zoom:67%;}</style><img data-src="/posts/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="fyibbhohmezk" alt="img"></p>
+<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><p><style>.bukxoluybthw{zoom:80%;}</style><img data-src="/posts/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="bukxoluybthw" alt="img"></p>
+<p><style>.iudubveebcnc{zoom:67%;}</style><img data-src="/posts/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="iudubveebcnc" alt="img"></p>
 <p>坐标轴以原点为圆心转动，不管怎么转，转后坐标系都可以通过三个角在原坐标系上表达。</p>
 <p>欧拉角可能会导致万向节死锁情况出现，任一坐标轴旋转角度为 90 度时，就会由两个轴的旋转动作起到的作用相同，形成死锁</p>
-<p><style>.pgbvkclhwlvq{zoom: 33%;}</style><img data-src="/posts/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="pgbvkclhwlvq" alt="img"></p>
+<p><style>.desgwkkcwuty{zoom: 33%;}</style><img data-src="/posts/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="desgwkkcwuty" alt="img"></p>
 <h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>1.坐标变换</p>
-<p><style>.mpjljmbgfexi{zoom:80%;}</style><img data-src="/posts/68728ca3/image-20240722102204803.png" class="mpjljmbgfexi" alt="image-20240722102204803"></p>
+<p><style>.ezsjvxgeuunj{zoom:80%;}</style><img data-src="/posts/68728ca3/image-20240722102204803.png" class="ezsjvxgeuunj" alt="image-20240722102204803"></p>
 <p>如图所示，对于点 P 在不同坐标系下的表示，红色坐标系由黑色坐标系绕原点旋转$\alpha $° 得来；</p>
 <p>其坐标变换关系如下 :</p>
-<script type="math/tex; mode=display">P_{xa} = OM - P_{xa}M =P_{xb}*\cos{\alpha} - IP_{xb}*\cos{\alpha}=P_{xb}*\cos{\alpha}-PI*{\sin{\alpha}}*{\cos{\alpha}}</script><p>​ <script type="math/tex">=P_{xb}*\cos{\alpha} -\frac{PP_{xb}}{\cos{\alpha}}*{\sin{\alpha}}*{\cos{\alpha}}=P_{xb}*\cos{\alpha} -PP_{xb}*{\sin{\alpha}}=P_{xb}*\cos{\alpha} -P_{yb}{\sin{\alpha}}</script></p>
-<script type="math/tex; mode=display">P_{ya}=P_{xb}\sin{\alpha}+P_{yb}\cos{\alpha}</script><script type="math/tex; mode=display">P_{za}=P_{zb}</script><p>由上述式子可得矩阵 :</p>
+<p>$P_{xa} = OM - P_{xa}M =P_{xb}<em>\cos{\alpha} - IP_{xb}</em>\cos{\alpha}=P_{xb}<em>\cos{\alpha}-PI</em>{\sin{\alpha}}*{\cos{\alpha}}$</p>
+<p> $=P_{xb}<em>\cos{\alpha} -\frac{PP_{xb}}{\cos{\alpha}}</em>{\sin{\alpha}}<em>{\cos{\alpha}}=P_{xb}</em>\cos{\alpha} -PP_{xb}<em>{\sin{\alpha}}=P_{xb}</em>\cos{\alpha} -P_{yb}{\sin{\alpha}}$</p>
+<p>$P_{ya}=P_{xb}\sin{\alpha}+P_{yb}\cos{\alpha}$</p>
+<p>$P_{za}=P_{zb}$</p>
+<p>由上述式子可得矩阵 :</p>
 <img data-src="/posts/68728ca3/image-20240722103355214.png" class title="image-20240722103355214">
-<p><style>.lpppnsgmcvzm{zoom:80%;}</style><img data-src="/posts/68728ca3/image-20240722104206337.png" class="lpppnsgmcvzm" alt="image-20240722104206337"></p>
+<p><style>.vzcuowrlsifb{zoom:80%;}</style><img data-src="/posts/68728ca3/image-20240722104206337.png" class="vzcuowrlsifb" alt="image-20240722104206337"></p>
 <p>想写出坐标系 B 相对于坐标系 A 的旋转矩阵，只需将坐标系 B 相对于坐标系 A 的方向余弦写成矩阵形式 :</p>
-<p><style>.mtlpbnlrnbdg{zoom:80%;}</style><img data-src="/posts/68728ca3/image-20240722104249976.png" class="mtlpbnlrnbdg" alt="image-20240722104249976"></p>
-<p><style>.mpstmlrvjsny{zoom:67%;}</style><img data-src="/posts/68728ca3/image-20240722104500401.png" class="mpstmlrvjsny" alt="image-20240722104500401"></p>
-<p><style>.txsxqvmdnijh{zoom:67%;}</style><img data-src="/posts/68728ca3/image-20240722112100493.png" class="txsxqvmdnijh" alt="image-20240722112100493"></p>
+<p><style>.lgncescqlpfr{zoom:80%;}</style><img data-src="/posts/68728ca3/image-20240722104249976.png" class="lgncescqlpfr" alt="image-20240722104249976"></p>
+<p><style>.pascbuuhviup{zoom:67%;}</style><img data-src="/posts/68728ca3/image-20240722104500401.png" class="pascbuuhviup" alt="image-20240722104500401"></p>
+<p><style>.jjpcenertlyb{zoom:67%;}</style><img data-src="/posts/68728ca3/image-20240722112100493.png" class="jjpcenertlyb" alt="image-20240722112100493"></p>
 <img data-src="/posts/68728ca3/image-20240722112317352.png" class title="image-20240722112317352">
 <p>上为坐标系旋转，下为向量旋转</p>
-<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p><style>.tykmanowdvnn{zoom:80%;}</style><img data-src="/posts/68728ca3/image-20240715145743748.png" class="tykmanowdvnn" alt="image-20240715145743748"></p>
+<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p><style>.fsfdjkdpssdc{zoom:80%;}</style><img data-src="/posts/68728ca3/image-20240715145743748.png" class="fsfdjkdpssdc" alt="image-20240715145743748"></p>
 <p>物理意义：按照特定的方向旋转 90 度</p>
 <h2 id="四元数的定义"><a href="#四元数的定义" class="headerlink" title="四元数的定义"></a>四元数的定义</h2><p>· 对于基{ 1,i,j,k }的线性组合，向量形式 : $q = \begin{bmatrix}a\\b\\c\\d\end{bmatrix}$，( $i^2=j^2=k^2=ijk=-1$ )</p>
 <p>· 将四元数的虚实部分开，使用三维向量来表示虚部，将它表示为标量和向量的有序形式 : $q = [ s , \vec{v} ]$, 其中 $\vec{v} = \begin{bmatrix}x\\y\\z\end{bmatrix}$, $\{ s\quad x\quad y\quad z \}\subseteq \mathbb{R}$</p>
@@ -596,7 +599,7 @@ if(canvas.getContext){
 <p>$=[ae-\vec{v}\centerdot\vec{u}， a\vec{u}+e\vec{v}+\vec{v}\times\vec{u}]$ ( 矢量式 )</p>
 <p>矩阵形式 :</p>
 <p>$q_1q_2\neq q_2q_1$ ==左乘不等于右乘==</p>
-<p><style>.hysadmtipxom{zoom: 33%;}</style><img data-src="/posts/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="hysadmtipxom" alt="img"></p>
+<p><style>.exfrduvuxozu{zoom: 33%;}</style><img data-src="/posts/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="exfrduvuxozu" alt="img"></p>
 <p>$q_1q_2= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;-d&amp;c\\c&amp;d&amp;a&amp;-b\\d&amp;-c&amp;b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
 <p>$q_2q_1= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;d&amp;-c\\c&amp;-d&amp;a&amp;b\\d&amp;c&amp;-b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
 <p>左乘：左为动作，右为被操作对象</p>
@@ -643,20 +646,18 @@ if(canvas.getContext){
 <img data-src="/posts/68728ca3/image-20240716103143979.png" class title="image-20240716103143979">
 <h2 id="三位空间旋转公式"><a href="#三位空间旋转公式" class="headerlink" title="三位空间旋转公式"></a>三位空间旋转公式</h2><p>由于实际中要旋转的向量在三维空间，所以将 $q_a$ 看做是第四维（实数部）为<code>0</code>的<strong>纯四元数</strong>，则 $q_a=[0,a]$ 或 $q_a=(0+x_ai+y_aj+z_ak)$) ，那么得到<strong>三维空间旋转公式</strong>:</p>
 <script type="math/tex; mode=display">q_aq_b=[−a\centerdot b,s_ba+a×b]</script><h2 id="四元数与三维旋转"><a href="#四元数与三维旋转" class="headerlink" title="四元数与三维旋转"></a>四元数与三维旋转</h2><p>虚数 _ i（$i^2=-1$），即该虚数所在点绕圆心逆时针旋转 90 度；同理 _-i 即顺时针旋转 90 度</p>
-<p><style>.oiejevlompfa{zoom:50%;}</style><img data-src="/posts/68728ca3/image-20240716084319542.png" class="oiejevlompfa" alt="image-20240716084319542"></p>
+<p><style>.djgfssqhlhhq{zoom:50%;}</style><img data-src="/posts/68728ca3/image-20240716084319542.png" class="djgfssqhlhhq" alt="image-20240716084319542"></p>
 <h3 id="推导-（纯四元数）"><a href="#推导-（纯四元数）" class="headerlink" title="推导 （纯四元数）"></a>推导 （纯四元数）</h3><ol>
 <li><p>定义一个四元数 q，使要旋转的向量旋转$\theta$ 度，v 是单位化转轴方向</p>
-<p>​ $q=\cos\theta+i\sin\theta$ ( 复数式 )</p>
-<p>​ $q=[\cos\theta,v\sin\theta]$ ( 坐标 )</p>
+<p> $q=\cos\theta+i\sin\theta$ ( 复数式 )</p>
+<p> $q=[\cos\theta,v\sin\theta]$ ( 坐标 )</p>
 </li>
 <li><p>计算四元数 q 与向量 p 的积，其中$p=[0,p]$ ( 纯四元数 )</p>
 </li>
 <li><p>引用<strong>三维空间旋转公式</strong>，旋转数 $q$ 对应 $q_b$, 待旋转向量 $p$ 对应 $p_a$ :</p>
-<p>​ <script type="math/tex">p' = qp=[-p\centerdot v\sin\theta,\cos\theta p+v\sin\theta\times p]</script></p>
-</li>
+<script type="math/tex; mode=display">p' = qp=[-p\centerdot v\sin\theta,\cos\theta p+v\sin\theta\times p]</script></li>
 <li><p>当向量 p 与$v$ 正交( 垂直 )，此时$v\centerdot p=0$ ，同时$p’$变成了纯四元数 :</p>
-<p>​ <script type="math/tex">p'=qp=[0,\cos\theta p+v\sin\theta\times p]</script></p>
-</li>
+<script type="math/tex; mode=display">p'=qp=[0,\cos\theta p+v\sin\theta\times p]</script></li>
 <li><p>其中 $p’=qp$ 与 $p’=pq$ 结果不同，前者为逆时针，后者为顺时针</p>
 </li>
 </ol>
@@ -666,13 +667,12 @@ if(canvas.getContext){
 <li><p>选一向量 p，使与 z 轴正交，假如 p 在 x（i）轴上，此时</p>
 <script type="math/tex; mode=display">p=[0,2i+0j+0k]</script></li>
 <li><p>由于 i 与 k 正交，点积为 0 :</p>
+<img data-src="/posts/68728ca3/image-20240716145305409.png" class title="image-20240716145305409">
+<img data-src="/posts/68728ca3/image-20240716151737501.png" class title="image-20240716151737501">
 </li>
-</ol>
-<p>​ <img data-src="/posts/68728ca3/image-20240716145305409.png" class title="image-20240716145305409"></p>
-<p>​ <img data-src="/posts/68728ca3/image-20240716151737501.png" class title="image-20240716151737501"></p>
-<ol>
-<li>若 $p’=pq$ ,则结果为 $[0,\sqrt{2}i-\sqrt{2}j]$,旋转方向相反</li>
-<li>红色绕蓝色逆时针旋转 45 度得到黄色<br><style>.dldkxgwtjrcs{zoom: 50%;}</style><img data-src="/posts/68728ca3/Quaternion-Rotation-13.png" class="dldkxgwtjrcs" alt="img"></li>
+<li><p>若 $p’=pq$ ,则结果为 $[0,\sqrt{2}i-\sqrt{2}j]$,旋转方向相反</p>
+</li>
+<li>红色绕蓝色逆时针旋转 45 度得到黄色<br><style>.elvcvffojiee{zoom: 50%;}</style><img data-src="/posts/68728ca3/Quaternion-Rotation-13.png" class="elvcvffojiee" alt="img"></li>
 </ol>
 <h3 id="非纯四元数旋转"><a href="#非纯四元数旋转" class="headerlink" title="非纯四元数旋转"></a>非纯四元数旋转</h3><ol>
 <li><p>一个正常四元数 q，与 p 不正交(p 仍为上文中的 p=[0.2i])，设定 q 的矢量部分与 p 夹角为 45 度,计算 p 绕 q 旋转$\theta$角度后得到的向量</p>
@@ -686,22 +686,23 @@ if(canvas.getContext){
 </li>
 <li><p>计算结果已经不是纯四元数，且没有旋转 45 度，模长也不是 2（而是$\sqrt{3}$）,用图像表示 :</p>
 </li>
-<li><p><style>.ummudkzffcmg{zoom:50%;}</style><img data-src="/posts/68728ca3/Quaternion-Rotation-2.png" class="ummudkzffcmg" alt="img"></p>
+<li><p><style>.sujuilsljvcn{zoom:50%;}</style><img data-src="/posts/68728ca3/Quaternion-Rotation-2.png" class="sujuilsljvcn" alt="img"></p>
 </li>
 </ol>
-<p><sup><a href="#fn_" id="reffn_"></a></sup>: 此时严格来讲，p’在 3 为空间中表示是不正确的，因为它是一个 4 维向量，图片中只展示了这个四元数的像两部分</p>
+<blockquote id="fn_注">
+<sup>注</sup>. 此时严格来讲，p’在 3 为空间中表示是不正确的，因为它是一个 4 维向量，图片中只展示了这个四元数的像两部分<a href="#reffn_注" title="Jump back to footnote [注] in the text."> &#8617;</a>
+</blockquote>
 <ol>
-<li>如何将其转变为纯四元数？Hamilton 发现，将 qp 右乘 q 的逆，将得到一个纯四元数，且该四元数的向量部分保持不变 : (因为 q 为单位四元数，此时 q 的逆等于 q 的共轭四元数)</li>
-</ol>
-<p>​ <img data-src="/posts/68728ca3/image-20240716155056302.png" class title="image-20240716155056302"></p>
-<p>​ $\theta = 45^\circ$</p>
-<p>​ <img data-src="/posts/68728ca3/image-20240716155124298.png" class title="image-20240716155124298"></p>
-<p>​ <img data-src="/posts/68728ca3/image-20240716155346584.png" class title="image-20240716155346584"></p>
-<p>​ 记$qpq^-1$为$p’$</p>
-<p>​ <img data-src="/posts/68728ca3/image-20240716155404171.png" class title="image-20240716155404171"></p>
-<p>​ 求得 p’的模长与 p 相等</p>
-<p>​ <style>.lmzcjbdnvakt{zoom:50%;}</style><img data-src="/posts/68728ca3/Quaternion-Rotation-3.png" class="lmzcjbdnvakt" alt="img"></p>
-<ol>
+<li><p>如何将其转变为纯四元数？Hamilton 发现，将 qp 右乘 q 的逆，将得到一个纯四元数，且该四元数的向量部分保持不变 : (因为 q 为单位四元数，此时 q 的逆等于 q 的共轭四元数)</p>
+<img data-src="/posts/68728ca3/image-20240716155056302.png" class title="image-20240716155056302">
+<p>$\theta = 45^\circ$</p>
+<img data-src="/posts/68728ca3/image-20240716155124298.png" class title="image-20240716155124298">
+<img data-src="/posts/68728ca3/image-20240716155346584.png" class title="image-20240716155346584">
+<p>记$qpq^-1$为$p’$</p>
+<img data-src="/posts/68728ca3/image-20240716155404171.png" class title="image-20240716155404171">
+<p>求得 p’的模长与 p 相等</p>
+<p><style>.dqwsjrvgmldm{zoom:50%;}</style><img data-src="/posts/68728ca3/Quaternion-Rotation-3.png" class="dqwsjrvgmldm" alt="img"></p>
+</li>
 <li><p>观察上图可发现，红色向量绕紫色向量旋转了 90 度而非 45 度，得到黄色向量，因此为了正确的让一个向量绕某个轴向量旋转某个角度，必须以目标角度的一般来计算 ，得到<strong>旋转四元数</strong>的一般形式:</p>
 <img data-src="/posts/68728ca3/image-20240716161001706.png" class title="image-20240716161001706">
 </li>
@@ -710,10 +711,20 @@ if(canvas.getContext){
 <p>复数式 $\vec{Q}=q_0+q_1\vec{i}+q_2\vec{j}+q_3\vec{k}$</p>
 <p>三角式 $\vec{Q}=\cos{\frac{\theta}{2}}+\vec{u}\sin{\frac{\theta}{2}}$,其中$\vec{u}=\vec{i}+\vec{j}+\vec{k}$</p>
 <p>矩阵式 $\vec{Q}=\begin{bmatrix} q_0\\q_1\\q_2\\q_3\end{bmatrix}$</p>
-<h2 id="四元数与旋转矩阵与姿态变化矩阵"><a href="#四元数与旋转矩阵与姿态变化矩阵" class="headerlink" title="四元数与旋转矩阵与姿态变化矩阵"></a>四元数与旋转矩阵与姿态变化矩阵</h2><p>​ 假设单位四元数$q=w+xi+yj+zk$,其中$||q||=x^2+y^2+z^2+w^2=1$，那么旋转矩阵 :</p>
-<script type="math/tex; mode=display">R(q)=\begin{bmatrix}1-2y^2-2z^2&2xy-2zw&2xz+2yw\\2xy+2zw&1-2x^2-2z^2&2yz-2xw\\2xz-2yw&2yz+2xw&1-2x^2-2y^2\end{bmatrix}</script><script type="math/tex; mode=display">c^E_b=\begin{bmatrix}w^2+x^2-y^2-z^2&2xy-2zw&2xz+2yw\\2xy+2zw&w^2-x^2+y^2-z^2&2yz-2xw\\2xz-2yw&2yz+2xw&w^2-x^2-y^2+z^2\end{bmatrix}</script><h2 id="四元数与姿态角"><a href="#四元数与姿态角" class="headerlink" title="四元数与姿态角"></a>四元数与姿态角</h2><img data-src="/posts/68728ca3/image-20240716173419183.png" class title="image-20240716173419183">
-<script type="math/tex; mode=display">2(xz-wy)=-\sin{\gamma}</script><script type="math/tex; mode=display">2(yz+xw)=\sin{\theta}\cos{\gamma}</script><script type="math/tex; mode=display">w^2-x^2-y^2+z^2=\cos{\theta}\cos{\gamma}</script><script type="math/tex; mode=display">2(xy+zw)=\cos{\gamma}\sin{\psi}</script><script type="math/tex; mode=display">w^2+x^2-y^2-z^2=\cos{\gamma}\cos{\psi}</script><p>由上述公式可得 :</p>
-<script type="math/tex; mode=display">\gamma=-\arcsin{(2(xz-wy))}</script><script type="math/tex; mode=display">\theta=\arctan(\frac{2(yz+xw)}{w^2-x^2-y^2+z^2})</script><script type="math/tex; mode=display">\psi=\arctan{\frac{2(xy+zw)}{w^2+x^2-y^2-z^2}}</script><h2 id="四元数姿态解算"><a href="#四元数姿态解算" class="headerlink" title="四元数姿态解算"></a>四元数姿态解算</h2><h3 id="重力加速度归一化"><a href="#重力加速度归一化" class="headerlink" title="重力加速度归一化"></a>重力加速度归一化</h3><h3 id="重力分量提取"><a href="#重力分量提取" class="headerlink" title="重力分量提取"></a>重力分量提取</h3><h3 id="求出姿态误差"><a href="#求出姿态误差" class="headerlink" title="求出姿态误差"></a>求出姿态误差</h3><h3 id="误差积分"><a href="#误差积分" class="headerlink" title="误差积分"></a>误差积分</h3><h3 id="互补滤波"><a href="#互补滤波" class="headerlink" title="互补滤波"></a>互补滤波</h3><h3 id="解四元数微分方程"><a href="#解四元数微分方程" class="headerlink" title="解四元数微分方程"></a>解四元数微分方程</h3><h3 id="四元数归一化"><a href="#四元数归一化" class="headerlink" title="四元数归一化"></a>四元数归一化</h3><h3 id="四元数求欧拉角"><a href="#四元数求欧拉角" class="headerlink" title="四元数求欧拉角"></a>四元数求欧拉角</h3><p>参考链接 :</p>
+<h2 id="四元数与旋转矩阵与姿态变化矩阵"><a href="#四元数与旋转矩阵与姿态变化矩阵" class="headerlink" title="四元数与旋转矩阵与姿态变化矩阵"></a>四元数与旋转矩阵与姿态变化矩阵</h2><p> 假设单位四元数$q=w+xi+yj+zk$,其中$||q||=x^2+y^2+z^2+w^2=1$，那么旋转矩阵 :</p>
+<p>$R(q)=\begin{bmatrix}1-2y^2-2z^2&amp;2xy-2zw&amp;2xz+2yw\\2xy+2zw&amp;1-2x^2-2z^2&amp;2yz-2xw\\2xz-2yw&amp;2yz+2xw&amp;1-2x^2-2y^2\end{bmatrix}$</p>
+<p>$c^E_b=\begin{bmatrix}w^2+x^2-y^2-z^2&amp;2xy-2zw&amp;2xz+2yw\\2xy+2zw&amp;w^2-x^2+y^2-z^2&amp;2yz-2xw\\2xz-2yw&amp;2yz+2xw&amp;w^2-x^2-y^2+z^2\end{bmatrix}$</p>
+<h2 id="四元数与姿态角"><a href="#四元数与姿态角" class="headerlink" title="四元数与姿态角"></a>四元数与姿态角</h2><img data-src="/posts/68728ca3/image-20240716173419183.png" class title="image-20240716173419183">
+<p>$2(xz-wy)=-\sin{\gamma}$</p>
+<p>$2(yz+xw)=\sin{\theta}\cos{\gamma}$</p>
+<p>$w^2-x^2-y^2+z^2=\cos{\theta}\cos{\gamma}$</p>
+<p>$2(xy+zw)=\cos{\gamma}\sin{\psi}$</p>
+<p>$w^2+x^2-y^2-z^2=\cos{\gamma}\cos{\psi}$</p>
+<p>由上述公式可得 :</p>
+<p>$\gamma=-\arcsin{(2(xz-wy))}$</p>
+<p>$\theta=\arctan(\frac{2(yz+xw)}{w^2-x^2-y^2+z^2})$</p>
+<p>$\psi=\arctan{\frac{2(xy+zw)}{w^2+x^2-y^2-z^2}}$</p>
+<h2 id="四元数姿态解算"><a href="#四元数姿态解算" class="headerlink" title="四元数姿态解算"></a>四元数姿态解算</h2><h3 id="重力加速度归一化"><a href="#重力加速度归一化" class="headerlink" title="重力加速度归一化"></a>重力加速度归一化</h3><h3 id="重力分量提取"><a href="#重力分量提取" class="headerlink" title="重力分量提取"></a>重力分量提取</h3><h3 id="求出姿态误差"><a href="#求出姿态误差" class="headerlink" title="求出姿态误差"></a>求出姿态误差</h3><h3 id="误差积分"><a href="#误差积分" class="headerlink" title="误差积分"></a>误差积分</h3><h3 id="互补滤波"><a href="#互补滤波" class="headerlink" title="互补滤波"></a>互补滤波</h3><h3 id="解四元数微分方程"><a href="#解四元数微分方程" class="headerlink" title="解四元数微分方程"></a>解四元数微分方程</h3><h3 id="四元数归一化"><a href="#四元数归一化" class="headerlink" title="四元数归一化"></a>四元数归一化</h3><h3 id="四元数求欧拉角"><a href="#四元数求欧拉角" class="headerlink" title="四元数求欧拉角"></a>四元数求欧拉角</h3><p>参考链接 :</p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.3dgep.com/understanding-quaternions/#The_Complex_Plane">understanding-quaternions</a></p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://juejin.cn/post/7140527372100435976">从复数到四元数</a></p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://zhuanlan.zhihu.com/p/45404840">三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换 - 知乎 (zhihu.com)</a></p>
