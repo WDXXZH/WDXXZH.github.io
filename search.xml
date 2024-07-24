@@ -1,128 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/posts/0/</url>
+    <content><![CDATA[<hr>
+<p>title:BT 和 BLE</p>
+<h2 id="categories-BlueTooth"><a href="#categories-BlueTooth" class="headerlink" title="categories:BlueTooth"></a>categories:BlueTooth</h2><p>施工中</p>
+<span id="more"></span>
+<p>BT：BlueTooth</p>
+<p>BLE：BlueTooth Low Energy</p>
+<p>设备只支持其中一个为单模，两种都支持为双模</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">BT</td>
+<td>BLE</td>
+</tr>
+<tr>
+<td style="text-align:center">距离</td>
+<td style="text-align:center">100m</td>
+<td>&gt;100m</td>
+</tr>
+<tr>
+<td style="text-align:center">数据速率</td>
+<td style="text-align:center">1-3Mbps</td>
+<td>1Mbps</td>
+</tr>
+<tr>
+<td style="text-align:center">应用吞吐量</td>
+<td style="text-align:center">0.7-2.1Mbps</td>
+<td>0.27Mbps</td>
+</tr>
+<tr>
+<td style="text-align:center">延时</td>
+<td style="text-align:center">100ms</td>
+<td>6ms</td>
+</tr>
+<tr>
+<td style="text-align:center">时间间隔</td>
+<td style="text-align:center">100ms</td>
+<td>3ms</td>
+</tr>
+<tr>
+<td style="text-align:center">功耗</td>
+<td style="text-align:center">1W</td>
+<td>0.01~0.5W</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>BT：可以传输声音，传输大量数据</p>
+<p>BLE：数据量小</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>函数指针与typedef</title>
+    <url>/posts/1fd5e519/</url>
+    <content><![CDATA[<p>施工中</p>
+<span id="more"></span>
+<h1 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h1><p>格式:</p>
+<p><code>指针类型 (*函数指针名称)(函数指针参数)</code></p>
+<ul>
+<li>定义一个函数指针 func_1</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;func\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> (*func_1)(<span class="type">int</span>) = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%p\r\n&quot;</span>,func_1);</span><br><span class="line">	func_1 = &amp;func;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%p\r\n%p\r\n&quot;</span>,func,func_1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​ <strong>结果 :</strong></p>
+<img src="/posts/1fd5e519/1fd5e519/image-20240723152721091.png" class title="image-20240723152721091">
+<ul>
+<li><p>定义一个参数和返回值都是函数的函数指针 MyFunction</p>
+<p>其中<code>int(*MyFunction(void (* pArg)(void)))(int)</code></p>
+<p>第一个 int 表明 MyFunction 类型</p>
+<p>第二个 int 表明 MyFunction 返回类型</p>
+<p>(void (* pArg)(void)) 为 MyFunction 的参数，为一个没有类型和返回值的函数</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">FunArg</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunArg，一个没有参数和返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">FunReturn</span><span class="params">(<span class="type">int</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunReturn，一个有int参数和int返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>(*MyFunction(<span class="type">void</span> (* pArg)(<span class="type">void</span>)))(<span class="type">int</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MyFunction，一个有函数参数和函数返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    MyFunction(FunArg);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>结果 :</strong></p>
+<p>​ <img src="/posts/1fd5e519/1fd5e519/image-20240723161822577.png" class title="image-20240723161822577"></p>
+<p><strong>MyFunction 被成功调用，但 FunArg 未被调用，FunArg 只是 MyFunction 被成功调用需满足的条件。</strong></p>
+<h1 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h1><p><code>typedef 原类型名 新名称</code></p>
+<p>目的 : 增强代码的可读性</p>
+<p><code>void FunArg()--&gt;void (*FunArg)()--&gt;typedef void (*PFN_ARG)()</code></p>
+<p>typedef 与函数指针</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">FunArg</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunArg，一个没有参数和返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">FunReturn</span><span class="params">(<span class="type">int</span> arg)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunReturn，一个有int参数和int返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">void</span><span class="params">(*PFN_ARG)</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">int</span><span class="params">(*PFN_RETURN)</span><span class="params">(<span class="type">int</span>)</span>;</span><br><span class="line"></span><br><span class="line">PFN_RETURN <span class="title function_">MyFunction</span><span class="params">(PFN_ARG arg)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MyFunction，一个有函数参数和函数返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> FunReturn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    MyFunction(FunArg);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>结果 :</strong></p>
+<img src="/posts/1fd5e519/1fd5e519/image-20240723161732004.png" class title="image-20240723161732004">
+<p>个人解读 :</p>
+<p>​ 定义过<code>typedef void(*PFN_ARG)(void);</code>和<code>typedef int(*PFN_RETURN)(int);</code>后，可使用 PFN_ARG 定义一个没有参数和返回值的函数，使用 PFN_RETURN 定义一个参数和返回值都是 int 的函数。</p>
+<p>​ 在<code>PFN_RETURN MyFunction(PFN_ARG arg)</code>中，可看出 MyFunction 的参数是一个没有参数和返回值的函数，在 MyFunction 中用 arg 命名；而 MyFunction 是一个参数和返回值都为 int 函数的函数，所以 MyFunction 函数内，返回值为<code>return FunReturn;</code>，因为 FunReturn 是一个返回值为 int 的函数。</p>
+<p><strong>参考链接 :</strong></p>
+<p><a href="https://blog.csdn.net/Dasis/article/details/123110098?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=typedef函数指针&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-123110098.142^v100^pc_search_result_base4&amp;spm=1018.2226.3001.4187">C 语言基础入门 48 篇<em>38</em>函数指针与 typedef（函数指针即指向函数的指针、函数指针定义 int (*pfn)(int)、typedef 给数据类型起别名，起到的作用一致、typedef 简化函数指针）_函数指针 typedef-CSDN 博客</a></p>
+]]></content>
+      <categories>
+        <category>C语言</category>
+      </categories>
+  </entry>
+  <entry>
     <title>PID</title>
     <url>/posts/c3f78667/</url>
     <content><![CDATA[<p>施工中</p>
 <span id="more"></span>
-
 <p>PID控制器是最常用的反馈控制器之一，通过调整比例（P）、积分（I）和微分（D）三个参数来实现控制。</p>
 <ul>
 <li><strong>比例控制（P）</strong>：根据当前误差值调整控制输出，反应迅速，但可能会有稳态误差。</li>
 <li><strong>积分控制（I）</strong>：根据误差的累积调整控制输出，消除稳态误差，但可能会导致超调。</li>
 <li><strong>微分控制（D）</strong>：根据误差的变化率调整控制输出，增加系统的阻尼，减少超调。</li>
 </ul>
-<p>PID控制器的公式如下：<br>$$<br>u(t) &#x3D; K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}<br>$$<br>$$U(t)$$:：控制输出</p>
-<p>$$e(t)$$：误差</p>
-<p>$$K_p$$ ：比例</p>
-<p>$$K_i$$ ：积分</p>
-<p>$$K_d$$ ：微分增益</p>
+<p>PID控制器的公式如下：</p>
+<script type="math/tex; mode=display">
+u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p><script type="math/tex">U(t)</script>:：控制输出</p>
+<p><script type="math/tex">e(t)</script>：误差</p>
+<p><script type="math/tex">K_p</script> ：比例</p>
+<p><script type="math/tex">K_i</script> ：积分</p>
+<p><script type="math/tex">K_d</script> ：微分增益</p>
 ]]></content>
       <categories>
         <category>PID</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>导数&amp;微分&amp;积分</title>
-    <url>/posts/7b740b99/</url>
-    <content><![CDATA[<p>施工中</p>
-<span id="more"></span>
-
-<p><strong>一句话总结:</strong></p>
-<p>导数求变化率</p>
-<p>微分求变化量</p>
-<p>积分求原函数</p>
-<h1 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>设函数$$y&#x3D;f(x)$$在点$$x_0$$的某一个邻域内有定义，当自变量x在 $$ x_0$$ 处有增量$$\vartriangle x$$，$$(x_0+_\vartriangle x)$$也在该邻域内时，相应的函数取得增量$$\vartriangle y&#x3D;f(x_0+\vartriangle x)-f(x+0)$$；如果$$\vartriangle y$$与$$\vartriangle x$$之比当$$\vartriangle x \rightarrow 0$$时极限存在，则称函数$$y&#x3D;f(x)$$在点$$x_0$$处可导，并称这个极限为函数$$y&#x3D;f(x)$$在点$$x_0$$处的导数，记作$$f’(x_0)$$，$$y’|x&#x3D;x_0$$,$$\frac{dy}{dx}|x&#x3D;x_0$$即 :</p>
-<p>$$f’(x_0)&#x3D;\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}&#x3D; \lim_{\vartriangle x \to 0} \frac{f(x_0+\vartriangle x)-f(x_0)}{\vartriangle x}$$</p>
-<p><strong>函数在某点时，因变量随自变量变化的变化率情况。</strong></p>
-<p>eg. 求某函数在某点上的切线的斜率 （导数的几何意义）</p>
-<p>**注 **: 不要把导数与导函数混为一谈。导数是一个值，是函数在某一点的变化率；导函数是函数上每一个点的变化率构成的一个新的函数。</p>
-<h2 id="连续性与可导性"><a href="#连续性与可导性" class="headerlink" title="连续性与可导性"></a>连续性与可导性</h2><p>若一个函数在区间x上的所有点都可导，则成这个函数在该区间上为可导函数。</p>
-<p>函数可导 —-&gt; 函数连续</p>
-<p>函数连续 -$$\times$$-&gt; 函数可导</p>
-<h1 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>若函数$$y&#x3D;f(x)$$在点$$x_0$$的增量可以表示为$$\vartriangle y&#x3D;f(x_0+\vartriangle x)-f(x_0)&#x3D;A\centerdot \vartriangle x+o(\vartriangle x)$$,其中A是与$$\vartriangle x $$无关的常数，则称函数$$y&#x3D;f(x)$$在点$$x_0$$可微，并称$$A\centerdot\vartriangle x$$为函数$$y&#x3D;f(x)$$在点$$x_0$$的微分，记作 ：</p>
-<p>​                                                                     $$dy|<em>{x&#x3D;x_0}$$或$$df(x_0)$$,即$$dy|</em>{x&#x3D;x_0}&#x3D;A\centerdot\vartriangle x$$</p>
-<p><strong>注</strong> : 导数与微分不能混为一谈，导数是极限值，微分是函数因变量的增量近似值</p>
-<h2 id="微分的几何意义"><a href="#微分的几何意义" class="headerlink" title="微分的几何意义"></a>微分的几何意义</h2><img src="/posts/7b740b99/7b740b99/image-20240717103652538.png" class title="image-20240717103652538">
-
-<p>当自变量由$$x_0$$增加到$$x_0+\vartriangle x $$时，函数增量$$ \vartriangle y &#x3D; f(x_0 + \vartriangle x)-f(x_0) &#x3D; RQ$$</p>
-<p>微分是指在点P处的切线与 $$\vartriangle x $$所对应的增量，即求的是在$$x_0$$处的切线，在x轴增加$$\vartriangle x$$后，y轴对应增量 : $$dy &#x3D; f’(x_0)\vartriangle x &#x3D; RQ’$$</p>
-<h2 id="可导与可微"><a href="#可导与可微" class="headerlink" title="可导与可微"></a>可导与可微</h2><p>可导是可微的充要条件</p>
-<p><strong>eg.</strong> 求 $$\sqrt[3]{998.5}$$</p>
-<ol>
-<li><p>取$$\sqrt[3]{1000}$$，并求导</p>
-</li>
-<li><p>$$\vartriangle x&#x3D;998.5-1000&#x3D;-1.5$$</p>
-</li>
-<li><p>$$f(x_0)’&#x3D;(\sqrt[3]{1000})’&#x3D;(1000^{\frac{1}{3}})’&#x3D;\frac{1}{3}1000^{1-\frac{1}{3}}&#x3D;\frac{1}{3}\sqrt[3]{(\frac{1}{1000})^2}&#x3D;\frac{1}{3}\times \frac{1}{100}&#x3D;\frac{1}{300}$$</p>
-</li>
-<li><p>求$$dy$$，即$$\sqrt[3]{998.5}-\sqrt[3]{1000}$$, $$dy&#x3D;f(x_0)’\centerdot \vartriangle x&#x3D;\frac{1}{300}\times -1.5&#x3D;-\frac{1}{200}$$</p>
-</li>
-<li><p>$$\sqrt[3]{998.5}&#x3D;\sqrt[3]{1000}+dy&#x3D;10-\frac{1}{200}&#x3D;9.995$$</p>
-</li>
-<li><p>计算器计算结果: </p>
-<img src="/posts/7b740b99/7b740b99/image-20240717113911665.png" class title="image-20240717113911665"></li>
-</ol>
-<h1 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><h3 id="原函数"><a href="#原函数" class="headerlink" title="原函数"></a>原函数</h3><p>如果在区间 I 上，$$F’(x)&#x3D;f(x)$$ 或 $$dF(x)&#x3D;f(x)dx$$ , 则称 F(x) 为 f(x) 在 I 上的一个<strong>原函数</strong></p>
-<h3 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h3><p>设 F(x) 是 f(x )的任一原函数，则f(x)的全部原函数的一般表达式 F(x)+C 称为 f(x) 的<strong>不定积分</strong>，记为 $$\int f(x)dx$$</p>
-<p>不定积分是一种运算，与微分运算互逆</p>
-<h3 id="定积分"><a href="#定积分" class="headerlink" title="定积分"></a>定积分</h3><p>设函数f(x)在[a,b]上有界，在[a,b]中&#x3D;&#x3D;任意&#x3D;&#x3D;插入若干分点$$a&#x3D;x_0&lt;x_1&lt;x_2&lt;…&lt;x_{n-1}&lt;x_n&#x3D;b$$,把区间[a,b]分成n个小区间，各小区间长度依次为$$\Delta x_i&#x3D;x_i-x_{i-1},(i&#x3D;1,2,…,n)$$,在各小区间上&#x3D;&#x3D;任取&#x3D;&#x3D;一点$$\xi_i(\xi_i \in \Delta x_i)$$,作乘积$$f(\xi_i)\Delta x_i(i&#x3D;1,2,…,n)$$，并作和$$S&#x3D;\sum_{i&#x3D;1}^n{f(\xi_i)\Delta x_i}$$</p>
-<p>定积分是一种求和运算，求一个具体的函数在具体的区间内，与x轴围成图形的具体面积</p>
-<img src="/posts/7b740b99/7b740b99/20200523164722792.png" class width="20200523164722792">
-
-
-
-<p>参考链接 :</p>
-<p><a href="https://blog.csdn.net/baidu_39491365/article/details/89856302">什么是微分？导数和微分的区别是什么？微分和积分的联系？_微分积分的区别和联系-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/weixin_43148062/article/details/106302533">高等数学导数公式、微分公式和积分公式大全_常用微分公式 知乎-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/weixin_40163242/article/details/89003225">高等数学上核心概念：谈谈导数，微分，积分之间的关系（导数篇）_微分、积分、微积分、导数之详细辨别-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/weixin_40163242/article/details/89004822">高等数学上核心概念：谈谈导数，微分，积分之间的关系（微分篇）_极限导数微分积分四者关系图-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/m0_37827994/article/details/85004004">导数、微分、积分的几何理解_微分和积分的几何意义-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/liuyiming2019/article/details/108938333">【高数】高数第四章节——不定积分&amp;换元积分&amp;分部积分_四种典型部分分式的积分-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/liuyiming2019/article/details/108942293">【高数】高数第五章节——定积分&amp;积分上限函数&amp;牛顿——莱布尼兹公式&amp;反常积分与广义积分_定积分求导法则在高数的那一节-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/hsl1958941040/article/details/123841175">不定积分、定积分的区别与联系_定积分和不定积分区别-CSDN博客</a></p>
-]]></content>
-      <categories>
-        <category>math</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>test_test</title>
-    <url>/posts/dd0654c3/</url>
-    <content><![CDATA[<p>测试各种模块编辑效果</p>
-<span id="more"></span>
-
-<h1 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h1><p>语句:<br><img src="/posts/dd0654c3/insertimg.png" alt="insertimg"></p>
-<p>效果:</p>
-<p><img src="/posts/dd0654c3/kafuka.jpg" alt="kafuka"></p>
-<h1 id="插入网页连接"><a href="#插入网页连接" class="headerlink" title="插入网页连接"></a>插入网页连接</h1><p>直接输入即可<br><a href="https://github.com/WDXXZH">https://github.com/WDXXZH</a></p>
-<h1 id="插入代码块"><a href="#插入代码块" class="headerlink" title="插入代码块"></a>插入代码块</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++&gt;)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;OK\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/posts/4a17b156/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>test</category>
       </categories>
   </entry>
   <entry>
@@ -130,73 +132,80 @@
     <url>/posts/83e63798/</url>
     <content><![CDATA[<p>施工中</p>
 <span id="more"></span>
-
-<h1 id="伺服电机"><a href="#伺服电机" class="headerlink" title="伺服电机"></a>伺服电机</h1><p>—–《电力拖动自动控制系统(第5版)(陈伯时)》—-</p>
-<h2 id="位置传感器"><a href="#位置传感器" class="headerlink" title="位置传感器"></a>位置传感器</h2><h3 id="电位器"><a href="#电位器" class="headerlink" title="电位器"></a>电位器</h3><h3 id="基于电磁感应原理的位置传感器"><a href="#基于电磁感应原理的位置传感器" class="headerlink" title="基于电磁感应原理的位置传感器"></a>基于电磁感应原理的位置传感器</h3><h3 id="光电编码器"><a href="#光电编码器" class="headerlink" title="光电编码器"></a>光电编码器</h3><p>由光源、光栅码盘和光敏元件3部分组成，直接输出数字是的电脉冲信号</p>
+<h1 id="伺服电机"><a href="#伺服电机" class="headerlink" title="伺服电机"></a>伺服电机</h1><p>——-《电力拖动自动控制系统(第 5 版)(陈伯时)》——</p>
+<h2 id="位置传感器"><a href="#位置传感器" class="headerlink" title="位置传感器"></a>位置传感器</h2><h3 id="电位器"><a href="#电位器" class="headerlink" title="电位器"></a>电位器</h3><h3 id="基于电磁感应原理的位置传感器"><a href="#基于电磁感应原理的位置传感器" class="headerlink" title="基于电磁感应原理的位置传感器"></a>基于电磁感应原理的位置传感器</h3><h3 id="光电编码器"><a href="#光电编码器" class="headerlink" title="光电编码器"></a>光电编码器</h3><p>由光源、光栅码盘和光敏元件 3 部分组成，直接输出数字是的电脉冲信号</p>
 <h4 id="增量式编码器"><a href="#增量式编码器" class="headerlink" title="增量式编码器"></a>增量式编码器</h4><p>脉冲数与位移的增量成正比（只输出变化量）</p>
-<h4 id="绝对值编码器"><a href="#绝对值编码器" class="headerlink" title="绝对值编码器"></a>绝对值编码器</h4><p>码盘由若干同心圆环构成的码道组成，码道的道数与二进制的位数相同。码盘一周的总集数为$$N &#x3D; 2^n$$，n为码道数</p>
+<h4 id="绝对值编码器"><a href="#绝对值编码器" class="headerlink" title="绝对值编码器"></a>绝对值编码器</h4><p>码盘由若干同心圆环构成的码道组成，码道的道数与二进制的位数相同。码盘一周的总集数为$N = 2^n$，n 为码道数</p>
 <h5 id="二进制码盘"><a href="#二进制码盘" class="headerlink" title="二进制码盘"></a>二进制码盘</h5><h5 id="循环码码盘"><a href="#循环码码盘" class="headerlink" title="循环码码盘"></a>循环码码盘</h5><h4 id="磁性编码器"><a href="#磁性编码器" class="headerlink" title="磁性编码器"></a>磁性编码器</h4><p>将位移量转变为数字式脉冲信号的传感器</p>
 <h2 id="伺服控制系统"><a href="#伺服控制系统" class="headerlink" title="伺服控制系统"></a>伺服控制系统</h2><p>伺服系统控制对象包括伺服电动机，驱动装置，机械传动系统</p>
 <h3 id="直流伺服系统"><a href="#直流伺服系统" class="headerlink" title="直流伺服系统"></a>直流伺服系统</h3><h3 id="交流伺服系统"><a href="#交流伺服系统" class="headerlink" title="交流伺服系统"></a>交流伺服系统</h3><p>常用电机：三相异步电动机，永磁式同步电动机，磁阻式步进电动机，经过矢量变换、磁链定向和电流闭环控制均可等效为电流控制的直流电动机</p>
 <h3 id="伺服系统的设计"><a href="#伺服系统的设计" class="headerlink" title="伺服系统的设计"></a>伺服系统的设计</h3><p>常用调节器：PI、PD、PID（P-比例；I-积分；D-微分）</p>
 <p>内-&gt;外</p>
 <p>电流(转矩)环+速度(转速)环+位置环</p>
-<p>—–《电力拖动自动控制系统(第5版)(陈伯时)》—-</p>
+<p>——-《电力拖动自动控制系统(第 5 版)(陈伯时)》——</p>
 <img src="/posts/83e63798/83e63798/2c1f7f58eba9482a97bd27cc4ba22005.png" class title="img">
-
 ]]></content>
       <categories>
         <category>伺服电机</category>
       </categories>
   </entry>
   <entry>
-    <title>函数指针与typedef</title>
-    <url>/posts/1fd5e519/</url>
+    <title>导数&amp;微分&amp;积分</title>
+    <url>/posts/7b740b99/</url>
     <content><![CDATA[<p>施工中</p>
 <span id="more"></span>
-
-
-<h1 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h1><p>格式:</p>
-<p><code> 指针类型 (*函数指针名称)(函数指针参数)</code></p>
-<ul>
-<li>定义一个函数指针func_1</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;func\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> (*func_1)(<span class="type">int</span>) = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%p\r\n&quot;</span>,func_1);</span><br><span class="line">	func_1 = &amp;func;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%p\r\n%p\r\n&quot;</span>,func,func_1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​			<strong>结果 :</strong></p>
-<img src="/posts/1fd5e519/1fd5e519/image-20240723152721091.png" class title="image-20240723152721091">
-
-<ul>
-<li><p>定义一个参数和返回值都是函数的函数指针MyFunction</p>
-<p>其中<code>int(*MyFunction(void (* pArg)(void)))(int)</code></p>
-<p>第一个int 表明MyFunction类型</p>
-<p>第二个int 表明MyFunction返回类型</p>
-<p>(void (* pArg)(void)) 为 MyFunction 的参数，为一个没有类型和返回值的函数</p>
+<p><strong>一句话总结:</strong></p>
+<p>导数求变化率</p>
+<p>微分求变化量</p>
+<p>积分求原函数</p>
+<h1 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>设函数$y=f(x)$在点$x_0$的某一个邻域内有定义，当自变量 x 在 $x_0$ 处有增量$\vartriangle x$，$(x_0+_\vartriangle x)$也在该邻域内时，相应的函数取得增量$\vartriangle y=f(x_0+\vartriangle x)-f(x+0)$；如果$\vartriangle y$与$\vartriangle x$之比当$\vartriangle x \rightarrow 0$时极限存在，则称函数$y=f(x)$在点$x_0$处可导，并称这个极限为函数$y=f(x)$在点$x_0$处的导数，记作$f’(x_0)$$，$y’|x=x_0$,$\frac{dy}{dx}|x=x_0$即 :</p>
+<script type="math/tex; mode=display">f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \lim_{\vartriangle x \to 0} \frac{f(x_0+\vartriangle x)-f(x_0)}{\vartriangle x}</script><p><strong>函数在某点时，因变量随自变量变化的变化率情况。</strong></p>
+<p>eg. 求某函数在某点上的切线的斜率 （导数的几何意义）</p>
+<p><strong>注</strong>: 不要把导数与导函数混为一谈。导数是一个值，是函数在某一点的变化率；导函数是函数上每一个点的变化率构成的一个新的函数。</p>
+<h2 id="连续性与可导性"><a href="#连续性与可导性" class="headerlink" title="连续性与可导性"></a>连续性与可导性</h2><p>若一个函数在区间 x 上的所有点都可导，则成这个函数在该区间上为可导函数。</p>
+<p>函数可导 ——&gt; 函数连续</p>
+<p>函数连续 -$\times$-&gt; 函数可导</p>
+<h1 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>若函数$y=f(x)$在点$x_0$的增量可以表示为$\vartriangle y=f(x_0+\vartriangle x)-f(x_0)=A\centerdot \vartriangle x+o(\vartriangle x)$,其中 A 是与$\vartriangle x$无关的常数，则称函数$y=f(x)$在点$x_0$可微，并称$A\centerdot\vartriangle x$为函数$y=f(x)$在点$x_0$的微分，记作 ：</p>
+<p>​ $dy|_{x=x_0}$或$df(x_0)$,即$dy|_{x=x_0}=A\centerdot\vartriangle x$</p>
+<p><strong>注</strong> : 导数与微分不能混为一谈，导数是极限值，微分是函数因变量的增量近似值</p>
+<h2 id="微分的几何意义"><a href="#微分的几何意义" class="headerlink" title="微分的几何意义"></a>微分的几何意义</h2><img src="/posts/7b740b99/7b740b99/image-20240717103652538.png" class title="image-20240717103652538">
+<p>当自变量由$x_0$增加到$x_0+\vartriangle x$时，函数增量$\vartriangle y = f(x_0 + \vartriangle x)-f(x_0) = RQ$</p>
+<p>微分是指在点 P 处的切线与 $\vartriangle x$所对应的增量，即求的是在$x_0$处的切线，在 x 轴增加$\vartriangle x$后，y 轴对应增量 : $dy = f’(x_0)\vartriangle x = RQ’$</p>
+<h2 id="可导与可微"><a href="#可导与可微" class="headerlink" title="可导与可微"></a>可导与可微</h2><p>可导是可微的充要条件</p>
+<p><strong>eg.</strong> 求 $\sqrt[3]{998.5}$</p>
+<ol>
+<li><p>取$\sqrt[3]{1000}$，并求导</p>
 </li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">FunArg</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunArg，一个没有参数和返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">FunReturn</span><span class="params">(<span class="type">int</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunReturn，一个有int参数和int返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>(*MyFunction(<span class="type">void</span> (* pArg)(<span class="type">void</span>)))(<span class="type">int</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MyFunction，一个有函数参数和函数返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    MyFunction(FunArg);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>  <strong>结果 :</strong></p>
-<p>​                         <img src="/posts/1fd5e519/1fd5e519/image-20240723161822577.png" class title="image-20240723161822577"></p>
-<pre><code>      **MyFunction被成功调用，但FunArg未被调用，FunArg只是MyFunction被成功调用需满足的条件。**
-</code></pre>
-<h1 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h1><p><code> typedef 原类型名 新名称</code></p>
-<p>目的 : 增强代码的可读性</p>
-<p><code>void FunArg()--&gt;void (*FunArg)()--&gt;typedef void (*PFN_ARG)()</code></p>
-<p>typedef与函数指针</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">FunArg</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunArg，一个没有参数和返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">FunReturn</span><span class="params">(<span class="type">int</span> arg)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunReturn，一个有int参数和int返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">void</span><span class="params">(*PFN_ARG)</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">int</span><span class="params">(*PFN_RETURN)</span><span class="params">(<span class="type">int</span>)</span>;</span><br><span class="line"></span><br><span class="line">PFN_RETURN <span class="title function_">MyFunction</span><span class="params">(PFN_ARG arg)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MyFunction，一个有函数参数和函数返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> FunReturn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    MyFunction(FunArg);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>结果 :</strong></p>
-<img src="/posts/1fd5e519/1fd5e519/image-20240723161732004.png" class title="image-20240723161732004">
-
-<p>个人解读 :</p>
-<p>​		定义过<code>typedef void(*PFN_ARG)(void);</code>和<code>typedef int(*PFN_RETURN)(int);</code>后，可使用PFN_ARG定义一个没有参数和返回值的函数，使用PFN_RETURN定义一个参数和返回值都是int的函数。</p>
-<p>​		在<code>PFN_RETURN MyFunction(PFN_ARG arg)</code>中，可看出MyFunction的参数是一个没有参数和返回值的函数，在MyFunction中用arg命名；而MyFunction是一个参数和返回值都为int函数的函数，所以MyFunction函数内，返回值为<code>return FunReturn;</code>，因为FunReturn是一个返回值为int的函数。</p>
-<p><strong>参考链接 :</strong></p>
-<p><a href="https://blog.csdn.net/Dasis/article/details/123110098?ops_request_misc=&request_id=&biz_id=102&utm_term=typedef%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-123110098.142%5Ev100%5Epc_search_result_base4&spm=1018.2226.3001.4187">C语言基础入门48篇_38_函数指针与typedef（函数指针即指向函数的指针、函数指针定义int (*pfn)(int)、typedef给数据类型起别名，起到的作用一致、typedef简化函数指针）_函数指针typedef-CSDN博客</a></p>
+<li><p>$\vartriangle x=998.5-1000=-1.5$</p>
+</li>
+<li><p>$f(x_0)’=(\sqrt[3]{1000})’=(1000^{\frac{1}{3}})’=\frac{1}{3}1000^{1-\frac{1}{3}}=\frac{1}{3}\sqrt[3]{(\frac{1}{1000})^2}=\frac{1}{3}\times \frac{1}{100}=\frac{1}{300}$</p>
+</li>
+<li><p>求$dy$，即$\sqrt[3]{998.5}-\sqrt[3]{1000}$, $dy=f(x_0)’\centerdot \vartriangle x=\frac{1}{300}\times -1.5=-\frac{1}{200}$</p>
+</li>
+<li><p>$\sqrt[3]{998.5}=\sqrt[3]{1000}+dy=10-\frac{1}{200}=9.995$</p>
+</li>
+<li><p>计算器计算结果:</p>
+<img src="/posts/7b740b99/7b740b99/image-20240717113911665.png" class title="image-20240717113911665">
+</li>
+</ol>
+<h1 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><h3 id="原函数"><a href="#原函数" class="headerlink" title="原函数"></a>原函数</h3><p>如果在区间 I 上，$F’(x)=f(x)$ 或 $dF(x)=f(x)dx$ , 则称 F(x) 为 f(x) 在 I 上的一个<strong>原函数</strong></p>
+<h3 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h3><p>设 F(x)是 f(x)的任一原函数，则 f(x)的全部原函数的一般表达式 F(x)+C 称为 f(x)的<strong>不定积分</strong>，记为 $\int f(x)dx$</p>
+<p><strong>不定积分是一种运算，与微分运算互逆</strong></p>
+<h3 id="定积分"><a href="#定积分" class="headerlink" title="定积分"></a>定积分</h3><p>设函数 f(x)在[a,b]上有界，在[a,b]中==任意==插入若干分点$a=x_0&lt;x_1&lt;x_2&lt;…&lt;x_{n-1}&lt;x_n=b$,把区间[a,b]分成 n 个小区间，各小区间长度依次为$\Delta x_i=x_i-x_{i-1},(i=1,2,…,n)$,在各小区间上==任取==一点$\xi_i(\xi_i \in \Delta x_i)$,作乘积$f(\xi_i)\Delta x_i(i=1,2,…,n)$，并作和$S=\sum_{i=1}^n{f(\xi_i)\Delta x_i}$</p>
+<p>定积分是一种求和运算，求一个具体的函数在具体的区间内，与 x 轴围成图形的具体面积</p>
+<img src="/posts/7b740b99/7b740b99/20200523164722792.png" class width="20200523164722792">
+<p>参考链接 :</p>
+<p><a href="https://blog.csdn.net/baidu_39491365/article/details/89856302">什么是微分？导数和微分的区别是什么？微分和积分的联系？_微分积分的区别和联系-CSDN 博客</a></p>
+<p><a href="https://blog.csdn.net/weixin_43148062/article/details/106302533">高等数学导数公式、微分公式和积分公式大全_常用微分公式 知乎-CSDN 博客</a></p>
+<p><a href="https://blog.csdn.net/weixin_40163242/article/details/89003225">高等数学上核心概念：谈谈导数，微分，积分之间的关系（导数篇）_微分、积分、微积分、导数之详细辨别-CSDN 博客</a></p>
+<p><a href="https://blog.csdn.net/weixin_40163242/article/details/89004822">高等数学上核心概念：谈谈导数，微分，积分之间的关系（微分篇）_极限导数微分积分四者关系图-CSDN 博客</a></p>
+<p><a href="https://blog.csdn.net/m0_37827994/article/details/85004004">导数、微分、积分的几何理解_微分和积分的几何意义-CSDN 博客</a></p>
+<p><a href="https://blog.csdn.net/liuyiming2019/article/details/108938333">【高数】高数第四章节——不定积分&amp;换元积分&amp;分部积分_四种典型部分分式的积分-CSDN 博客</a></p>
+<p><a href="https://blog.csdn.net/liuyiming2019/article/details/108942293">【高数】高数第五章节——定积分&amp;积分上限函数&amp;牛顿——莱布尼兹公式&amp;反常积分与广义积分_定积分求导法则在高数的那一节-CSDN 博客</a></p>
+<p><a href="https://blog.csdn.net/hsl1958941040/article/details/123841175">不定积分、定积分的区别与联系_定积分和不定积分区别-CSDN 博客</a></p>
 ]]></content>
       <categories>
-        <category>C语言</category>
+        <category>math</category>
       </categories>
   </entry>
   <entry>
@@ -204,218 +213,197 @@
     <url>/posts/68728ca3/</url>
     <content><![CDATA[<p>施工中</p>
 <span id="more"></span>
-
-
-
-<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><style>.jyjkbvieqquz{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="jyjkbvieqquz" alt="img">
-
-<style>.pbvpbyfeqsxu{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="pbvpbyfeqsxu" alt="img">
-
+<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><p><style>.whqwvsfcfwbx{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="whqwvsfcfwbx" alt="img"></p>
+<p><style>.fqovdzezsmkp{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="fqovdzezsmkp" alt="img"></p>
 <p>坐标轴以原点为圆心转动，不管怎么转，转后坐标系都可以通过三个角在原坐标系上表达。</p>
-<p>欧拉角可能会导致万向节死锁情况出现，任一坐标轴旋转角度为90度时，就会由两个轴的旋转动作起到的作用相同，形成死锁</p>
-<style>.iuegectjxwnc{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="iuegectjxwnc" alt="img">
-
+<p>欧拉角可能会导致万向节死锁情况出现，任一坐标轴旋转角度为 90 度时，就会由两个轴的旋转动作起到的作用相同，形成死锁</p>
+<p><style>.utrqyrarxynr{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="utrqyrarxynr" alt="img"></p>
 <h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>1.坐标变换</p>
-<style>.rkttvjdjpphv{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722102204803.png" class="rkttvjdjpphv" alt="image-20240722102204803">
-
-<p>如图所示，对于点P在不同坐标系下的表示，红色坐标系由黑色坐标系绕原点旋转$$\alpha $$°得来；</p>
+<p><style>.wrpytiohkfgk{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722102204803.png" class="wrpytiohkfgk" alt="image-20240722102204803"></p>
+<p>如图所示，对于点 P 在不同坐标系下的表示，红色坐标系由黑色坐标系绕原点旋转$\alpha $° 得来；</p>
 <p>其坐标变换关系如下 :</p>
-<p>$$P_{xa} &#x3D; OM - P_{xa}M &#x3D;P_{xb}*\cos{\alpha} - IP_{xb}<em>\cos{\alpha}&#x3D;P_{xb}<em>\cos{\alpha}-PI</em>{\sin{\alpha}}</em>{\cos{\alpha}}$$</p>
-<p>​       $$&#x3D;P_{xb}<em>\cos{\alpha} -\frac{PP_{xb}}{\cos{\alpha}}</em>{\sin{\alpha}}*{\cos{\alpha}}&#x3D;P_{xb}<em>\cos{\alpha} -PP_{xb}</em>{\sin{\alpha}}&#x3D;P_{xb}*\cos{\alpha} -P_{yb}{\sin{\alpha}}$$</p>
-<p>$$P_{ya}&#x3D;P_{xb}\sin{\alpha}+P_{yb}\cos{\alpha}$$</p>
-<p>$$P_{za}&#x3D;P_{zb}$$</p>
-<p>由上述式子可得矩阵 :</p>
+<script type="math/tex; mode=display">P_{xa} = OM - P_{xa}M =P_{xb}*\cos{\alpha} - IP_{xb}*\cos{\alpha}=P_{xb}*\cos{\alpha}-PI*{\sin{\alpha}}*{\cos{\alpha}}</script><p>​ <script type="math/tex">=P_{xb}*\cos{\alpha} -\frac{PP_{xb}}{\cos{\alpha}}*{\sin{\alpha}}*{\cos{\alpha}}=P_{xb}*\cos{\alpha} -PP_{xb}*{\sin{\alpha}}=P_{xb}*\cos{\alpha} -P_{yb}{\sin{\alpha}}</script></p>
+<script type="math/tex; mode=display">P_{ya}=P_{xb}\sin{\alpha}+P_{yb}\cos{\alpha}</script><script type="math/tex; mode=display">P_{za}=P_{zb}</script><p>由上述式子可得矩阵 :</p>
 <img src="/posts/68728ca3/68728ca3/image-20240722103355214.png" class title="image-20240722103355214">
-
-<style>.pyxlvmnkjuis{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104206337.png" class="pyxlvmnkjuis" alt="image-20240722104206337">
-
-<p>想写出坐标系B相对于坐标系A的旋转矩阵，只需将坐标系B相对于坐标系A的方向余弦写成矩阵形式 :</p>
-<style>.figiolvkurnp{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104249976.png" class="figiolvkurnp" alt="image-20240722104249976">
-
-<style>.huloxbsyvwhx{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104500401.png" class="huloxbsyvwhx" alt="image-20240722104500401">
-
-<style>.snfxuzxyjprm{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722112100493.png" class="snfxuzxyjprm" alt="image-20240722112100493">
-
+<p><style>.fjxozjojjmug{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104206337.png" class="fjxozjojjmug" alt="image-20240722104206337"></p>
+<p>想写出坐标系 B 相对于坐标系 A 的旋转矩阵，只需将坐标系 B 相对于坐标系 A 的方向余弦写成矩阵形式 :</p>
+<p><style>.fsabxkltpsiu{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104249976.png" class="fsabxkltpsiu" alt="image-20240722104249976"></p>
+<p><style>.sqdbjcitpgii{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104500401.png" class="sqdbjcitpgii" alt="image-20240722104500401"></p>
+<p><style>.ssbwgolszgdn{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722112100493.png" class="ssbwgolszgdn" alt="image-20240722112100493"></p>
 <img src="/posts/68728ca3/68728ca3/image-20240722112317352.png" class title="image-20240722112317352">
-
 <p>上为坐标系旋转，下为向量旋转</p>
-<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><style>.pgtyoxxmpglw{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240715145743748.png" class="pgtyoxxmpglw" alt="image-20240715145743748">
-
-<p>物理意义：按照特定的方向旋转90度</p>
-<h2 id="四元数的定义"><a href="#四元数的定义" class="headerlink" title="四元数的定义"></a>四元数的定义</h2><p>· 对于基{ 1,i,j,k }的线性组合，向量形式 : $$q &#x3D; \begin{bmatrix}a\b\c\d\end{bmatrix}$$，( $$i^2&#x3D;j^2&#x3D;k^2&#x3D;ijk&#x3D;-1$$ )</p>
-<p>· 将四元数的虚实部分开，使用三维向量来表示虚部，将它表示为标量和向量的有序形式 : $$ q &#x3D; [ s , \vec{v} ]$$, 其中 $$\vec{v} &#x3D; \begin{bmatrix}x\y\z\end{bmatrix}$$, $${ s\quad x\quad y\quad z }\subseteq \mathbb{R}$$</p>
-<h2 id="四元数乘法"><a href="#四元数乘法" class="headerlink" title="四元数乘法"></a>四元数乘法</h2><p>$$q_1q_2 &#x3D; (a+bi+cj+dk)(e+fi+gj+hk)$$     (复数式)</p>
-<p>$$&#x3D;(a,\vec{v})(e,\vec{u})$$</p>
-<p>$$&#x3D;(ae-\vec{v}\centerdot\vec{u})+(a\vec{u}+e\vec{v}+\vec{v}\times\vec{u})$$</p>
-<p>$$&#x3D;[ae-\vec{v}\centerdot\vec{u}， a\vec{u}+e\vec{v}+\vec{v}\times\vec{u}]$$    ( 矢量式 )</p>
-<p>矩阵形式 : </p>
-<p>$$q_1q_2\neq q_2q_1$$    &#x3D;&#x3D;左乘不等于右乘&#x3D;</p>
-<style>.jicckxufspon{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="jicckxufspon" alt="img">
-
-<p>$$q_1q_2&#x3D; \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\b&amp;a&amp;-d&amp;c\c&amp;d&amp;a&amp;-b\d&amp;-c&amp;b&amp;a\end{bmatrix}\begin{bmatrix}e\f\g\h\end{bmatrix}$$</p>
-<p>$$q_2q_1&#x3D; \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\b&amp;a&amp;d&amp;-c\c&amp;-d&amp;a&amp;b\d&amp;c&amp;-b&amp;a\end{bmatrix}\begin{bmatrix}e\f\g\h\end{bmatrix}$$</p>
+<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p><style>.uilfulwjtmyf{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240715145743748.png" class="uilfulwjtmyf" alt="image-20240715145743748"></p>
+<p>物理意义：按照特定的方向旋转 90 度</p>
+<h2 id="四元数的定义"><a href="#四元数的定义" class="headerlink" title="四元数的定义"></a>四元数的定义</h2><p>· 对于基{ 1,i,j,k }的线性组合，向量形式 : $q = \begin{bmatrix}a\\b\\c\\d\end{bmatrix}$，( $i^2=j^2=k^2=ijk=-1$ )</p>
+<p>· 将四元数的虚实部分开，使用三维向量来表示虚部，将它表示为标量和向量的有序形式 : $q = [ s , \vec{v} ]$, 其中 $\vec{v} = \begin{bmatrix}x\\y\\z\end{bmatrix}$, $\{ s\quad x\quad y\quad z \}\subseteq \mathbb{R}$</p>
+<h2 id="四元数乘法"><a href="#四元数乘法" class="headerlink" title="四元数乘法"></a>四元数乘法</h2><p>$q_1q_2 = (a+bi+cj+dk)(e+fi+gj+hk)$ (复数式)</p>
+<p>$=(a,\vec{v})(e,\vec{u})$</p>
+<p>$=(ae-\vec{v}\centerdot\vec{u})+(a\vec{u}+e\vec{v}+\vec{v}\times\vec{u})$</p>
+<p>$=[ae-\vec{v}\centerdot\vec{u}， a\vec{u}+e\vec{v}+\vec{v}\times\vec{u}]$ ( 矢量式 )</p>
+<p>矩阵形式 :</p>
+<p>$q_1q_2\neq q_2q_1$ ==左乘不等于右乘==</p>
+<p><style>.tzejbtedjyto{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="tzejbtedjyto" alt="img"></p>
+<p>$q_1q_2= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;-d&amp;c\\c&amp;d&amp;a&amp;-b\\d&amp;-c&amp;b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
+<p>$q_2q_1= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;d&amp;-c\\c&amp;-d&amp;a&amp;b\\d&amp;c&amp;-b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
 <p>左乘：左为动作，右为被操作对象</p>
 <p>右乘：右为动作，左为被操作对象</p>
 <h2 id="纯四元数"><a href="#纯四元数" class="headerlink" title="纯四元数"></a>纯四元数</h2><p>仅有虚部的四元数,也被称为单位四元数</p>
-<p>$$ q&#x3D;[0,\vec{v}]&#x3D;xi+yj+zk$$</p>
- <img src="/posts/68728ca3/68728ca3/image-20240716093117829.png" class title="image-20240716093117829">
-
+<script type="math/tex; mode=display">q=[0,\vec{v}]=xi+yj+zk</script><img src="/posts/68728ca3/68728ca3/image-20240716093117829.png" class title="image-20240716093117829">
 <p>若：</p>
- <img src="/posts/68728ca3/68728ca3/image-20240716091605318.png" class title="image-20240716091605318">
-
+<img src="/posts/68728ca3/68728ca3/image-20240716091605318.png" class title="image-20240716091605318">
 <p>此时</p>
- <img src="/posts/68728ca3/68728ca3/image-20240716091620078.png" class title="image-20240716091620078">
-
- <img src="/posts/68728ca3/68728ca3/image-20240716091628174.png" class title="image-20240716091628174">
-
- <img src="/posts/68728ca3/68728ca3/image-20240716091641286.png" class title="image-20240716091641286">
-
- <img src="/posts/68728ca3/68728ca3/image-20240716091655289.png" class title="image-20240716091655289">
-
- <img src="/posts/68728ca3/68728ca3/image-20240716091713099.png" class title="image-20240716091713099">
-
-<h2 id="实四元数"><a href="#实四元数" class="headerlink" title="实四元数"></a>实四元数</h2><p>虚部为0的四元数</p>
-<p>$$q&#x3D;[s,0]$$</p>
- <img src="/posts/68728ca3/68728ca3/image-20240716091852076.png" class title="image-20240716091852076">改乘积与虚部为0的两个虚数乘积相似
-
-<h2 id="四元数与标量乘积"><a href="#四元数与标量乘积" class="headerlink" title="四元数与标量乘积"></a>四元数与标量乘积</h2><p>( 标量 : 只有大小，没有方向的量 )</p>
-<p>$$\lambda&#x3D;[\lambda,\vec{0}]$$</p>
- <img src="/posts/68728ca3/68728ca3/image-20240716092143817.png" class title="image-20240716092143817">
-
+<img src="/posts/68728ca3/68728ca3/image-20240716091620078.png" class title="image-20240716091620078">
+<img src="/posts/68728ca3/68728ca3/image-20240716091628174.png" class title="image-20240716091628174">
+<img src="/posts/68728ca3/68728ca3/image-20240716091641286.png" class title="image-20240716091641286">
+<img src="/posts/68728ca3/68728ca3/image-20240716091655289.png" class title="image-20240716091655289">
+<img src="/posts/68728ca3/68728ca3/image-20240716091713099.png" class title="image-20240716091713099">
+<h2 id="实四元数"><a href="#实四元数" class="headerlink" title="实四元数"></a>实四元数</h2><p>虚部为 0 的四元数$q=[s,0]$</p>
+<img src="/posts/68728ca3/68728ca3/image-20240716091852076.png" class title="image-20240716091852076">
+<p>该乘积与虚部为 0 的两个虚数乘积相似</p>
+<h2 id="四元数与标量乘积"><a href="#四元数与标量乘积" class="headerlink" title="四元数与标量乘积"></a>四元数与标量乘积</h2><p>( 标量 : 只有大小，没有方向的量 )<br>$\lambda=[\lambda,\vec{0}]$</p>
+<img src="/posts/68728ca3/68728ca3/image-20240716092143817.png" class title="image-20240716092143817">
 <h2 id="单位四元数"><a href="#单位四元数" class="headerlink" title="单位四元数"></a>单位四元数</h2><p>可通过向量与标量表示</p>
-<p>$$\vec{v}&#x3D;\upsilon\hat{\nu}$$</p>
-<p>其中$$\upsilon&#x3D;|\vec\nu|$$，$$|\hat{\nu}|&#x3D;1$$</p>
-<p>即$$\upsilon$$表示$$\vec{v}$$的方向,$$\hat{\nu}$$表示$$\vec{v}$$的长度</p>
- <img src="/posts/68728ca3/68728ca3/image-20240716094406781.png" class title="image-20240716094406781">
-
-<p>我们可以使用一个向量（仅表示方向故长度为0）和一个标量（仅表示长度没有方向）来表示单位四元数</p>
- <img src="/posts/68728ca3/68728ca3/image-20240716094511774.png" class title="image-20240716094511774">
-
-<p>使用单位四元数与四元数加法来表达普通四元数，且该结构形式与虚数结构形式（$$z&#x3D;a+bi$$）相似</p>
- <img src="/posts/68728ca3/68728ca3/image-20240716095129025.png" class title="image-20240716095129025">
-
-<h2 id="共轭四元数-conjugate"><a href="#共轭四元数-conjugate" class="headerlink" title="共轭四元数 (conjugate)"></a>共轭四元数 (conjugate)</h2><img src="/posts/68728ca3/68728ca3/image-20240716095546420.png" class title="image-20240716095546420">  <img src="/posts/68728ca3/68728ca3/image-20240716095604518.png" class title="image-20240716095604518">
-
+<script type="math/tex; mode=display">\vec{v}=\upsilon\hat{\nu}</script><p>其中$\upsilon=|\vec\nu|$，$|\hat{\nu}|=1$</p>
+<p>即$\upsilon$表示$\vec{v}$的方向,$\hat{\nu}$表示$\vec{v}$的长度</p>
+<img src="/posts/68728ca3/68728ca3/image-20240716094406781.png" class title="image-20240716094406781">
+<p>我们可以使用一个向量（仅表示方向故长度为 0）和一个标量（仅表示长度没有方向）来表示单位四元数</p>
+<img src="/posts/68728ca3/68728ca3/image-20240716094511774.png" class title="image-20240716094511774">
+<p>使用单位四元数与四元数加法来表达普通四元数，且该结构形式与虚数结构形式（$z=a+bi$）相似</p>
+<img src="/posts/68728ca3/68728ca3/image-20240716095129025.png" class title="image-20240716095129025">
+<h2 id="共轭四元数-conjugate"><a href="#共轭四元数-conjugate" class="headerlink" title="共轭四元数 (conjugate)"></a>共轭四元数 (conjugate)</h2><img src="/posts/68728ca3/68728ca3/image-20240716095546420.png" class title="image-20240716095546420"> <img src="/posts/68728ca3/68728ca3/image-20240716095604518.png" class title="image-20240716095604518">
 <h2 id="四元数的模-norm"><a href="#四元数的模-norm" class="headerlink" title="四元数的模 (norm)"></a>四元数的模 (norm)</h2><p>在复数中 :</p>
- <img src="/posts/68728ca3/68728ca3/image-20240716101954773.png" class title="image-20240716101954773">
-
+<img src="/posts/68728ca3/68728ca3/image-20240716101954773.png" class title="image-20240716101954773">
 <p>则共轭四元数也可 :</p>
- <img src="/posts/68728ca3/68728ca3/image-20240716102031318.png" class title="image-20240716102031318">
- <img src="/posts/68728ca3/68728ca3/image-20240716102041248.png" class title="image-20240716102041248"> 
-
+<img src="/posts/68728ca3/68728ca3/image-20240716102031318.png" class title="image-20240716102031318">
+<img src="/posts/68728ca3/68728ca3/image-20240716102041248.png" class title="image-20240716102041248">
 <h2 id="四元数归一化-normalization"><a href="#四元数归一化-normalization" class="headerlink" title="四元数归一化 (normalization)"></a>四元数归一化 (normalization)</h2><p>即表示为单位向量模式</p>
 <p>向量除以向量的模</p>
- <img src="/posts/68728ca3/68728ca3/image-20240716102809602.png" class title="image-20240716102809602">
-
-<h2 id="四元数逆变-inverse"><a href="#四元数逆变-inverse" class="headerlink" title="四元数逆变 (inverse)"></a>四元数逆变 (inverse)</h2> <img src="/posts/68728ca3/68728ca3/image-20240716102912448.png" class title="image-20240716102912448">
-
- <img src="/posts/68728ca3/68728ca3/image-20240716102928445.png" class title="image-20240716102928445">
-
-<p> 对于单位四元数，有 :</p>
- <img src="/posts/68728ca3/68728ca3/image-20240716103011373.png" class title="image-20240716103011373">
-
-<h2 id="四元数的点乘-dot-product"><a href="#四元数的点乘-dot-product" class="headerlink" title="四元数的点乘 (dot product)"></a>四元数的点乘 (dot product)</h2> <img src="/posts/68728ca3/68728ca3/image-20240716103106917.png" class title="image-20240716103106917">
- <img src="/posts/68728ca3/68728ca3/image-20240716103126039.png" class title="image-20240716103126039">
-
+<img src="/posts/68728ca3/68728ca3/image-20240716102809602.png" class title="image-20240716102809602">
+<h2 id="四元数逆变-inverse"><a href="#四元数逆变-inverse" class="headerlink" title="四元数逆变 (inverse)"></a>四元数逆变 (inverse)</h2><img src="/posts/68728ca3/68728ca3/image-20240716102912448.png" class title="image-20240716102912448">
+<img src="/posts/68728ca3/68728ca3/image-20240716102928445.png" class title="image-20240716102928445">
 <p>对于单位四元数，有 :</p>
- <img src="/posts/68728ca3/68728ca3/image-20240716103143979.png" class title="image-20240716103143979">
-
-<h2 id="三位空间旋转公式"><a href="#三位空间旋转公式" class="headerlink" title="三位空间旋转公式"></a>三位空间旋转公式</h2><p>由于实际中要旋转的向量在三维空间，所以将 $$q_a$$ 看做是第四维（实数部）为<code>0</code>的<strong>纯四元数</strong>，则 $$q_a&#x3D;[0,a]$$ 或 $$q_a&#x3D;(0+x_ai+y_aj+z_ak)$$) ，那么得到**三维空间旋转公式 **:</p>
-<p>$$q_aq_b&#x3D;[−a\centerdot b,s_ba+a×b]$$</p>
-<p>作者：Jormungand<br>链接：<a href="https://juejin.cn/post/7140527372100435976">https://juejin.cn/post/7140527372100435976</a><br>来源：稀土掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h2 id="四元数与三维旋转"><a href="#四元数与三维旋转" class="headerlink" title="四元数与三维旋转"></a>四元数与三维旋转</h2><p>虚数 * i（$$i^2&#x3D;-1$$），即该虚数所在点绕圆心逆时针旋转90度；同理 *-i即顺时针旋转90度</p>
-<style>.dtmbcgbhgdcy{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/image-20240716084319542.png" class="dtmbcgbhgdcy" alt="image-20240716084319542">
-
+<img src="/posts/68728ca3/68728ca3/image-20240716103011373.png" class title="image-20240716103011373">
+<h2 id="四元数的点乘-dot-product"><a href="#四元数的点乘-dot-product" class="headerlink" title="四元数的点乘 (dot product)"></a>四元数的点乘 (dot product)</h2><img src="/posts/68728ca3/68728ca3/image-20240716103106917.png" class title="image-20240716103106917">
+<img src="/posts/68728ca3/68728ca3/image-20240716103126039.png" class title="image-20240716103126039">
+<p>对于单位四元数，有 :</p>
+<img src="/posts/68728ca3/68728ca3/image-20240716103143979.png" class title="image-20240716103143979">
+<h2 id="三位空间旋转公式"><a href="#三位空间旋转公式" class="headerlink" title="三位空间旋转公式"></a>三位空间旋转公式</h2><p>由于实际中要旋转的向量在三维空间，所以将 $q_a$ 看做是第四维（实数部）为<code>0</code>的<strong>纯四元数</strong>，则 $q_a=[0,a]$ 或 $q_a=(0+x_ai+y_aj+z_ak)$) ，那么得到<strong>三维空间旋转公式</strong>:</p>
+<script type="math/tex; mode=display">q_aq_b=[−a\centerdot b,s_ba+a×b]</script><h2 id="四元数与三维旋转"><a href="#四元数与三维旋转" class="headerlink" title="四元数与三维旋转"></a>四元数与三维旋转</h2><p>虚数 _ i（$i^2=-1$），即该虚数所在点绕圆心逆时针旋转 90 度；同理 _-i 即顺时针旋转 90 度</p>
+<p><style>.ivjnhcsgtktn{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/image-20240716084319542.png" class="ivjnhcsgtktn" alt="image-20240716084319542"></p>
 <h3 id="推导-（纯四元数）"><a href="#推导-（纯四元数）" class="headerlink" title="推导 （纯四元数）"></a>推导 （纯四元数）</h3><ol>
-<li><p>定义一个四元数q，使要旋转的向量旋转$$\theta$$ 度，v是单位化转轴方向</p>
-<p>​		$$q&#x3D;\cos\theta+i\sin\theta$$   ( 复数式 )</p>
-<p>​		$$q&#x3D;[\cos\theta,v\sin\theta]$$  ( 坐标 )</p>
+<li><p>定义一个四元数 q，使要旋转的向量旋转$\theta$ 度，v 是单位化转轴方向</p>
+<p>​ $q=\cos\theta+i\sin\theta$ ( 复数式 )</p>
+<p>​ $q=[\cos\theta,v\sin\theta]$ ( 坐标 )</p>
 </li>
-<li><p>计算四元数q与向量p的积，其中$$p&#x3D;[0,p]$$ ( 纯四元数 )</p>
+<li><p>计算四元数 q 与向量 p 的积，其中$p=[0,p]$ ( 纯四元数 )</p>
 </li>
-<li><p>引用<strong>三维空间旋转公式</strong>，旋转数 $$q$$ 对应 $$q_b$$, 待旋转向量 $$p$$ 对应 $$p_a$$ :</p>
-<p>​	$$p’ &#x3D; qp&#x3D;[-p\centerdot v\sin\theta,\cos\theta p+v\sin\theta\times p]$$</p>
+<li><p>引用<strong>三维空间旋转公式</strong>，旋转数 $q$ 对应 $q_b$, 待旋转向量 $p$ 对应 $p_a$ :</p>
+<p>​ <script type="math/tex">p' = qp=[-p\centerdot v\sin\theta,\cos\theta p+v\sin\theta\times p]</script></p>
 </li>
-<li><p>当向量p与$$v$$ 正交( 垂直 )，此时$$v\centerdot p&#x3D;0$$ ，同时$$p’$$变成了纯四元数 :</p>
-<p>​	$$p’&#x3D;qp&#x3D;[0,\cos\theta p+v\sin\theta\times p]$$</p>
+<li><p>当向量 p 与$v$ 正交( 垂直 )，此时$v\centerdot p=0$ ，同时$p’$变成了纯四元数 :</p>
+<p>​ <script type="math/tex">p'=qp=[0,\cos\theta p+v\sin\theta\times p]</script></p>
 </li>
-<li><p>其中 $$p’&#x3D;qp$$ 与 $$p’&#x3D;pq$$ 结果不同，前者为逆时针，后者为顺时针</p>
+<li><p>其中 $p’=qp$ 与 $p’=pq$ 结果不同，前者为逆时针，后者为顺时针</p>
 </li>
 </ol>
 <h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><ol>
-<li><p>例，将矢量p绕z（k）轴旋转45度，则四元数$$q&#x3D;[\cos\theta,\sin\theta k]&#x3D;[\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}k]$$</p>
+<li><p>例，将矢量 p 绕 z（k）轴旋转 45 度，则四元数$q=[\cos\theta,\sin\theta k]=[\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}k]$</p>
 </li>
-<li><p>选一向量p，使与z轴正交，假如p在x（i）轴上，此时</p>
-<p>$$p&#x3D;[0,2i+0j+0k]$$</p>
-</li>
-<li><p>由于i与k正交，点积为0 :</p>
+<li><p>选一向量 p，使与 z 轴正交，假如 p 在 x（i）轴上，此时</p>
+<script type="math/tex; mode=display">p=[0,2i+0j+0k]</script></li>
+<li><p>由于 i 与 k 正交，点积为 0 :</p>
 </li>
 </ol>
-<p>​                <img src="/posts/68728ca3/68728ca3/image-20240716145305409.png" class title="image-20240716145305409"></p>
-<p>​                <img src="/posts/68728ca3/68728ca3/image-20240716151737501.png" class title="image-20240716151737501"></p>
-<ol start="4">
-<li>若 $$p’&#x3D;pq$$ ,则结果为 $$[0,\sqrt{2}i-\sqrt{2}j]$$,旋转方向相反</li>
-<li>红色绕蓝色逆时针旋转45度得到黄色<br> <style>.yhoyqpvbfdhr{zoom: 50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-13.png" class="yhoyqpvbfdhr" alt="img"></li>
+<p>​ <img src="/posts/68728ca3/68728ca3/image-20240716145305409.png" class title="image-20240716145305409"></p>
+<p>​ <img src="/posts/68728ca3/68728ca3/image-20240716151737501.png" class title="image-20240716151737501"></p>
+<ol>
+<li>若 $p’=pq$ ,则结果为 $[0,\sqrt{2}i-\sqrt{2}j]$,旋转方向相反</li>
+<li>红色绕蓝色逆时针旋转 45 度得到黄色<br><style>.qqxkesywkxun{zoom: 50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-13.png" class="qqxkesywkxun" alt="img"></li>
 </ol>
 <h3 id="非纯四元数旋转"><a href="#非纯四元数旋转" class="headerlink" title="非纯四元数旋转"></a>非纯四元数旋转</h3><ol>
-<li><p>一个正常四元数q，与p不正交(p仍为上文中的p&#x3D;[0.2i])，设定q的矢量部分与p夹角为45度,计算p绕q旋转$$\theta$$角度后得到的向量</p>
-  <img src="/posts/68728ca3/68728ca3/image-20240716152337654.png" class title="image-20240716152337654">
+<li><p>一个正常四元数 q，与 p 不正交(p 仍为上文中的 p=[0.2i])，设定 q 的矢量部分与 p 夹角为 45 度,计算 p 绕 q 旋转$\theta$角度后得到的向量</p>
+<img src="/posts/68728ca3/68728ca3/image-20240716152337654.png" class title="image-20240716152337654">
 </li>
 <li><p>代入<strong>三位空间旋转公式</strong></p>
- <img src="/posts/68728ca3/68728ca3/image-20240716152435482.png" class title="image-20240716152435482">
+<img src="/posts/68728ca3/68728ca3/image-20240716152435482.png" class title="image-20240716152435482">
 </li>
 <li><p>替换已知量</p>
-   <img src="/posts/68728ca3/68728ca3/image-20240716154207402.png" class title="image-20240716154207402">
+<img src="/posts/68728ca3/68728ca3/image-20240716154207402.png" class title="image-20240716154207402">
 </li>
-<li><p>计算结果已经不是纯四元数，且没有旋转45度，模长也不是2（而是$$\sqrt{3}$$）,用图像表示 :</p>
+<li><p>计算结果已经不是纯四元数，且没有旋转 45 度，模长也不是 2（而是$\sqrt{3}$）,用图像表示 :</p>
 </li>
-<li><style>.lnutmfqlcojr{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-2.png" class="lnutmfqlcojr" alt="img"></li>
+<li><p><style>.rsgydlvvqsnb{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-2.png" class="rsgydlvvqsnb" alt="img"></p>
+</li>
 </ol>
-<ol start="6">
-<li>如何将其转变为纯四元数？Hamilton发现，将qp右乘q的逆，将得到一个纯四元数，且该四元数的向量部分保持不变 :  (因为q为单位四元数，此时q的逆等于q的共轭四元数)</li>
+<p><sup><a href="#fn_" id="reffn_"></a></sup>: 此时严格来讲，p’在 3 为空间中表示是不正确的，因为它是一个 4 维向量，图片中只展示了这个四元数的像两部分</p>
+<ol>
+<li>如何将其转变为纯四元数？Hamilton 发现，将 qp 右乘 q 的逆，将得到一个纯四元数，且该四元数的向量部分保持不变 : (因为 q 为单位四元数，此时 q 的逆等于 q 的共轭四元数)</li>
 </ol>
-<p>​                 <img src="/posts/68728ca3/68728ca3/image-20240716155056302.png" class title="image-20240716155056302"></p>
-<p>​                    $$\theta &#x3D; 45^\circ$$</p>
-<p>​                 <img src="/posts/68728ca3/68728ca3/image-20240716155124298.png" class title="image-20240716155124298"></p>
-<p>​                 <img src="/posts/68728ca3/68728ca3/image-20240716155346584.png" class title="image-20240716155346584"></p>
-<p>​                   记$$qpq^-1$$为$$p’$$</p>
-<p>​                 <img src="/posts/68728ca3/68728ca3/image-20240716155404171.png" class title="image-20240716155404171"></p>
-<p>​                  求得p’的模长与p相等</p>
-<p>​				<style>.qvqnpldodxum{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-3.png" class="qvqnpldodxum" alt="img"></p>
-<ol start="7">
-<li><p>观察上图可发现，红色向量绕紫色向量旋转了90度而非45度，得到黄色向量，因此为了正确的让一个向量绕某个轴向量旋转某个角度，必须以目标角度的一般来计算 ，得到&#x3D;&#x3D;<strong>旋转四元数</strong>&#x3D;&#x3D;的一般形式:</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716161001706.png" class title="image-20240716161001706"></li>
+<p>​ <img src="/posts/68728ca3/68728ca3/image-20240716155056302.png" class title="image-20240716155056302"></p>
+<p>​ $\theta = 45^\circ$</p>
+<p>​ <img src="/posts/68728ca3/68728ca3/image-20240716155124298.png" class title="image-20240716155124298"></p>
+<p>​ <img src="/posts/68728ca3/68728ca3/image-20240716155346584.png" class title="image-20240716155346584"></p>
+<p>​ 记$qpq^-1$为$p’$</p>
+<p>​ <img src="/posts/68728ca3/68728ca3/image-20240716155404171.png" class title="image-20240716155404171"></p>
+<p>​ 求得 p’的模长与 p 相等</p>
+<p>​ <style>.vgipioxyuohs{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-3.png" class="vgipioxyuohs" alt="img"></p>
+<ol>
+<li><p>观察上图可发现，红色向量绕紫色向量旋转了 90 度而非 45 度，得到黄色向量，因此为了正确的让一个向量绕某个轴向量旋转某个角度，必须以目标角度的一般来计算 ，得到<strong>旋转四元数</strong>的一般形式:</p>
+<img src="/posts/68728ca3/68728ca3/image-20240716161001706.png" class title="image-20240716161001706">
+</li>
 </ol>
-<h2 id="小总结-四元数表达形式"><a href="#小总结-四元数表达形式" class="headerlink" title="小总结-四元数表达形式"></a>小总结-四元数表达形式</h2><p>矢量式  $$\vec{Q}&#x3D;q_0+\vec{q}$$,其中$$\vec{q}&#x3D;q_1\vec{i}+q_2\vec{j}+q_3\vec{k}$$</p>
-<p>复数式  $$\vec{Q}&#x3D;q_0+q_1\vec{i}+q_2\vec{j}+q_3\vec{k}$$</p>
-<p>三角式  $$\vec{Q}&#x3D;\cos{\frac{\theta}{2}}+\vec{u}\sin{\frac{\theta}{2}}$$,其中$$\vec{u}&#x3D;\vec{i}+\vec{j}+\vec{k}$$</p>
-<p>矩阵式  $$\vec{Q}&#x3D;\begin{bmatrix} q_0\q_1\q_2\q_3\end{bmatrix}$$</p>
-<h2 id="四元数与旋转矩阵与姿态变化矩阵"><a href="#四元数与旋转矩阵与姿态变化矩阵" class="headerlink" title="四元数与旋转矩阵与姿态变化矩阵"></a>四元数与旋转矩阵与姿态变化矩阵</h2><p>​      假设单位四元数$$q&#x3D;w+xi+yj+zk$$,其中$$||q||&#x3D;x^2+y^2+z^2+w^2&#x3D;1$$，那么旋转矩阵  :</p>
-<p>$$R(q)&#x3D;\begin{bmatrix}1-2y^2-2z^2&amp;2xy-2zw&amp;2xz+2yw\2xy+2zw&amp;1-2x^2-2z^2&amp;2yz-2xw\2xz-2yw&amp;2yz+2xw&amp;1-2x^2-2y^2\end{bmatrix}$$</p>
-<p>$$c^E_b&#x3D;\begin{bmatrix}w^2+x^2-y^2-z^2&amp;2xy-2zw&amp;2xz+2yw\2xy+2zw&amp;w^2-x^2+y^2-z^2&amp;2yz-2xw\2xz-2yw&amp;2yz+2xw&amp;w^2-x^2-y^2+z^2\end{bmatrix}$$</p>
-<h2 id="四元数与姿态角"><a href="#四元数与姿态角" class="headerlink" title="四元数与姿态角"></a>四元数与姿态角</h2><img src="/posts/68728ca3/68728ca3/image-20240716173419183.png" class title="image-20240716173419183">
-
-<p>$$2(xz-wy)&#x3D;-\sin{\gamma}$$</p>
-<p>$$2(yz+xw)&#x3D;\sin{\theta}\cos{\gamma}$$</p>
-<p>$$w^2-x^2-y^2+z^2&#x3D;\cos{\theta}\cos{\gamma}$$</p>
-<p>$$2(xy+zw)&#x3D;\cos{\gamma}\sin{\psi}$$</p>
-<p>$$w^2+x^2-y^2-z^2&#x3D;\cos{\gamma}\cos{\psi}$$</p>
-<p>由上述公式可得 :</p>
-<p>$$\gamma&#x3D;-\arcsin{(2(xz-wy))}$$</p>
-<p>$$\theta&#x3D;\arctan(\frac{2(yz+xw)}{w^2-x^2-y^2+z^2})$$</p>
-<p>$$\psi&#x3D;\arctan{\frac{2(xy+zw)}{w^2+x^2-y^2-z^2}}$$</p>
-<h2 id="四元数姿态解算"><a href="#四元数姿态解算" class="headerlink" title="四元数姿态解算"></a>四元数姿态解算</h2><h3 id="重力加速度归一化"><a href="#重力加速度归一化" class="headerlink" title="重力加速度归一化"></a>重力加速度归一化</h3><h3 id="重力分量提取"><a href="#重力分量提取" class="headerlink" title="重力分量提取"></a>重力分量提取</h3><h3 id="求出姿态误差"><a href="#求出姿态误差" class="headerlink" title="求出姿态误差"></a>求出姿态误差</h3><h3 id="误差积分"><a href="#误差积分" class="headerlink" title="误差积分"></a>误差积分</h3><h3 id="互补滤波"><a href="#互补滤波" class="headerlink" title="互补滤波"></a>互补滤波</h3><h3 id="解四元数微分方程"><a href="#解四元数微分方程" class="headerlink" title="解四元数微分方程"></a>解四元数微分方程</h3><h3 id="四元数归一化"><a href="#四元数归一化" class="headerlink" title="四元数归一化"></a>四元数归一化</h3><h3 id="四元数求欧拉角"><a href="#四元数求欧拉角" class="headerlink" title="四元数求欧拉角"></a>四元数求欧拉角</h3><p>参考链接 :</p>
+<h2 id="小总结-四元数表达形式"><a href="#小总结-四元数表达形式" class="headerlink" title="小总结-四元数表达形式"></a>小总结-四元数表达形式</h2><p>矢量式 $\vec{Q}=q_0+\vec{q}$,其中$\vec{q}=q_1\vec{i}+q_2\vec{j}+q_3\vec{k}$</p>
+<p>复数式 $\vec{Q}=q_0+q_1\vec{i}+q_2\vec{j}+q_3\vec{k}$</p>
+<p>三角式 $\vec{Q}=\cos{\frac{\theta}{2}}+\vec{u}\sin{\frac{\theta}{2}}$,其中$\vec{u}=\vec{i}+\vec{j}+\vec{k}$</p>
+<p>矩阵式 $\vec{Q}=\begin{bmatrix} q_0\\q_1\\q_2\\q_3\end{bmatrix}$</p>
+<h2 id="四元数与旋转矩阵与姿态变化矩阵"><a href="#四元数与旋转矩阵与姿态变化矩阵" class="headerlink" title="四元数与旋转矩阵与姿态变化矩阵"></a>四元数与旋转矩阵与姿态变化矩阵</h2><p>​ 假设单位四元数$q=w+xi+yj+zk$,其中$||q||=x^2+y^2+z^2+w^2=1$，那么旋转矩阵 :</p>
+<script type="math/tex; mode=display">R(q)=\begin{bmatrix}1-2y^2-2z^2&2xy-2zw&2xz+2yw\\2xy+2zw&1-2x^2-2z^2&2yz-2xw\\2xz-2yw&2yz+2xw&1-2x^2-2y^2\end{bmatrix}</script><script type="math/tex; mode=display">c^E_b=\begin{bmatrix}w^2+x^2-y^2-z^2&2xy-2zw&2xz+2yw\\2xy+2zw&w^2-x^2+y^2-z^2&2yz-2xw\\2xz-2yw&2yz+2xw&w^2-x^2-y^2+z^2\end{bmatrix}</script><h2 id="四元数与姿态角"><a href="#四元数与姿态角" class="headerlink" title="四元数与姿态角"></a>四元数与姿态角</h2><img src="/posts/68728ca3/68728ca3/image-20240716173419183.png" class title="image-20240716173419183">
+<script type="math/tex; mode=display">2(xz-wy)=-\sin{\gamma}</script><script type="math/tex; mode=display">2(yz+xw)=\sin{\theta}\cos{\gamma}</script><script type="math/tex; mode=display">w^2-x^2-y^2+z^2=\cos{\theta}\cos{\gamma}</script><script type="math/tex; mode=display">2(xy+zw)=\cos{\gamma}\sin{\psi}</script><script type="math/tex; mode=display">w^2+x^2-y^2-z^2=\cos{\gamma}\cos{\psi}</script><p>由上述公式可得 :</p>
+<script type="math/tex; mode=display">\gamma=-\arcsin{(2(xz-wy))}</script><script type="math/tex; mode=display">\theta=\arctan(\frac{2(yz+xw)}{w^2-x^2-y^2+z^2})</script><script type="math/tex; mode=display">\psi=\arctan{\frac{2(xy+zw)}{w^2+x^2-y^2-z^2}}</script><h2 id="四元数姿态解算"><a href="#四元数姿态解算" class="headerlink" title="四元数姿态解算"></a>四元数姿态解算</h2><h3 id="重力加速度归一化"><a href="#重力加速度归一化" class="headerlink" title="重力加速度归一化"></a>重力加速度归一化</h3><h3 id="重力分量提取"><a href="#重力分量提取" class="headerlink" title="重力分量提取"></a>重力分量提取</h3><h3 id="求出姿态误差"><a href="#求出姿态误差" class="headerlink" title="求出姿态误差"></a>求出姿态误差</h3><h3 id="误差积分"><a href="#误差积分" class="headerlink" title="误差积分"></a>误差积分</h3><h3 id="互补滤波"><a href="#互补滤波" class="headerlink" title="互补滤波"></a>互补滤波</h3><h3 id="解四元数微分方程"><a href="#解四元数微分方程" class="headerlink" title="解四元数微分方程"></a>解四元数微分方程</h3><h3 id="四元数归一化"><a href="#四元数归一化" class="headerlink" title="四元数归一化"></a>四元数归一化</h3><h3 id="四元数求欧拉角"><a href="#四元数求欧拉角" class="headerlink" title="四元数求欧拉角"></a>四元数求欧拉角</h3><p>参考链接 :</p>
 <p><a href="https://www.3dgep.com/understanding-quaternions/#The_Complex_Plane">understanding-quaternions</a></p>
 <p><a href="https://juejin.cn/post/7140527372100435976">从复数到四元数</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/45404840">三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换 - 知乎 (zhihu.com)</a></p>
 <p><a href="https://blog.sciencenet.cn/blog-2777453-1075307.html">科学网—0034: 四元数与姿态矩阵（旋转矩阵）转换的公式 - 何成文的博文 (sciencenet.cn)</a></p>
-<p><a href="https://blog.csdn.net/guanjianhe/article/details/95608801">四元数解算姿态角解析_四元数姿态解算-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/guanjianhe/article/details/95608801">四元数解算姿态角解析_四元数姿态解算-CSDN 博客</a></p>
 <p><a href="https://gitcode.csdn.net/662b46fac647e032687df7f1.html?dp_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mzc3MDE0NSwiZXhwIjoxNzIxNzI3MzQ5LCJpYXQiOjE3MjExMjI1NDksInVzZXJuYW1lIjoid2VpeGluXzQ4NTUxNDExIn0.XNQEvQZ0hsGNzhkasX1q7Q9K-oWgF5Sn_l199R6cyIc">四元数——姿态解算_线性代数_m0_73654084-GitCode 开源社区 (csdn.net)</a></p>
-<p>&#x3D;&#x3D;<a href="https://blog.csdn.net/zhangyufeikk/article/details/94594646">从原理到代码 梳理姿态更新计算的四元数算法_四元数姿态解算原理-CSDN博客</a>&#x3D;&#x3D;</p>
-<p><a href="https://blog.csdn.net/weixin_45632220/article/details/117735223">旋转矩阵及左右乘的意义，看这一篇就够了_旋转矩阵左乘和右乘的几何意义-CSDN博客</a></p>
+<p>==<a href="https://blog.csdn.net/zhangyufeikk/article/details/94594646">从原理到代码 梳理姿态更新计算的四元数算法_四元数姿态解算原理-CSDN 博客</a>==</p>
+<p><a href="https://blog.csdn.net/weixin_45632220/article/details/117735223">旋转矩阵及左右乘的意义，看这一篇就够了_旋转矩阵左乘和右乘的几何意义-CSDN 博客</a></p>
 ]]></content>
       <categories>
         <category>math</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/posts/4a17b156/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>test_test</title>
+    <url>/posts/dd0654c3/</url>
+    <content><![CDATA[<p>测试各种模块编辑效果</p>
+<span id="more"></span>
+<h1 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h1><p>语句:<br><img src="/posts/dd0654c3/dd0654c3/insertimg.png" class title="insertimg"></p>
+<p>效果:</p>
+<img src="/posts/dd0654c3/dd0654c3/kafuka.jpg" class title="kafuka">
+<h1 id="插入网页连接"><a href="#插入网页连接" class="headerlink" title="插入网页连接"></a>插入网页连接</h1><p>直接输入即可<br><a href="https://github.com/WDXXZH">https://github.com/WDXXZH</a></p>
+<h1 id="插入代码块"><a href="#插入代码块" class="headerlink" title="插入代码块"></a>插入代码块</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++&gt;)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;OK\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>test</category>
       </categories>
   </entry>
 </search>

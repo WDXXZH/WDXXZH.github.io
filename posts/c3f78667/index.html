@@ -150,7 +150,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -514,18 +514,19 @@ if(canvas.getContext){
     
     <div class="post-body" itemprop="articleBody"><p>施工中</p>
 <span id="more"></span>
-
 <p>PID控制器是最常用的反馈控制器之一，通过调整比例（P）、积分（I）和微分（D）三个参数来实现控制。</p>
 <ul>
 <li><strong>比例控制（P）</strong>：根据当前误差值调整控制输出，反应迅速，但可能会有稳态误差。</li>
 <li><strong>积分控制（I）</strong>：根据误差的累积调整控制输出，消除稳态误差，但可能会导致超调。</li>
 <li><strong>微分控制（D）</strong>：根据误差的变化率调整控制输出，增加系统的阻尼，减少超调。</li>
 </ul>
-<p>PID控制器的公式如下：<br>$$<br>u(t) &#x3D; K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}<br>$$<br>$$U(t)$$:：控制输出</p>
-<p>$$e(t)$$：误差</p>
-<p>$$K_p$$ ：比例</p>
-<p>$$K_i$$ ：积分</p>
-<p>$$K_d$$ ：微分增益</p>
+<p>PID控制器的公式如下：</p>
+<script type="math/tex; mode=display">
+u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p><script type="math/tex">U(t)</script>:：控制输出</p>
+<p><script type="math/tex">e(t)</script>：误差</p>
+<p><script type="math/tex">K_p</script> ：比例</p>
+<p><script type="math/tex">K_i</script> ：积分</p>
+<p><script type="math/tex">K_d</script> ：微分增益</p>
 
     </div>
 
@@ -564,8 +565,8 @@ if(canvas.getContext){
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/68728ca3/" rel="next" title="坐标系旋转">
-                  坐标系旋转 <i class="fa fa-angle-right"></i>
+                <a href="/posts/0/" rel="next" title>
+                   <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -637,6 +638,12 @@ if(canvas.getContext){
   
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
