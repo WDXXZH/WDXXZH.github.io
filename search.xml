@@ -65,15 +65,14 @@
   <entry>
     <title>函数指针与typedef</title>
     <url>/posts/1fd5e519/</url>
-    <content><![CDATA[<p>施工中</p>
-<h1 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h1><p>格式:</p>
+    <content><![CDATA[<h1 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h1><p>格式:</p>
 <p><code>指针类型 (*函数指针名称)(函数指针参数)</code></p>
 <ul>
 <li>定义一个函数指针 func_1</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;func\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> (*func_1)(<span class="type">int</span>) = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%p\r\n&quot;</span>,func_1);</span><br><span class="line">	func_1 = &amp;func;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%p\r\n%p\r\n&quot;</span>,func,func_1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>​ <strong>结果 :</strong></p>
-<img src="/posts/1fd5e519/1fd5e519/image-20240723152721091.png" class title="image-20240723152721091">
+<img src="/posts/1fd5e519/image-20240723152721091.png" class title="image-20240723152721091">
 <ul>
 <li><p>定义一个参数和返回值都是函数的函数指针 MyFunction</p>
 <p>其中<code>int(*MyFunction(void (* pArg)(void)))(int)</code></p>
@@ -84,7 +83,7 @@
 </ul>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">FunArg</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunArg，一个没有参数和返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">FunReturn</span><span class="params">(<span class="type">int</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunReturn，一个有int参数和int返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>(*MyFunction(<span class="type">void</span> (* pArg)(<span class="type">void</span>)))(<span class="type">int</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MyFunction，一个有函数参数和函数返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    MyFunction(FunArg);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>结果 :</strong></p>
-<p>​ <img src="/posts/1fd5e519/1fd5e519/image-20240723161822577.png" class title="image-20240723161822577"></p>
+<p>​ <img src="/posts/1fd5e519/image-20240723161822577.png" class title="image-20240723161822577"></p>
 <p><strong>MyFunction 被成功调用，但 FunArg 未被调用，FunArg 只是 MyFunction 被成功调用需满足的条件。</strong></p>
 <h1 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h1><p><code>typedef 原类型名 新名称</code></p>
 <p>目的 : 增强代码的可读性</p>
@@ -92,7 +91,7 @@
 <p>typedef 与函数指针</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">FunArg</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunArg，一个没有参数和返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">FunReturn</span><span class="params">(<span class="type">int</span> arg)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunReturn，一个有int参数和int返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">void</span><span class="params">(*PFN_ARG)</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">int</span><span class="params">(*PFN_RETURN)</span><span class="params">(<span class="type">int</span>)</span>;</span><br><span class="line"></span><br><span class="line">PFN_RETURN <span class="title function_">MyFunction</span><span class="params">(PFN_ARG arg)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MyFunction，一个有函数参数和函数返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> FunReturn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    MyFunction(FunArg);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>结果 :</strong></p>
-<img src="/posts/1fd5e519/1fd5e519/image-20240723161732004.png" class title="image-20240723161732004">
+<img src="/posts/1fd5e519/image-20240723161732004.png" class title="image-20240723161732004">
 <p>个人解读 :</p>
 <p>​ 定义过<code>typedef void(*PFN_ARG)(void);</code>和<code>typedef int(*PFN_RETURN)(int);</code>后，可使用 PFN_ARG 定义一个没有参数和返回值的函数，使用 PFN_RETURN 定义一个参数和返回值都是 int 的函数。</p>
 <p>​ 在<code>PFN_RETURN MyFunction(PFN_ARG arg)</code>中，可看出 MyFunction 的参数是一个没有参数和返回值的函数，在 MyFunction 中用 arg 命名；而 MyFunction 是一个参数和返回值都为 int 函数的函数，所以 MyFunction 函数内，返回值为<code>return FunReturn;</code>，因为 FunReturn 是一个返回值为 int 的函数。</p>
@@ -140,7 +139,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <p>内-&gt;外</p>
 <p>电流(转矩)环+速度(转速)环+位置环</p>
 <p>——-《电力拖动自动控制系统(第 5 版)(陈伯时)》——</p>
-<img src="/posts/83e63798/83e63798/2c1f7f58eba9482a97bd27cc4ba22005.png" class title="img">
+<img src="/posts/83e63798/2c1f7f58eba9482a97bd27cc4ba22005.png" class title="img">
 ]]></content>
       <categories>
         <category>伺服电机</category>
@@ -165,7 +164,7 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <h1 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>若函数$y=f(x)$在点$x_0$的增量可以表示为$\vartriangle y=f(x_0+\vartriangle x)-f(x_0)=A\centerdot \vartriangle x+o(\vartriangle x)$,其中 A 是与$\vartriangle x$无关的常数，则称函数$y=f(x)$在点$x_0$可微，并称$A\centerdot\vartriangle x$为函数$y=f(x)$在点$x_0$的微分，记作 ：</p>
 <p>​ $dy|_{x=x_0}$或$df(x_0)$,即$dy|_{x=x_0}=A\centerdot\vartriangle x$</p>
 <p><strong>注</strong> : 导数与微分不能混为一谈，导数是极限值，微分是函数因变量的增量近似值</p>
-<h2 id="微分的几何意义"><a href="#微分的几何意义" class="headerlink" title="微分的几何意义"></a>微分的几何意义</h2><img src="/posts/7b740b99/7b740b99/image-20240717103652538.png" class title="image-20240717103652538">
+<h2 id="微分的几何意义"><a href="#微分的几何意义" class="headerlink" title="微分的几何意义"></a>微分的几何意义</h2><img src="/posts/7b740b99/image-20240717103652538.png" class title="image-20240717103652538">
 <p>当自变量由$x_0$增加到$x_0+\vartriangle x$时，函数增量$\vartriangle y = f(x_0 + \vartriangle x)-f(x_0) = RQ$</p>
 <p>微分是指在点 P 处的切线与 $\vartriangle x$所对应的增量，即求的是在$x_0$处的切线，在 x 轴增加$\vartriangle x$后，y 轴对应增量 : $dy = f’(x_0)\vartriangle x = RQ’$</p>
 <h2 id="可导与可微"><a href="#可导与可微" class="headerlink" title="可导与可微"></a>可导与可微</h2><p>可导是可微的充要条件</p>
@@ -182,7 +181,7 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <li><p>$\sqrt[3]{998.5}=\sqrt[3]{1000}+dy=10-\frac{1}{200}=9.995$</p>
 </li>
 <li><p>计算器计算结果:</p>
-<img src="/posts/7b740b99/7b740b99/image-20240717113911665.png" class title="image-20240717113911665">
+<img src="/posts/7b740b99/image-20240717113911665.png" class title="image-20240717113911665">
 </li>
 </ol>
 <h1 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><h3 id="原函数"><a href="#原函数" class="headerlink" title="原函数"></a>原函数</h3><p>如果在区间 I 上，$F’(x)=f(x)$ 或 $dF(x)=f(x)dx$ , 则称 F(x) 为 f(x) 在 I 上的一个<strong>原函数</strong></p>
@@ -190,7 +189,7 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <p><strong>不定积分是一种运算，与微分运算互逆</strong></p>
 <h3 id="定积分"><a href="#定积分" class="headerlink" title="定积分"></a>定积分</h3><p>设函数 f(x)在[a,b]上有界，在[a,b]中==任意==插入若干分点$a=x_0&lt;x_1&lt;x_2&lt;…&lt;x_{n-1}&lt;x_n=b$,把区间[a,b]分成 n 个小区间，各小区间长度依次为$\Delta x_i=x_i-x_{i-1},(i=1,2,…,n)$,在各小区间上==任取==一点$\xi_i(\xi_i \in \Delta x_i)$,作乘积$f(\xi_i)\Delta x_i(i=1,2,…,n)$，并作和$S=\sum_{i=1}^n{f(\xi_i)\Delta x_i}$</p>
 <p>定积分是一种求和运算，求一个具体的函数在具体的区间内，与 x 轴围成图形的具体面积</p>
-<img src="/posts/7b740b99/7b740b99/20200523164722792.png" class width="20200523164722792">
+<img src="/posts/7b740b99/20200523164722792.png" class width="20200523164722792">
 <p>参考链接 :</p>
 <p><a href="https://blog.csdn.net/baidu_39491365/article/details/89856302">什么是微分？导数和微分的区别是什么？微分和积分的联系？_微分积分的区别和联系-CSDN 博客</a></p>
 <p><a href="https://blog.csdn.net/weixin_43148062/article/details/106302533">高等数学导数公式、微分公式和积分公式大全_常用微分公式 知乎-CSDN 博客</a></p>
@@ -209,13 +208,13 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
     <title>坐标系旋转</title>
     <url>/posts/68728ca3/</url>
     <content><![CDATA[<p>施工中</p>
-<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><p><style>.niwmoighimcm{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="niwmoighimcm" alt="img"></p>
-<p><style>.hcsphuynvhgn{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="hcsphuynvhgn" alt="img"></p>
+<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><p><style>.neoopdgxhlxe{zoom:80%;}</style><img src="/posts/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="neoopdgxhlxe" alt="img"></p>
+<p><style>.ihpcjfhksxvr{zoom:67%;}</style><img src="/posts/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="ihpcjfhksxvr" alt="img"></p>
 <p>坐标轴以原点为圆心转动，不管怎么转，转后坐标系都可以通过三个角在原坐标系上表达。</p>
 <p>欧拉角可能会导致万向节死锁情况出现，任一坐标轴旋转角度为 90 度时，就会由两个轴的旋转动作起到的作用相同，形成死锁</p>
-<p><style>.uiwhttcxywtd{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="uiwhttcxywtd" alt="img"></p>
+<p><style>.wrmevtswspym{zoom: 33%;}</style><img src="/posts/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="wrmevtswspym" alt="img"></p>
 <h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>1.坐标变换</p>
-<p><style>.lmmhfmynbkgn{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722102204803.png" class="lmmhfmynbkgn" alt="image-20240722102204803"></p>
+<p><style>.gpdeilqpxdtt{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722102204803.png" class="gpdeilqpxdtt" alt="image-20240722102204803"></p>
 <p>如图所示，对于点 P 在不同坐标系下的表示，红色坐标系由黑色坐标系绕原点旋转$\alpha $° 得来；</p>
 <p>其坐标变换关系如下 :</p>
 <p>$P_{xa} =OM-P_{xa}M=P_{xb}<em>\cos{\alpha}-IP_{xb}</em>\cos{\alpha}$</p>
@@ -226,15 +225,15 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <p>$P_{ya}=P_{xb}\sin{\alpha}+P_{yb}\cos{\alpha}$</p>
 <p>$P_{za}=P_{zb}$</p>
 <p>由上述式子可得矩阵 :</p>
-<img src="/posts/68728ca3/68728ca3/image-20240722103355214.png" class title="image-20240722103355214">
-<p><style>.rxrydrmyvzce{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104206337.png" class="rxrydrmyvzce" alt="image-20240722104206337"></p>
+<img src="/posts/68728ca3/image-20240722103355214.png" class title="image-20240722103355214">
+<p><style>.lemkfquconpb{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104206337.png" class="lemkfquconpb" alt="image-20240722104206337"></p>
 <p>想写出坐标系 B 相对于坐标系 A 的旋转矩阵，只需将坐标系 B 相对于坐标系 A 的方向余弦写成矩阵形式 :</p>
-<p><style>.elsfhtffpavs{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104249976.png" class="elsfhtffpavs" alt="image-20240722104249976"></p>
-<p><style>.kmcyxhofrqtu{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104500401.png" class="kmcyxhofrqtu" alt="image-20240722104500401"></p>
-<p><style>.izwfshyyknhx{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722112100493.png" class="izwfshyyknhx" alt="image-20240722112100493"></p>
-<img src="/posts/68728ca3/68728ca3/image-20240722112317352.png" class title="image-20240722112317352">
+<p><style>.cbkwuodlymyw{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104249976.png" class="cbkwuodlymyw" alt="image-20240722104249976"></p>
+<p><style>.yebwpezovsmu{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722104500401.png" class="yebwpezovsmu" alt="image-20240722104500401"></p>
+<p><style>.jkpcilxuvouf{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722112100493.png" class="jkpcilxuvouf" alt="image-20240722112100493"></p>
+<img src="/posts/68728ca3/image-20240722112317352.png" class title="image-20240722112317352">
 <p>上为坐标系旋转，下为向量旋转</p>
-<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p><style>.sggbqoyzguzu{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240715145743748.png" class="sggbqoyzguzu" alt="image-20240715145743748"></p>
+<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p><style>.pikgaeelbvtn{zoom:80%;}</style><img src="/posts/68728ca3/image-20240715145743748.png" class="pikgaeelbvtn" alt="image-20240715145743748"></p>
 <p>物理意义：按照特定的方向旋转 90 度</p>
 <h2 id="四元数的定义"><a href="#四元数的定义" class="headerlink" title="四元数的定义"></a>四元数的定义</h2><p>· 对于基{ 1,i,j,k }的线性组合，向量形式 : $q = \begin{bmatrix}a\\b\\c\\d\end{bmatrix}$，( $i^2=j^2=k^2=ijk=-1$ )</p>
 <p>· 将四元数的虚实部分开，使用三维向量来表示虚部，将它表示为标量和向量的有序形式 : $q = [ s , \vec{v} ]$, 其中 $\vec{v} = \begin{bmatrix}x\\y\\z\end{bmatrix}$, $\{ s\quad x\quad y\quad z \}\subseteq \mathbb{R}$</p>
@@ -244,54 +243,54 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <p>$=[ae-\vec{v}\centerdot\vec{u}， a\vec{u}+e\vec{v}+\vec{v}\times\vec{u}]$ ( 矢量式 )</p>
 <p>矩阵形式 :</p>
 <p>$q_1q_2\neq q_2q_1$ <span style="background:yellow">左乘不等于右乘</span></p>
-<p><style>.zsveqvjyrtbx{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="zsveqvjyrtbx" alt="img"></p>
+<p><style>.mzwbltijfico{zoom: 33%;}</style><img src="/posts/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="mzwbltijfico" alt="img"></p>
 <p>$q_1q_2= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;-d&amp;c\\c&amp;d&amp;a&amp;-b\\d&amp;-c&amp;b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
 <p>$q_2q_1= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;d&amp;-c\\c&amp;-d&amp;a&amp;b\\d&amp;c&amp;-b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
 <p>左乘：左为动作，右为被操作对象</p>
 <p>右乘：右为动作，左为被操作对象</p>
 <h2 id="纯四元数"><a href="#纯四元数" class="headerlink" title="纯四元数"></a>纯四元数</h2><p>仅有虚部的四元数,也被称为单位四元数</p>
-<script type="math/tex; mode=display">q=[0,\vec{v}]=xi+yj+zk</script><img src="/posts/68728ca3/68728ca3/image-20240716093117829.png" class title="image-20240716093117829">
+<script type="math/tex; mode=display">q=[0,\vec{v}]=xi+yj+zk</script><img src="/posts/68728ca3/image-20240716093117829.png" class title="image-20240716093117829">
 <p>若：</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716091605318.png" class title="image-20240716091605318">
+<img src="/posts/68728ca3/image-20240716091605318.png" class title="image-20240716091605318">
 <p>此时</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716091620078.png" class title="image-20240716091620078">
-<img src="/posts/68728ca3/68728ca3/image-20240716091628174.png" class title="image-20240716091628174">
-<img src="/posts/68728ca3/68728ca3/image-20240716091641286.png" class title="image-20240716091641286">
-<img src="/posts/68728ca3/68728ca3/image-20240716091655289.png" class title="image-20240716091655289">
-<img src="/posts/68728ca3/68728ca3/image-20240716091713099.png" class title="image-20240716091713099">
+<img src="/posts/68728ca3/image-20240716091620078.png" class title="image-20240716091620078">
+<img src="/posts/68728ca3/image-20240716091628174.png" class title="image-20240716091628174">
+<img src="/posts/68728ca3/image-20240716091641286.png" class title="image-20240716091641286">
+<img src="/posts/68728ca3/image-20240716091655289.png" class title="image-20240716091655289">
+<img src="/posts/68728ca3/image-20240716091713099.png" class title="image-20240716091713099">
 <h2 id="实四元数"><a href="#实四元数" class="headerlink" title="实四元数"></a>实四元数</h2><p>虚部为 0 的四元数$q=[s,0]$</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716091852076.png" class title="image-20240716091852076">
+<img src="/posts/68728ca3/image-20240716091852076.png" class title="image-20240716091852076">
 <p>该乘积与虚部为 0 的两个虚数乘积相似</p>
 <h2 id="四元数与标量乘积"><a href="#四元数与标量乘积" class="headerlink" title="四元数与标量乘积"></a>四元数与标量乘积</h2><p>( 标量 : 只有大小，没有方向的量 )<br>$\lambda=[\lambda,\vec{0}]$</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716092143817.png" class title="image-20240716092143817">
+<img src="/posts/68728ca3/image-20240716092143817.png" class title="image-20240716092143817">
 <h2 id="单位四元数"><a href="#单位四元数" class="headerlink" title="单位四元数"></a>单位四元数</h2><p>可通过向量与标量表示</p>
 <script type="math/tex; mode=display">\vec{v}=\upsilon\hat{\nu}</script><p>其中$\upsilon=|\vec\nu|$，$|\hat{\nu}|=1$</p>
 <p>即$\upsilon$表示$\vec{v}$的方向,$\hat{\nu}$表示$\vec{v}$的长度</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716094406781.png" class title="image-20240716094406781">
+<img src="/posts/68728ca3/image-20240716094406781.png" class title="image-20240716094406781">
 <p>我们可以使用一个向量（仅表示方向故长度为 0）和一个标量（仅表示长度没有方向）来表示单位四元数</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716094511774.png" class title="image-20240716094511774">
+<img src="/posts/68728ca3/image-20240716094511774.png" class title="image-20240716094511774">
 <p>使用单位四元数与四元数加法来表达普通四元数，且该结构形式与虚数结构形式（$z=a+bi$）相似</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716095129025.png" class title="image-20240716095129025">
-<h2 id="共轭四元数-conjugate"><a href="#共轭四元数-conjugate" class="headerlink" title="共轭四元数 (conjugate)"></a>共轭四元数 (conjugate)</h2><img src="/posts/68728ca3/68728ca3/image-20240716095546420.png" class title="image-20240716095546420"> <img src="/posts/68728ca3/68728ca3/image-20240716095604518.png" class title="image-20240716095604518">
+<img src="/posts/68728ca3/image-20240716095129025.png" class title="image-20240716095129025">
+<h2 id="共轭四元数-conjugate"><a href="#共轭四元数-conjugate" class="headerlink" title="共轭四元数 (conjugate)"></a>共轭四元数 (conjugate)</h2><img src="/posts/68728ca3/image-20240716095546420.png" class title="image-20240716095546420"> <img src="/posts/68728ca3/image-20240716095604518.png" class title="image-20240716095604518">
 <h2 id="四元数的模-norm"><a href="#四元数的模-norm" class="headerlink" title="四元数的模 (norm)"></a>四元数的模 (norm)</h2><p>在复数中 :</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716101954773.png" class title="image-20240716101954773">
+<img src="/posts/68728ca3/image-20240716101954773.png" class title="image-20240716101954773">
 <p>则共轭四元数也可 :</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716102031318.png" class title="image-20240716102031318">
-<img src="/posts/68728ca3/68728ca3/image-20240716102041248.png" class title="image-20240716102041248">
+<img src="/posts/68728ca3/image-20240716102031318.png" class title="image-20240716102031318">
+<img src="/posts/68728ca3/image-20240716102041248.png" class title="image-20240716102041248">
 <h2 id="四元数归一化-normalization"><a href="#四元数归一化-normalization" class="headerlink" title="四元数归一化 (normalization)"></a>四元数归一化 (normalization)</h2><p>即表示为单位向量模式</p>
 <p>向量除以向量的模</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716102809602.png" class title="image-20240716102809602">
-<h2 id="四元数逆变-inverse"><a href="#四元数逆变-inverse" class="headerlink" title="四元数逆变 (inverse)"></a>四元数逆变 (inverse)</h2><img src="/posts/68728ca3/68728ca3/image-20240716102912448.png" class title="image-20240716102912448">
-<img src="/posts/68728ca3/68728ca3/image-20240716102928445.png" class title="image-20240716102928445">
+<img src="/posts/68728ca3/image-20240716102809602.png" class title="image-20240716102809602">
+<h2 id="四元数逆变-inverse"><a href="#四元数逆变-inverse" class="headerlink" title="四元数逆变 (inverse)"></a>四元数逆变 (inverse)</h2><img src="/posts/68728ca3/image-20240716102912448.png" class title="image-20240716102912448">
+<img src="/posts/68728ca3/image-20240716102928445.png" class title="image-20240716102928445">
 <p>对于单位四元数，有 :</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716103011373.png" class title="image-20240716103011373">
-<h2 id="四元数的点乘-dot-product"><a href="#四元数的点乘-dot-product" class="headerlink" title="四元数的点乘 (dot product)"></a>四元数的点乘 (dot product)</h2><img src="/posts/68728ca3/68728ca3/image-20240716103106917.png" class title="image-20240716103106917">
-<img src="/posts/68728ca3/68728ca3/image-20240716103126039.png" class title="image-20240716103126039">
+<img src="/posts/68728ca3/image-20240716103011373.png" class title="image-20240716103011373">
+<h2 id="四元数的点乘-dot-product"><a href="#四元数的点乘-dot-product" class="headerlink" title="四元数的点乘 (dot product)"></a>四元数的点乘 (dot product)</h2><img src="/posts/68728ca3/image-20240716103106917.png" class title="image-20240716103106917">
+<img src="/posts/68728ca3/image-20240716103126039.png" class title="image-20240716103126039">
 <p>对于单位四元数，有 :</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716103143979.png" class title="image-20240716103143979">
+<img src="/posts/68728ca3/image-20240716103143979.png" class title="image-20240716103143979">
 <h2 id="三位空间旋转公式"><a href="#三位空间旋转公式" class="headerlink" title="三位空间旋转公式"></a>三位空间旋转公式</h2><p>由于实际中要旋转的向量在三维空间，所以将 $q_a$ 看做是第四维（实数部）为<code>0</code>的<strong>纯四元数</strong>，则 $q_a=[0,a]$ 或 $q_a=(0+x_ai+y_aj+z_ak)$) ，那么得到<strong>三维空间旋转公式</strong>:</p>
 <script type="math/tex; mode=display">q_aq_b=[−a\centerdot b,s_ba+a×b]</script><h2 id="四元数与三维旋转"><a href="#四元数与三维旋转" class="headerlink" title="四元数与三维旋转"></a>四元数与三维旋转</h2><p>虚数 _ i（$i^2=-1$），即该虚数所在点绕圆心逆时针旋转 90 度；同理 _-i 即顺时针旋转 90 度</p>
-<p><style>.gvrlrpggtxem{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/image-20240716084319542.png" class="gvrlrpggtxem" alt="image-20240716084319542"></p>
+<p><style>.rpqwfeflqlrw{zoom:50%;}</style><img src="/posts/68728ca3/image-20240716084319542.png" class="rpqwfeflqlrw" alt="image-20240716084319542"></p>
 <h3 id="推导-（纯四元数）"><a href="#推导-（纯四元数）" class="headerlink" title="推导 （纯四元数）"></a>推导 （纯四元数）</h3><ol>
 <li><p>定义一个四元数 q，使要旋转的向量旋转$\theta$ 度，v 是单位化转轴方向</p>
 <p> $q=\cos\theta+i\sin\theta$ ( 复数式 )</p>
@@ -312,26 +311,26 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <li><p>选一向量 p，使与 z 轴正交，假如 p 在 x（i）轴上，此时</p>
 <script type="math/tex; mode=display">p=[0,2i+0j+0k]</script></li>
 <li><p>由于 i 与 k 正交，点积为 0 :</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716145305409.png" class title="image-20240716145305409">
-<img src="/posts/68728ca3/68728ca3/image-20240716151737501.png" class title="image-20240716151737501">
+<img src="/posts/68728ca3/image-20240716145305409.png" class title="image-20240716145305409">
+<img src="/posts/68728ca3/image-20240716151737501.png" class title="image-20240716151737501">
 </li>
 <li><p>若 $p’=pq$ ,则结果为 $[0,\sqrt{2}i-\sqrt{2}j]$,旋转方向相反</p>
 </li>
-<li>红色绕蓝色逆时针旋转 45 度得到黄色<br><style>.kkkqqronigkk{zoom: 50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-13.png" class="kkkqqronigkk" alt="img"></li>
+<li>红色绕蓝色逆时针旋转 45 度得到黄色<br><style>.orkkndgbhvte{zoom: 50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-13.png" class="orkkndgbhvte" alt="img"></li>
 </ol>
 <h3 id="非纯四元数旋转"><a href="#非纯四元数旋转" class="headerlink" title="非纯四元数旋转"></a>非纯四元数旋转</h3><ol>
 <li><p>一个正常四元数 q，与 p 不正交(p 仍为上文中的 p=[0.2i])，设定 q 的矢量部分与 p 夹角为 45 度,计算 p 绕 q 旋转$\theta$角度后得到的向量</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716152337654.png" class title="image-20240716152337654">
+<img src="/posts/68728ca3/image-20240716152337654.png" class title="image-20240716152337654">
 </li>
 <li><p>代入<strong>三位空间旋转公式</strong></p>
-<img src="/posts/68728ca3/68728ca3/image-20240716152435482.png" class title="image-20240716152435482">
+<img src="/posts/68728ca3/image-20240716152435482.png" class title="image-20240716152435482">
 </li>
 <li><p>替换已知量</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716154207402.png" class title="image-20240716154207402">
+<img src="/posts/68728ca3/image-20240716154207402.png" class title="image-20240716154207402">
 </li>
 <li><p>计算结果已经不是纯四元数，且没有旋转 45 度，模长也不是 2（而是$\sqrt{3}$）,用图像表示 :</p>
 </li>
-<li><p><style>.aqepflvujlrc{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-2.png" class="aqepflvujlrc" alt="img"></p>
+<li><p><style>.hrorrfvxdcxu{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-2.png" class="hrorrfvxdcxu" alt="img"></p>
 </li>
 </ol>
 <blockquote id="fn_注">
@@ -339,17 +338,17 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 </blockquote>
 <ol>
 <li><p>如何将其转变为纯四元数？Hamilton 发现，将 qp 右乘 q 的逆，将得到一个纯四元数，且该四元数的向量部分保持不变 : (因为 q 为单位四元数，此时 q 的逆等于 q 的共轭四元数)</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716155056302.png" class title="image-20240716155056302">
+<img src="/posts/68728ca3/image-20240716155056302.png" class title="image-20240716155056302">
 <p>$\theta = 45^\circ$</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716155124298.png" class title="image-20240716155124298">
-<img src="/posts/68728ca3/68728ca3/image-20240716155346584.png" class title="image-20240716155346584">
+<img src="/posts/68728ca3/image-20240716155124298.png" class title="image-20240716155124298">
+<img src="/posts/68728ca3/image-20240716155346584.png" class title="image-20240716155346584">
 <p>记$qpq^-1$为$p’$</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716155404171.png" class title="image-20240716155404171">
+<img src="/posts/68728ca3/image-20240716155404171.png" class title="image-20240716155404171">
 <p>求得 p’的模长与 p 相等</p>
-<p><style>.blsisdoweljy{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-3.png" class="blsisdoweljy" alt="img"></p>
+<p><style>.fqmodhxcihsa{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-3.png" class="fqmodhxcihsa" alt="img"></p>
 </li>
 <li><p>观察上图可发现，红色向量绕紫色向量旋转了 90 度而非 45 度，得到黄色向量，因此为了正确的让一个向量绕某个轴向量旋转某个角度，必须以目标角度的一般来计算 ，得到<strong>旋转四元数</strong>的一般形式:</p>
-<img src="/posts/68728ca3/68728ca3/image-20240716161001706.png" class title="image-20240716161001706">
+<img src="/posts/68728ca3/image-20240716161001706.png" class title="image-20240716161001706">
 </li>
 </ol>
 <h2 id="小总结-四元数表达形式"><a href="#小总结-四元数表达形式" class="headerlink" title="小总结-四元数表达形式"></a>小总结-四元数表达形式</h2><p>矢量式 $\vec{Q}=q_0+\vec{q}$,其中$\vec{q}=q_1\vec{i}+q_2\vec{j}+q_3\vec{k}$</p>
@@ -359,7 +358,7 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <h2 id="四元数与旋转矩阵与姿态变化矩阵"><a href="#四元数与旋转矩阵与姿态变化矩阵" class="headerlink" title="四元数与旋转矩阵与姿态变化矩阵"></a>四元数与旋转矩阵与姿态变化矩阵</h2><p> 假设单位四元数$q=w+xi+yj+zk$,其中$||q||=x^2+y^2+z^2+w^2=1$，那么旋转矩阵 :</p>
 <p>$R(q)=\begin{bmatrix}1-2y^2-2z^2&amp;2xy-2zw&amp;2xz+2yw\\2xy+2zw&amp;1-2x^2-2z^2&amp;2yz-2xw\\2xz-2yw&amp;2yz+2xw&amp;1-2x^2-2y^2\end{bmatrix}$</p>
 <p>$c^E_b=\begin{bmatrix}w^2+x^2-y^2-z^2&amp;2xy-2zw&amp;2xz+2yw\\2xy+2zw&amp;w^2-x^2+y^2-z^2&amp;2yz-2xw\\2xz-2yw&amp;2yz+2xw&amp;w^2-x^2-y^2+z^2\end{bmatrix}$</p>
-<h2 id="四元数与姿态角"><a href="#四元数与姿态角" class="headerlink" title="四元数与姿态角"></a>四元数与姿态角</h2><img src="/posts/68728ca3/68728ca3/image-20240716173419183.png" class title="image-20240716173419183">
+<h2 id="四元数与姿态角"><a href="#四元数与姿态角" class="headerlink" title="四元数与姿态角"></a>四元数与姿态角</h2><img src="/posts/68728ca3/image-20240716173419183.png" class title="image-20240716173419183">
 <p>$2(xz-wy)=-\sin{\gamma}$</p>
 <p>$2(yz+xw)=\sin{\theta}\cos{\gamma}$</p>
 <p>$w^2-x^2-y^2+z^2=\cos{\theta}\cos{\gamma}$</p>
@@ -404,11 +403,10 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
   <entry>
     <title>test_test</title>
     <url>/posts/dd0654c3/</url>
-    <content><![CDATA[<p>测试各种模块编辑效果</p>
-<h1 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h1><p>语句:<br><img src="/posts/dd0654c3/dd0654c3/insertimg.png" class title="insertimg"></p>
+    <content><![CDATA[<h1 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h1><p>语句:<br><img src="/posts/dd0654c3/insertimg.png" class title="insertimg"></p>
 <p><strong>注 : 存放图片的文件夹应与文件名相同，图片链接也相同，本文文件名为 test-test,存放图片文件夹为 test-test，文章标题为 test_test</strong></p>
 <p>效果:</p>
-<img src="/posts/dd0654c3/dd0654c3/kafuka.jpg" class title="kafuka">
+<img src="/posts/dd0654c3/kafuka.jpg" class title="kafuka">
 <h1 id="插入网页连接"><a href="#插入网页连接" class="headerlink" title="插入网页连接"></a>插入网页连接</h1><p>直接输入即可<br><a href="https://github.com/WDXXZH">https://github.com/WDXXZH</a></p>
 <h1 id="插入代码块"><a href="#插入代码块" class="headerlink" title="插入代码块"></a>插入代码块</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++&gt;)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;OK\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h1><p>测试测试$\frac{\sin{x}}{\cos{x}}$测试测试</p>
@@ -416,7 +414,84 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 \frac{\sin{x}}{\cos{x}}</script><p>公式块不显示 —待解决</p>
 <h1 id="文字高亮"><a href="#文字高亮" class="headerlink" title="文字高亮"></a>文字高亮</h1><p><span style="background:yellow">文字</span></p>
 <h1 id="文字加粗"><a href="#文字加粗" class="headerlink" title="文字加粗"></a>文字加粗</h1><p><strong>文字</strong></p>
-<h1 id="本文代码"><a href="#本文代码" class="headerlink" title="本文代码"></a>本文代码</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"># 插入图片</span><br><span class="line"></span><br><span class="line">语句:</span><br><span class="line"><span class="comment">//&#123;% asset_img insertimg.png insertimg %&#125;</span></span><br><span class="line"></span><br><span class="line">**注 : 存放图片的文件夹应与文件名相同，链接中应与文章标题相同，本文文件名为 test-test,存放图片文件夹为 test-test，文章标题为 test_test**</span><br><span class="line"></span><br><span class="line">效果:</span><br><span class="line"></span><br><span class="line"><span class="comment">//&#123;% asset_img kafuka.jpg kafuka %&#125;</span></span><br><span class="line"></span><br><span class="line"># 插入网页连接</span><br><span class="line"></span><br><span class="line">直接输入即可</span><br><span class="line">https:<span class="comment">//github.com/WDXXZH</span></span><br><span class="line"></span><br><span class="line"># 插入代码块</span><br><span class="line"></span><br><span class="line">​```c</span><br><span class="line"><span class="type">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++&gt;)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;OK\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">​```</span><br><span class="line"></span><br><span class="line"># 行内公式</span><br><span class="line"></span><br><span class="line">测试测试$\frac&#123;\<span class="built_in">sin</span>&#123;x&#125;&#125;&#123;\<span class="built_in">cos</span>&#123;x&#125;&#125;$测试测试</span><br><span class="line"></span><br><span class="line"># 公式块</span><br><span class="line"></span><br><span class="line">$$</span><br><span class="line">\frac&#123;\<span class="built_in">sin</span>&#123;x&#125;&#125;&#123;\<span class="built_in">cos</span>&#123;x&#125;&#125;</span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line"># 文字高亮</span><br><span class="line"></span><br><span class="line">&lt;span style=<span class="string">&#x27;background:yellow&#x27;</span>&gt;文字&lt;/span&gt;</span><br><span class="line"></span><br><span class="line"># 文字加粗</span><br><span class="line"></span><br><span class="line">**文字**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="标签（hexo）"><a href="#标签（hexo）" class="headerlink" title="标签（hexo）"></a>标签（hexo）</h1><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% note simple %&#125;</span><br><span class="line">默认 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note default simple %&#125;</span><br><span class="line">default 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note primary simple %&#125;</span><br><span class="line">primary 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note success simple %&#125;</span><br><span class="line">success 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note info simple %&#125;</span><br><span class="line">info 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note warning simple %&#125;</span><br><span class="line">warning 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note danger simple %&#125;</span><br><span class="line">danger 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note modern"><p>默认 提示块标签</p>
+</div>
+<div class="note default modern"><p>default 提示块标签</p>
+</div>
+<div class="note primary modern"><p>primary 提示块标签</p>
+</div>
+<div class="note success modern"><p>success 提示块标签</p>
+</div>
+<div class="note info modern"><p>info 提示块标签</p>
+</div>
+<div class="note warning modern"><p>warning 提示块标签</p>
+</div>
+<div class="note danger modern"><p>danger 提示块标签</p>
+</div>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% note modern %&#125;</span><br><span class="line">默认 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note default modern %&#125;</span><br><span class="line">default 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note primary modern %&#125;</span><br><span class="line">primary 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note success modern %&#125;</span><br><span class="line">success 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note info modern %&#125;</span><br><span class="line">info 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note warning modern %&#125;</span><br><span class="line">warning 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note danger modern %&#125;</span><br><span class="line">danger 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note modern"><p>默认 提示块标签</p>
+</div>
+<div class="note default modern"><p>default 提示块标签</p>
+</div>
+<div class="note primary modern"><p>primary 提示块标签</p>
+</div>
+<div class="note success modern"><p>success 提示块标签</p>
+</div>
+<div class="note info modern"><p>info 提示块标签</p>
+</div>
+<div class="note warning modern"><p>warning 提示块标签</p>
+</div>
+<div class="note danger modern"><p>danger 提示块标签</p>
+</div>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% note flat %&#125;</span><br><span class="line">默认 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note default flat %&#125;</span><br><span class="line">default 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note primary flat %&#125;</span><br><span class="line">primary 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note success flat %&#125;</span><br><span class="line">success 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note info flat %&#125;</span><br><span class="line">info 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note warning flat %&#125;</span><br><span class="line">warning 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note danger flat %&#125;</span><br><span class="line">danger 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note flat"><p>默认 提示块标签</p>
+</div>
+<div class="note default flat"><p>default 提示块标签</p>
+</div>
+<div class="note primary flat"><p>primary 提示块标签</p>
+</div>
+<div class="note success flat"><p>success 提示块标签</p>
+</div>
+<div class="note info flat"><p>info 提示块标签</p>
+</div>
+<div class="note warning flat"><p>warning 提示块标签</p>
+</div>
+<div class="note danger flat"><p>danger 提示块标签</p>
+</div>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% note disabled %&#125;</span><br><span class="line">默认 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note default disabled %&#125;</span><br><span class="line">default 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note primary disabled %&#125;</span><br><span class="line">primary 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note success disabled %&#125;</span><br><span class="line">success 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note info disabled %&#125;</span><br><span class="line">info 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note warning disabled %&#125;</span><br><span class="line">warning 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note danger disabled %&#125;</span><br><span class="line">danger 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note disabled"><p>默认 提示块标签</p>
+</div>
+<div class="note default disabled"><p>default 提示块标签</p>
+</div>
+<div class="note primary disabled"><p>primary 提示块标签</p>
+</div>
+<div class="note success disabled"><p>success 提示块标签</p>
+</div>
+<div class="note info disabled"><p>info 提示块标签</p>
+</div>
+<div class="note warning disabled"><p>warning 提示块标签</p>
+</div>
+<div class="note danger disabled"><p>danger 提示块标签</p>
+</div>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% note no-icon %&#125;</span><br><span class="line">默认 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note default no-icon %&#125;</span><br><span class="line">default 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note primary no-icon %&#125;</span><br><span class="line">primary 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note success no-icon %&#125;</span><br><span class="line">success 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note info no-icon %&#125;</span><br><span class="line">info 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note warning no-icon %&#125;</span><br><span class="line">warning 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note danger no-icon %&#125;</span><br><span class="line">danger 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note no-icon simple"><p>默认 提示块标签</p>
+</div>
+<div class="note default no-icon simple"><p>default 提示块标签</p>
+</div>
+<div class="note primary no-icon simple"><p>primary 提示块标签</p>
+</div>
+<div class="note success no-icon simple"><p>success 提示块标签</p>
+</div>
+<div class="note info no-icon simple"><p>info 提示块标签</p>
+</div>
+<div class="note warning no-icon simple"><p>warning 提示块标签</p>
+</div>
+<div class="note danger no-icon simple"><p>danger 提示块标签</p>
+</div>
+<h1 id="Tabs"><a href="#Tabs" class="headerlink" title="Tabs"></a>Tabs</h1><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% tabs test1 %&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line"></span><br><span class="line"><span class="strong">**This is Tab 1.**</span></span><br><span class="line"></span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line"></span><br><span class="line"><span class="strong">**This is Tab 2.**</span></span><br><span class="line"></span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line"></span><br><span class="line"><span class="strong">**This is Tab 3.**</span></span><br><span class="line"></span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
+<div class="tabs" id="test1"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="test1-1">test1 1</button><button type="button" class="tab " data-href="test1-2">test1 2</button><button type="button" class="tab " data-href="test1-3">test1 3</button></ul><div class="tab-contents"><div class="tab-item-content active" id="test1-1"><p><strong>This is Tab 1.</strong></p></div><div class="tab-item-content" id="test1-2"><p><strong>This is Tab 2.</strong></p></div><div class="tab-item-content" id="test1-3"><p><strong>This is Tab 3.</strong></p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+<p>参考链接:<br><a href="https://butterfly.js.org/posts/4aa8abbe/">https://butterfly.js.org/posts/4aa8abbe/</a><br><a href="https://butterfly.js.org/posts/dc584b87/">https://butterfly.js.org/posts/dc584b87/</a></p>
 ]]></content>
       <categories>
         <category>test</category>
