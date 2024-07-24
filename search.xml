@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>BT 和 BLE</title>
+    <url>/posts/0/</url>
+    <content><![CDATA[<p>施工中</p>
+<p>BT：BlueTooth</p>
+<p>BLE：BlueTooth Low Energy</p>
+<p>设备只支持其中一个为单模，两种都支持为双模</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">BT</td>
+<td>BLE</td>
+</tr>
+<tr>
+<td style="text-align:center">距离</td>
+<td style="text-align:center">100m</td>
+<td>&gt;100m</td>
+</tr>
+<tr>
+<td style="text-align:center">数据速率</td>
+<td style="text-align:center">1-3Mbps</td>
+<td>1Mbps</td>
+</tr>
+<tr>
+<td style="text-align:center">应用吞吐量</td>
+<td style="text-align:center">0.7-2.1Mbps</td>
+<td>0.27Mbps</td>
+</tr>
+<tr>
+<td style="text-align:center">延时</td>
+<td style="text-align:center">100ms</td>
+<td>6ms</td>
+</tr>
+<tr>
+<td style="text-align:center">时间间隔</td>
+<td style="text-align:center">100ms</td>
+<td>3ms</td>
+</tr>
+<tr>
+<td style="text-align:center">功耗</td>
+<td style="text-align:center">1W</td>
+<td>0.01~0.5W</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>BT：可以传输声音，传输大量数据</p>
+<p>BLE：数据量小</p>
+]]></content>
+      <categories>
+        <category>BlueTooth</category>
+      </categories>
+  </entry>
+  <entry>
     <title>函数指针与typedef</title>
     <url>/posts/1fd5e519/</url>
     <content><![CDATA[<p>施工中</p>
@@ -64,68 +126,6 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
       </categories>
   </entry>
   <entry>
-    <title>BT 和 BLE</title>
-    <url>/posts/0/</url>
-    <content><![CDATA[<p>施工中</p>
-<p>BT：BlueTooth</p>
-<p>BLE：BlueTooth Low Energy</p>
-<p>设备只支持其中一个为单模，两种都支持为双模</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">4.2</td>
-<td style="text-align:center">BT</td>
-<td>BLE</td>
-</tr>
-<tr>
-<td style="text-align:center">距离</td>
-<td style="text-align:center">100m</td>
-<td>&gt;100m</td>
-</tr>
-<tr>
-<td style="text-align:center">数据速率</td>
-<td style="text-align:center">1-3Mbps</td>
-<td>1Mbps</td>
-</tr>
-<tr>
-<td style="text-align:center">应用吞吐量</td>
-<td style="text-align:center">0.7-2.1Mbps</td>
-<td>0.27Mbps</td>
-</tr>
-<tr>
-<td style="text-align:center">延时</td>
-<td style="text-align:center">100ms</td>
-<td>6ms</td>
-</tr>
-<tr>
-<td style="text-align:center">时间间隔</td>
-<td style="text-align:center">100ms</td>
-<td>3ms</td>
-</tr>
-<tr>
-<td style="text-align:center">功耗</td>
-<td style="text-align:center">1W</td>
-<td>0.01~0.5W</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>BT：可以传输声音，传输大量数据</p>
-<p>BLE：数据量小</p>
-]]></content>
-      <categories>
-        <category>BlueTooth</category>
-      </categories>
-  </entry>
-  <entry>
     <title>伺服电机控制探究</title>
     <url>/posts/83e63798/</url>
     <content><![CDATA[<p>施工中</p>
@@ -150,13 +150,13 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
     <title>坐标系旋转</title>
     <url>/posts/68728ca3/</url>
     <content><![CDATA[<p>施工中</p>
-<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><p><style>.gsmyiznmbmou{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="gsmyiznmbmou" alt="img"></p>
-<p><style>.elnjavnksalj{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="elnjavnksalj" alt="img"></p>
+<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><p><style>.dvksbohdfldm{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="dvksbohdfldm" alt="img"></p>
+<p><style>.nvvkvpkbeixs{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="nvvkvpkbeixs" alt="img"></p>
 <p>坐标轴以原点为圆心转动，不管怎么转，转后坐标系都可以通过三个角在原坐标系上表达。</p>
 <p>欧拉角可能会导致万向节死锁情况出现，任一坐标轴旋转角度为 90 度时，就会由两个轴的旋转动作起到的作用相同，形成死锁</p>
-<p><style>.vypgiqrtzqso{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="vypgiqrtzqso" alt="img"></p>
+<p><style>.bcybrshtpwty{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="bcybrshtpwty" alt="img"></p>
 <h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>1.坐标变换</p>
-<p><style>.xoofkxgvgyir{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722102204803.png" class="xoofkxgvgyir" alt="image-20240722102204803"></p>
+<p><style>.fbzqangpqwuz{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722102204803.png" class="fbzqangpqwuz" alt="image-20240722102204803"></p>
 <p>如图所示，对于点 P 在不同坐标系下的表示，红色坐标系由黑色坐标系绕原点旋转$\alpha $° 得来；</p>
 <p>其坐标变换关系如下 :</p>
 <p>$P_{xa} =OM-P_{xa}M=P_{xb}<em>\cos{\alpha}-IP_{xb}</em>\cos{\alpha}$</p>
@@ -168,14 +168,14 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <p>$P_{za}=P_{zb}$</p>
 <p>由上述式子可得矩阵 :</p>
 <img src="/posts/68728ca3/68728ca3/image-20240722103355214.png" class title="image-20240722103355214">
-<p><style>.xcfomqrlxvjp{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104206337.png" class="xcfomqrlxvjp" alt="image-20240722104206337"></p>
+<p><style>.jfgdpbxuhvis{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104206337.png" class="jfgdpbxuhvis" alt="image-20240722104206337"></p>
 <p>想写出坐标系 B 相对于坐标系 A 的旋转矩阵，只需将坐标系 B 相对于坐标系 A 的方向余弦写成矩阵形式 :</p>
-<p><style>.iedxbnuudofs{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104249976.png" class="iedxbnuudofs" alt="image-20240722104249976"></p>
-<p><style>.nprqtkxtyzgo{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104500401.png" class="nprqtkxtyzgo" alt="image-20240722104500401"></p>
-<p><style>.syofxoxbogqp{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722112100493.png" class="syofxoxbogqp" alt="image-20240722112100493"></p>
+<p><style>.fmfuijwetoim{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104249976.png" class="fmfuijwetoim" alt="image-20240722104249976"></p>
+<p><style>.muyyjljaitma{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722104500401.png" class="muyyjljaitma" alt="image-20240722104500401"></p>
+<p><style>.hxtyznhnuvsu{zoom:67%;}</style><img src="/posts/68728ca3/68728ca3/image-20240722112100493.png" class="hxtyznhnuvsu" alt="image-20240722112100493"></p>
 <img src="/posts/68728ca3/68728ca3/image-20240722112317352.png" class title="image-20240722112317352">
 <p>上为坐标系旋转，下为向量旋转</p>
-<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p><style>.qywjdexdxguf{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240715145743748.png" class="qywjdexdxguf" alt="image-20240715145743748"></p>
+<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p><style>.lwoprkmqcdhd{zoom:80%;}</style><img src="/posts/68728ca3/68728ca3/image-20240715145743748.png" class="lwoprkmqcdhd" alt="image-20240715145743748"></p>
 <p>物理意义：按照特定的方向旋转 90 度</p>
 <h2 id="四元数的定义"><a href="#四元数的定义" class="headerlink" title="四元数的定义"></a>四元数的定义</h2><p>· 对于基{ 1,i,j,k }的线性组合，向量形式 : $q = \begin{bmatrix}a\\b\\c\\d\end{bmatrix}$，( $i^2=j^2=k^2=ijk=-1$ )</p>
 <p>· 将四元数的虚实部分开，使用三维向量来表示虚部，将它表示为标量和向量的有序形式 : $q = [ s , \vec{v} ]$, 其中 $\vec{v} = \begin{bmatrix}x\\y\\z\end{bmatrix}$, $\{ s\quad x\quad y\quad z \}\subseteq \mathbb{R}$</p>
@@ -185,7 +185,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <p>$=[ae-\vec{v}\centerdot\vec{u}， a\vec{u}+e\vec{v}+\vec{v}\times\vec{u}]$ ( 矢量式 )</p>
 <p>矩阵形式 :</p>
 <p>$q_1q_2\neq q_2q_1$ <span style="background:yellow">左乘不等于右乘</span></p>
-<p><style>.qvwhswcquskj{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="qvwhswcquskj" alt="img"></p>
+<p><style>.pytlakesxfzi{zoom: 33%;}</style><img src="/posts/68728ca3/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="pytlakesxfzi" alt="img"></p>
 <p>$q_1q_2= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;-d&amp;c\\c&amp;d&amp;a&amp;-b\\d&amp;-c&amp;b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
 <p>$q_2q_1= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;d&amp;-c\\c&amp;-d&amp;a&amp;b\\d&amp;c&amp;-b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
 <p>左乘：左为动作，右为被操作对象</p>
@@ -232,7 +232,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <img src="/posts/68728ca3/68728ca3/image-20240716103143979.png" class title="image-20240716103143979">
 <h2 id="三位空间旋转公式"><a href="#三位空间旋转公式" class="headerlink" title="三位空间旋转公式"></a>三位空间旋转公式</h2><p>由于实际中要旋转的向量在三维空间，所以将 $q_a$ 看做是第四维（实数部）为<code>0</code>的<strong>纯四元数</strong>，则 $q_a=[0,a]$ 或 $q_a=(0+x_ai+y_aj+z_ak)$) ，那么得到<strong>三维空间旋转公式</strong>:</p>
 <script type="math/tex; mode=display">q_aq_b=[−a\centerdot b,s_ba+a×b]</script><h2 id="四元数与三维旋转"><a href="#四元数与三维旋转" class="headerlink" title="四元数与三维旋转"></a>四元数与三维旋转</h2><p>虚数 _ i（$i^2=-1$），即该虚数所在点绕圆心逆时针旋转 90 度；同理 _-i 即顺时针旋转 90 度</p>
-<p><style>.vxpftwerfhkw{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/image-20240716084319542.png" class="vxpftwerfhkw" alt="image-20240716084319542"></p>
+<p><style>.npgimtehfbno{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/image-20240716084319542.png" class="npgimtehfbno" alt="image-20240716084319542"></p>
 <h3 id="推导-（纯四元数）"><a href="#推导-（纯四元数）" class="headerlink" title="推导 （纯四元数）"></a>推导 （纯四元数）</h3><ol>
 <li><p>定义一个四元数 q，使要旋转的向量旋转$\theta$ 度，v 是单位化转轴方向</p>
 <p> $q=\cos\theta+i\sin\theta$ ( 复数式 )</p>
@@ -258,7 +258,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 </li>
 <li><p>若 $p’=pq$ ,则结果为 $[0,\sqrt{2}i-\sqrt{2}j]$,旋转方向相反</p>
 </li>
-<li>红色绕蓝色逆时针旋转 45 度得到黄色<br><style>.ghzxduwuaoyd{zoom: 50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-13.png" class="ghzxduwuaoyd" alt="img"></li>
+<li>红色绕蓝色逆时针旋转 45 度得到黄色<br><style>.osyijlwzwlwp{zoom: 50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-13.png" class="osyijlwzwlwp" alt="img"></li>
 </ol>
 <h3 id="非纯四元数旋转"><a href="#非纯四元数旋转" class="headerlink" title="非纯四元数旋转"></a>非纯四元数旋转</h3><ol>
 <li><p>一个正常四元数 q，与 p 不正交(p 仍为上文中的 p=[0.2i])，设定 q 的矢量部分与 p 夹角为 45 度,计算 p 绕 q 旋转$\theta$角度后得到的向量</p>
@@ -272,7 +272,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 </li>
 <li><p>计算结果已经不是纯四元数，且没有旋转 45 度，模长也不是 2（而是$\sqrt{3}$）,用图像表示 :</p>
 </li>
-<li><p><style>.lcniuwmcfjdr{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-2.png" class="lcniuwmcfjdr" alt="img"></p>
+<li><p><style>.grsqnwxshrhj{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-2.png" class="grsqnwxshrhj" alt="img"></p>
 </li>
 </ol>
 <blockquote id="fn_注">
@@ -287,7 +287,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <p>记$qpq^-1$为$p’$</p>
 <img src="/posts/68728ca3/68728ca3/image-20240716155404171.png" class title="image-20240716155404171">
 <p>求得 p’的模长与 p 相等</p>
-<p><style>.tffkkwnnipjz{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-3.png" class="tffkkwnnipjz" alt="img"></p>
+<p><style>.mldgdskdpsgk{zoom:50%;}</style><img src="/posts/68728ca3/68728ca3/Quaternion-Rotation-3.png" class="mldgdskdpsgk" alt="img"></p>
 </li>
 <li><p>观察上图可发现，红色向量绕紫色向量旋转了 90 度而非 45 度，得到黄色向量，因此为了正确的让一个向量绕某个轴向量旋转某个角度，必须以目标角度的一般来计算 ，得到<strong>旋转四元数</strong>的一般形式:</p>
 <img src="/posts/68728ca3/68728ca3/image-20240716161001706.png" class title="image-20240716161001706">
@@ -322,6 +322,24 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 ]]></content>
       <categories>
         <category>math</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/posts/4a17b156/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>test</category>
       </categories>
   </entry>
   <entry>
@@ -381,24 +399,6 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 ]]></content>
       <categories>
         <category>math</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/posts/4a17b156/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>test</category>
       </categories>
   </entry>
   <entry>
