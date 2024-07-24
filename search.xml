@@ -144,7 +144,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p><script type="math
 <p>内-&gt;外</p>
 <p>电流(转矩)环+速度(转速)环+位置环</p>
 <p>——-《电力拖动自动控制系统(第 5 版)(陈伯时)》——</p>
-<p><img data-src="伺服电机控制探究/2c1f7f58eba9482a97bd27cc4ba22005.png" alt="img"></p>
+<img data-src="/posts/83e63798/2c1f7f58eba9482a97bd27cc4ba22005.png" class title="img">
 ]]></content>
       <categories>
         <category>伺服电机</category>
@@ -378,7 +378,7 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
     <content><![CDATA[<p>测试各种模块编辑效果</p>
 <span id="more"></span>
 <h1 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h1><p>语句:<br><img data-src="/posts/dd0654c3/insertimg.png" class title="insertimg"></p>
-<p><strong>注 : 存放图片的文件夹应与文件名相同，链接中应与文章标题相同，本文文件名为 test-test,存放图片文件夹为 test-test，文章标题为 test_test</strong></p>
+<p><strong>注 : 存放图片的文件夹应与文件名相同，图片链接也相同，本文文件名为 test-test,存放图片文件夹为 test-test，文章标题为 test_test</strong></p>
 <p>效果:</p>
 <img data-src="/posts/dd0654c3/kafuka.jpg" class title="kafuka">
 <h1 id="插入网页连接"><a href="#插入网页连接" class="headerlink" title="插入网页连接"></a>插入网页连接</h1><p>直接输入即可<br><a href="https://github.com/WDXXZH">https://github.com/WDXXZH</a></p>
