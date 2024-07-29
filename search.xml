@@ -63,6 +63,62 @@
       </categories>
   </entry>
   <entry>
+    <title>PID</title>
+    <url>/posts/c3f78667/</url>
+    <content><![CDATA[<p>施工中</p>
+<p>PID控制器是最常用的反馈控制器之一，通过调整比例（P）、积分（I）和微分（D）三个参数来实现控制。</p>
+<ul>
+<li><strong>比例控制（P）</strong>：根据当前误差值调整控制输出，反应迅速，但可能会有稳态误差。</li>
+<li><strong>积分控制（I）</strong>：根据误差的累积调整控制输出，消除稳态误差，但可能会导致超调。</li>
+<li><strong>微分控制（D）</strong>：根据误差的变化率调整控制输出，增加系统的阻尼，减少超调。</li>
+</ul>
+<p>PID控制器的公式如下：</p>
+<script type="math/tex; mode=display">
+u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制输出</p>
+<p>$e(t)$：误差</p>
+<p>$K_p$ ：比例</p>
+<p>$K_i$ ：积分</p>
+<p>$K_d$ ：微分增益</p>
+]]></content>
+      <categories>
+        <category>PID</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>stm32初始化uart -ing</title>
+    <url>/posts/abe992b9/</url>
+    <content><![CDATA[<h2 id="开启时钟复用"><a href="#开启时钟复用" class="headerlink" title="开启时钟复用"></a>开启时钟复用</h2><p><code>RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE);</code> </p>
+<h2 id="GPIO端口模式设置"><a href="#GPIO端口模式设置" class="headerlink" title="GPIO端口模式设置"></a>GPIO端口模式设置</h2><p>PA9 发送脚，发送0、1高低电平，设置为推挽输出模式，输出0v或3.3v电压</p>
+<p>PA10 接收脚，接受高低电平，设置为浮空输入模式</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// A9</span></span><br><span class="line">GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;</span><br><span class="line"><span class="comment">// 复用推挽输出</span></span><br><span class="line">GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;</span><br><span class="line">GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line"><span class="comment">// A10</span></span><br><span class="line">GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;</span><br><span class="line"><span class="comment">// 设置为浮空输入</span></span><br><span class="line">GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;</span><br><span class="line">GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br></pre></td></tr></table></figure>
+<h2 id="USART-InitStructure"><a href="#USART-InitStructure" class="headerlink" title="USART_InitStructure"></a>USART_InitStructure</h2><mark class="hl-label green">异步模式</mark> 
+<p>USART_BaudRate:   设置波特率  <code>9600 115200</code></p>
+<p>USART_WordLength:  设置数据位长度 8bit或9bit <code>USART_WordLength_8b</code>、<code>USART_WordLength_9b</code></p>
+<p>USART_StopBits:  停止位位数，取值0.5、1、1.5、2，常用<code>USART_StopBits_1</code></p>
+<p>USART_Parity:  奇偶校验使能 ，奇偶<code>USART_Parity_No</code>、偶校验<code>USART_Parity_Even</code>、奇校验<code>USART_Parity_Odd</code></p>
+<p>USART_HardwareFlowControl:  硬件流控制模式使能，用于处理数据丢失，一般不启用 <code>USART_HardwareFlowControl_None</code></p>
+<p>USART_Mode:  收发模式使能 接收使能<code>USART_Mode_Rx</code>、发送使能<code>USART_Mode_Tx</code>，都使能时用<code>|</code>号连接</p>
+<mark class="hl-label orange">同步模式需添加以下几项</mark> 
+<p>USART_Clock:  时钟使能控制 <code>USART_Clock_Disable</code>、 <code>USART_Clock_Enable</code></p>
+<p>USART_CPOL:  时钟输出极性 低电平<code>USART_CPOL_Low</code>、高电平<code>USART_CPOL_High</code></p>
+<p>USART_CPHA:  时钟输出相位 设置在时钟第一个变化沿捕获数据<code>USART_CPHA_1Edge</code>、第二个…</p>
+<p>USART_LastBit:  最后一位数据的时钟脉冲输出方式    输出脉冲<code>USART_LastBit_Disable</code>、不输出脉冲<code>USART_LastBit_Enable</code></p>
+<h2 id="初始化串口"><a href="#初始化串口" class="headerlink" title="初始化串口"></a>初始化串口</h2><p><code>USART_Init(USART1, &amp;USART_InitStructure);</code></p>
+<h2 id="USART-ITConfig"><a href="#USART-ITConfig" class="headerlink" title="USART_ITConfig"></a>USART_ITConfig</h2><p>USART_IT_PE                          奇偶错误中断<br>USART_IT_TXE                       发送中断<br>USART_IT_TC                          传输完成中断<br>USART_IT_RXNE                     接收中断<br>USART_IT_IDLE                      空闲总线中断<br>USART_IT_LBD                        LIN 中断检测中断<br>USART_IT_CTS                        CTS 中断<br>USART_IT_ERR                        错误中断</p>
+<h2 id="USART-ClearFlag"><a href="#USART-ClearFlag" class="headerlink" title="USART_ClearFlag"></a>USART_ClearFlag</h2><p>清除标志位</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">## USART_Cmd</span><br><span class="line"></span><br><span class="line">用于使能或关闭uart模块</span><br><span class="line"></span><br><span class="line">## 设置中断</span><br><span class="line"></span><br><span class="line">```c</span><br><span class="line">  // 开启中断</span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;</span><br><span class="line">  // 抢占优先级 1</span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;</span><br><span class="line">  // 子优先级 7</span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 7;</span><br><span class="line">  // IRQ通道使能</span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;</span><br><span class="line">  // 初始化NVIC寄存器</span><br><span class="line">  NVIC_Init(&amp;NVIC_InitStructure);</span><br></pre></td></tr></table></figure>
+<mark class="hl-label blue">例程:</mark> 
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Usart1Init</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> uiBaud)</span></span><br><span class="line">&#123;</span><br><span class="line">  GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">  USART_InitTypeDef USART_InitStructure;</span><br><span class="line">  NVIC_InitTypeDef NVIC_InitStructure;</span><br><span class="line"></span><br><span class="line">  RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// A9</span></span><br><span class="line">  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;</span><br><span class="line">  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;</span><br><span class="line">  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">  GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// A10</span></span><br><span class="line">  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;</span><br><span class="line">  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;</span><br><span class="line">  GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 波特率 115200</span></span><br><span class="line">  USART_InitStructure.USART_BaudRate = <span class="number">115200</span>;</span><br><span class="line">  <span class="comment">// 数据位长度8bit</span></span><br><span class="line">  USART_InitStructure.USART_WordLength = USART_WordLength_8b;</span><br><span class="line">  <span class="comment">// 停止位位数 1</span></span><br><span class="line">  USART_InitStructure.USART_StopBits = USART_StopBits_1;</span><br><span class="line">  <span class="comment">// 奇偶校验使能 奇偶 no  偶 even  奇 odd</span></span><br><span class="line">  USART_InitStructure.USART_Parity = USART_Parity_No;</span><br><span class="line">  <span class="comment">// 硬件流控制模式使能，用于处理数据丢失，一般不启用</span></span><br><span class="line">  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;</span><br><span class="line">  <span class="comment">// 发送接收模式使能 全部使能</span></span><br><span class="line">  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;</span><br><span class="line">  <span class="comment">// 初始化串口1</span></span><br><span class="line">  USART_Init(USART1, &amp;USART_InitStructure);</span><br><span class="line">  USART_ITConfig(USART1, USART_IT_TXE, DISABLE);</span><br><span class="line">  USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);</span><br><span class="line">  USART_ClearFlag(USART1, USART_FLAG_TC);</span><br><span class="line">  USART_Cmd(USART1, ENABLE);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开启中断</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;</span><br><span class="line">  <span class="comment">// 抢占优先级 1</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = <span class="number">1</span>;</span><br><span class="line">  <span class="comment">// 子优先级 7</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelSubPriority = <span class="number">7</span>;</span><br><span class="line">  <span class="comment">// IRQ通道使能</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;</span><br><span class="line">  <span class="comment">// 初始化NVIC寄存器</span></span><br><span class="line">  NVIC_Init(&amp;NVIC_InitStructure);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note no-icon simple"><p>参考链接: </p>
+<p><a href="https://blog.csdn.net/zxh1592000/article/details/78656609">STM32系统学习——USART（串口通信）_usart智能卡通信-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/AriesPIG/article/details/119840979">STM32之USART-串口通信（含串口实验详细解析）_stm32 串口11bit-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/weixin_44234693/article/details/127452908">浅谈STM32 USART串口中断配置函数USART_ITConfig（）的编程思路-CSDN博客</a></p>
+</div>]]></content>
+      <categories>
+        <category>stm32</category>
+      </categories>
+  </entry>
+  <entry>
     <title>函数指针与typedef</title>
     <url>/posts/1fd5e519/</url>
     <content><![CDATA[<h1 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h1><p>格式:</p>
@@ -103,28 +159,6 @@
       </categories>
   </entry>
   <entry>
-    <title>PID</title>
-    <url>/posts/c3f78667/</url>
-    <content><![CDATA[<p>施工中</p>
-<p>PID控制器是最常用的反馈控制器之一，通过调整比例（P）、积分（I）和微分（D）三个参数来实现控制。</p>
-<ul>
-<li><strong>比例控制（P）</strong>：根据当前误差值调整控制输出，反应迅速，但可能会有稳态误差。</li>
-<li><strong>积分控制（I）</strong>：根据误差的累积调整控制输出，消除稳态误差，但可能会导致超调。</li>
-<li><strong>微分控制（D）</strong>：根据误差的变化率调整控制输出，增加系统的阻尼，减少超调。</li>
-</ul>
-<p>PID控制器的公式如下：</p>
-<script type="math/tex; mode=display">
-u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制输出</p>
-<p>$e(t)$：误差</p>
-<p>$K_p$ ：比例</p>
-<p>$K_i$ ：积分</p>
-<p>$K_d$ ：微分增益</p>
-]]></content>
-      <categories>
-        <category>PID</category>
-      </categories>
-  </entry>
-  <entry>
     <title>伺服电机控制探究</title>
     <url>/posts/83e63798/</url>
     <content><![CDATA[<p>施工中</p>
@@ -143,6 +177,184 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 ]]></content>
       <categories>
         <category>伺服电机</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>坐标系旋转</title>
+    <url>/posts/68728ca3/</url>
+    <content><![CDATA[<p>施工中</p>
+<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><p><style>.trtmiekoepmx{zoom:80%;}</style><img src="/posts/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="trtmiekoepmx" alt="img"></p>
+<p><style>.lmuvaxwamyst{zoom:67%;}</style><img src="/posts/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="lmuvaxwamyst" alt="img"></p>
+<p>坐标轴以原点为圆心转动，不管怎么转，转后坐标系都可以通过三个角在原坐标系上表达。</p>
+<p>欧拉角可能会导致万向节死锁情况出现，任一坐标轴旋转角度为 90 度时，就会由两个轴的旋转动作起到的作用相同，形成死锁</p>
+<p><style>.qddqlvphnysa{zoom: 33%;}</style><img src="/posts/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="qddqlvphnysa" alt="img"></p>
+<h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>1.坐标变换</p>
+<p><style>.ipyfrejjqhkp{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722102204803.png" class="ipyfrejjqhkp" alt="image-20240722102204803"></p>
+<p>如图所示，对于点 P 在不同坐标系下的表示，红色坐标系由黑色坐标系绕原点旋转$\alpha $° 得来；</p>
+<p>其坐标变换关系如下 :</p>
+<p>$P_{xa} =OM-P_{xa}M=P_{xb}<em>\cos{\alpha}-IP_{xb}</em>\cos{\alpha}$</p>
+<p>$=P_{xb}<em>\cos{\alpha}-PI</em>{\sin{\alpha}}*{\cos{\alpha}}$</p>
+<p> $=P_{xb}<em>\cos{\alpha}-\frac{PP_{xb}}{\cos{\alpha}}</em>{\sin{\alpha}}*{\cos{\alpha}}$</p>
+<p>$=P_{xb}<em>\cos{\alpha}-PP_{xb}</em>{\sin{\alpha}}$</p>
+<p>$=P_{xb}*\cos{\alpha} -P_{yb}{\sin{\alpha}}$</p>
+<p>$P_{ya}=P_{xb}\sin{\alpha}+P_{yb}\cos{\alpha}$</p>
+<p>$P_{za}=P_{zb}$</p>
+<p>由上述式子可得矩阵 :</p>
+<img src="/posts/68728ca3/image-20240722103355214.png" class title="image-20240722103355214">
+<p><style>.gtbjnrzgvpzc{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104206337.png" class="gtbjnrzgvpzc" alt="image-20240722104206337"></p>
+<p>想写出坐标系 B 相对于坐标系 A 的旋转矩阵，只需将坐标系 B 相对于坐标系 A 的方向余弦写成矩阵形式 :</p>
+<p><style>.xleudfhqrjae{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104249976.png" class="xleudfhqrjae" alt="image-20240722104249976"></p>
+<p><style>.bnytgsadjstl{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722104500401.png" class="bnytgsadjstl" alt="image-20240722104500401"></p>
+<p><style>.giqifiqxpwfw{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722112100493.png" class="giqifiqxpwfw" alt="image-20240722112100493"></p>
+<img src="/posts/68728ca3/image-20240722112317352.png" class title="image-20240722112317352">
+<p>上为坐标系旋转，下为向量旋转</p>
+<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p><style>.aiyeimjdpgsi{zoom:80%;}</style><img src="/posts/68728ca3/image-20240715145743748.png" class="aiyeimjdpgsi" alt="image-20240715145743748"></p>
+<p>物理意义：按照特定的方向旋转 90 度</p>
+<h2 id="四元数的定义"><a href="#四元数的定义" class="headerlink" title="四元数的定义"></a>四元数的定义</h2><p>· 对于基{ 1,i,j,k }的线性组合，向量形式 : $q = \begin{bmatrix}a\\b\\c\\d\end{bmatrix}$，( $i^2=j^2=k^2=ijk=-1$ )</p>
+<p>· 将四元数的虚实部分开，使用三维向量来表示虚部，将它表示为标量和向量的有序形式 : $q = [ s , \vec{v} ]$, 其中 $\vec{v} = \begin{bmatrix}x\\y\\z\end{bmatrix}$, $\{ s\quad x\quad y\quad z \}\subseteq \mathbb{R}$</p>
+<h2 id="四元数乘法"><a href="#四元数乘法" class="headerlink" title="四元数乘法"></a>四元数乘法</h2><p>$q_1q_2 = (a+bi+cj+dk)(e+fi+gj+hk)$ (复数式)</p>
+<p>$=(a,\vec{v})(e,\vec{u})$</p>
+<p>$=(ae-\vec{v}\centerdot\vec{u})+(a\vec{u}+e\vec{v}+\vec{v}\times\vec{u})$</p>
+<p>$=[ae-\vec{v}\centerdot\vec{u}， a\vec{u}+e\vec{v}+\vec{v}\times\vec{u}]$ ( 矢量式 )</p>
+<p>矩阵形式 :</p>
+<p>$q_1q_2\neq q_2q_1$ <span style="background:yellow">左乘不等于右乘</span></p>
+<p><style>.iotqiypfjpvr{zoom: 33%;}</style><img src="/posts/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="iotqiypfjpvr" alt="img"></p>
+<p>$q_1q_2= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;-d&amp;c\\c&amp;d&amp;a&amp;-b\\d&amp;-c&amp;b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
+<p>$q_2q_1= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;d&amp;-c\\c&amp;-d&amp;a&amp;b\\d&amp;c&amp;-b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
+<p>左乘：左为动作，右为被操作对象</p>
+<p>右乘：右为动作，左为被操作对象</p>
+<h2 id="纯四元数"><a href="#纯四元数" class="headerlink" title="纯四元数"></a>纯四元数</h2><p>仅有虚部的四元数,也被称为单位四元数</p>
+<script type="math/tex; mode=display">q=[0,\vec{v}]=xi+yj+zk</script><img src="/posts/68728ca3/image-20240716093117829.png" class title="image-20240716093117829">
+<p>若：</p>
+<img src="/posts/68728ca3/image-20240716091605318.png" class title="image-20240716091605318">
+<p>此时</p>
+<img src="/posts/68728ca3/image-20240716091620078.png" class title="image-20240716091620078">
+<img src="/posts/68728ca3/image-20240716091628174.png" class title="image-20240716091628174">
+<img src="/posts/68728ca3/image-20240716091641286.png" class title="image-20240716091641286">
+<img src="/posts/68728ca3/image-20240716091655289.png" class title="image-20240716091655289">
+<img src="/posts/68728ca3/image-20240716091713099.png" class title="image-20240716091713099">
+<h2 id="实四元数"><a href="#实四元数" class="headerlink" title="实四元数"></a>实四元数</h2><p>虚部为 0 的四元数$q=[s,0]$</p>
+<img src="/posts/68728ca3/image-20240716091852076.png" class title="image-20240716091852076">
+<p>该乘积与虚部为 0 的两个虚数乘积相似</p>
+<h2 id="四元数与标量乘积"><a href="#四元数与标量乘积" class="headerlink" title="四元数与标量乘积"></a>四元数与标量乘积</h2><p>( 标量 : 只有大小，没有方向的量 )<br>$\lambda=[\lambda,\vec{0}]$</p>
+<img src="/posts/68728ca3/image-20240716092143817.png" class title="image-20240716092143817">
+<h2 id="单位四元数"><a href="#单位四元数" class="headerlink" title="单位四元数"></a>单位四元数</h2><p>可通过向量与标量表示</p>
+<script type="math/tex; mode=display">\vec{v}=\upsilon\hat{\nu}</script><p>其中$\upsilon=|\vec\nu|$，$|\hat{\nu}|=1$</p>
+<p>即$\upsilon$表示$\vec{v}$的方向,$\hat{\nu}$表示$\vec{v}$的长度</p>
+<img src="/posts/68728ca3/image-20240716094406781.png" class title="image-20240716094406781">
+<p>我们可以使用一个向量（仅表示方向故长度为 0）和一个标量（仅表示长度没有方向）来表示单位四元数</p>
+<img src="/posts/68728ca3/image-20240716094511774.png" class title="image-20240716094511774">
+<p>使用单位四元数与四元数加法来表达普通四元数，且该结构形式与虚数结构形式（$z=a+bi$）相似</p>
+<img src="/posts/68728ca3/image-20240716095129025.png" class title="image-20240716095129025">
+<h2 id="共轭四元数-conjugate"><a href="#共轭四元数-conjugate" class="headerlink" title="共轭四元数 (conjugate)"></a>共轭四元数 (conjugate)</h2><img src="/posts/68728ca3/image-20240716095546420.png" class title="image-20240716095546420"> <img src="/posts/68728ca3/image-20240716095604518.png" class title="image-20240716095604518">
+<h2 id="四元数的模-norm"><a href="#四元数的模-norm" class="headerlink" title="四元数的模 (norm)"></a>四元数的模 (norm)</h2><p>在复数中 :</p>
+<img src="/posts/68728ca3/image-20240716101954773.png" class title="image-20240716101954773">
+<p>则共轭四元数也可 :</p>
+<img src="/posts/68728ca3/image-20240716102031318.png" class title="image-20240716102031318">
+<img src="/posts/68728ca3/image-20240716102041248.png" class title="image-20240716102041248">
+<h2 id="四元数归一化-normalization"><a href="#四元数归一化-normalization" class="headerlink" title="四元数归一化 (normalization)"></a>四元数归一化 (normalization)</h2><p>即表示为单位向量模式</p>
+<p>向量除以向量的模</p>
+<img src="/posts/68728ca3/image-20240716102809602.png" class title="image-20240716102809602">
+<h2 id="四元数逆变-inverse"><a href="#四元数逆变-inverse" class="headerlink" title="四元数逆变 (inverse)"></a>四元数逆变 (inverse)</h2><img src="/posts/68728ca3/image-20240716102912448.png" class title="image-20240716102912448">
+<img src="/posts/68728ca3/image-20240716102928445.png" class title="image-20240716102928445">
+<p>对于单位四元数，有 :</p>
+<img src="/posts/68728ca3/image-20240716103011373.png" class title="image-20240716103011373">
+<h2 id="四元数的点乘-dot-product"><a href="#四元数的点乘-dot-product" class="headerlink" title="四元数的点乘 (dot product)"></a>四元数的点乘 (dot product)</h2><img src="/posts/68728ca3/image-20240716103106917.png" class title="image-20240716103106917">
+<img src="/posts/68728ca3/image-20240716103126039.png" class title="image-20240716103126039">
+<p>对于单位四元数，有 :</p>
+<img src="/posts/68728ca3/image-20240716103143979.png" class title="image-20240716103143979">
+<h2 id="三位空间旋转公式"><a href="#三位空间旋转公式" class="headerlink" title="三位空间旋转公式"></a>三位空间旋转公式</h2><p>由于实际中要旋转的向量在三维空间，所以将 $q_a$ 看做是第四维（实数部）为<code>0</code>的<strong>纯四元数</strong>，则 $q_a=[0,a]$ 或 $q_a=(0+x_ai+y_aj+z_ak)$) ，那么得到<strong>三维空间旋转公式</strong>:</p>
+<script type="math/tex; mode=display">q_aq_b=[−a\centerdot b,s_ba+a×b]</script><h2 id="四元数与三维旋转"><a href="#四元数与三维旋转" class="headerlink" title="四元数与三维旋转"></a>四元数与三维旋转</h2><p>虚数 _ i（$i^2=-1$），即该虚数所在点绕圆心逆时针旋转 90 度；同理 _-i 即顺时针旋转 90 度</p>
+<p><style>.pkpgtsirctfs{zoom:50%;}</style><img src="/posts/68728ca3/image-20240716084319542.png" class="pkpgtsirctfs" alt="image-20240716084319542"></p>
+<h3 id="推导-（纯四元数）"><a href="#推导-（纯四元数）" class="headerlink" title="推导 （纯四元数）"></a>推导 （纯四元数）</h3><ol>
+<li><p>定义一个四元数 q，使要旋转的向量旋转$\theta$ 度，v 是单位化转轴方向</p>
+<p> $q=\cos\theta+i\sin\theta$ ( 复数式 )</p>
+<p> $q=[\cos\theta,v\sin\theta]$ ( 坐标 )</p>
+</li>
+<li><p>计算四元数 q 与向量 p 的积，其中$p=[0,p]$ ( 纯四元数 )</p>
+</li>
+<li><p>引用<strong>三维空间旋转公式</strong>，旋转数 $q$ 对应 $q_b$, 待旋转向量 $p$ 对应 $p_a$ :</p>
+<script type="math/tex; mode=display">p' = qp=[-p\centerdot v\sin\theta,\cos\theta p+v\sin\theta\times p]</script></li>
+<li><p>当向量 p 与$v$ 正交( 垂直 )，此时$v\centerdot p=0$ ，同时$p’$变成了纯四元数 :</p>
+<script type="math/tex; mode=display">p'=qp=[0,\cos\theta p+v\sin\theta\times p]</script></li>
+<li><p>其中 $p’=qp$ 与 $p’=pq$ 结果不同，前者为逆时针，后者为顺时针</p>
+</li>
+</ol>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><ol>
+<li><p>例，将矢量 p 绕 z（k）轴旋转 45 度，则四元数$q=[\cos\theta,\sin\theta k]=[\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}k]$</p>
+</li>
+<li><p>选一向量 p，使与 z 轴正交，假如 p 在 x（i）轴上，此时</p>
+<script type="math/tex; mode=display">p=[0,2i+0j+0k]</script></li>
+<li><p>由于 i 与 k 正交，点积为 0 :</p>
+<img src="/posts/68728ca3/image-20240716145305409.png" class title="image-20240716145305409">
+<img src="/posts/68728ca3/image-20240716151737501.png" class title="image-20240716151737501">
+</li>
+<li><p>若 $p’=pq$ ,则结果为 $[0,\sqrt{2}i-\sqrt{2}j]$,旋转方向相反</p>
+</li>
+<li>红色绕蓝色逆时针旋转 45 度得到黄色<br><style>.bycqhycotmvm{zoom: 50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-13.png" class="bycqhycotmvm" alt="img"></li>
+</ol>
+<h3 id="非纯四元数旋转"><a href="#非纯四元数旋转" class="headerlink" title="非纯四元数旋转"></a>非纯四元数旋转</h3><ol>
+<li><p>一个正常四元数 q，与 p 不正交(p 仍为上文中的 p=[0.2i])，设定 q 的矢量部分与 p 夹角为 45 度,计算 p 绕 q 旋转$\theta$角度后得到的向量</p>
+<img src="/posts/68728ca3/image-20240716152337654.png" class title="image-20240716152337654">
+</li>
+<li><p>代入<strong>三位空间旋转公式</strong></p>
+<img src="/posts/68728ca3/image-20240716152435482.png" class title="image-20240716152435482">
+</li>
+<li><p>替换已知量</p>
+<img src="/posts/68728ca3/image-20240716154207402.png" class title="image-20240716154207402">
+</li>
+<li><p>计算结果已经不是纯四元数，且没有旋转 45 度，模长也不是 2（而是$\sqrt{3}$）,用图像表示 :</p>
+</li>
+<li><p><style>.kvwtpqeuhynt{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-2.png" class="kvwtpqeuhynt" alt="img"></p>
+</li>
+</ol>
+<blockquote id="fn_注">
+<sup>注</sup>. 此时严格来讲，p’在 3 为空间中表示是不正确的，因为它是一个 4 维向量，图片中只展示了这个四元数的像两部分<a href="#reffn_注" title="Jump back to footnote [注] in the text."> &#8617;</a>
+</blockquote>
+<ol>
+<li><p>如何将其转变为纯四元数？Hamilton 发现，将 qp 右乘 q 的逆，将得到一个纯四元数，且该四元数的向量部分保持不变 : (因为 q 为单位四元数，此时 q 的逆等于 q 的共轭四元数)</p>
+<img src="/posts/68728ca3/image-20240716155056302.png" class title="image-20240716155056302">
+<p>$\theta = 45^\circ$</p>
+<img src="/posts/68728ca3/image-20240716155124298.png" class title="image-20240716155124298">
+<img src="/posts/68728ca3/image-20240716155346584.png" class title="image-20240716155346584">
+<p>记$qpq^-1$为$p’$</p>
+<img src="/posts/68728ca3/image-20240716155404171.png" class title="image-20240716155404171">
+<p>求得 p’的模长与 p 相等</p>
+<p><style>.xoyzvmvhjhbq{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-3.png" class="xoyzvmvhjhbq" alt="img"></p>
+</li>
+<li><p>观察上图可发现，红色向量绕紫色向量旋转了 90 度而非 45 度，得到黄色向量，因此为了正确的让一个向量绕某个轴向量旋转某个角度，必须以目标角度的一般来计算 ，得到<strong>旋转四元数</strong>的一般形式:</p>
+<img src="/posts/68728ca3/image-20240716161001706.png" class title="image-20240716161001706">
+</li>
+</ol>
+<h2 id="小总结-四元数表达形式"><a href="#小总结-四元数表达形式" class="headerlink" title="小总结-四元数表达形式"></a>小总结-四元数表达形式</h2><p>矢量式 $\vec{Q}=q_0+\vec{q}$,其中$\vec{q}=q_1\vec{i}+q_2\vec{j}+q_3\vec{k}$</p>
+<p>复数式 $\vec{Q}=q_0+q_1\vec{i}+q_2\vec{j}+q_3\vec{k}$</p>
+<p>三角式 $\vec{Q}=\cos{\frac{\theta}{2}}+\vec{u}\sin{\frac{\theta}{2}}$,其中$\vec{u}=\vec{i}+\vec{j}+\vec{k}$</p>
+<p>矩阵式 $\vec{Q}=\begin{bmatrix} q_0\\q_1\\q_2\\q_3\end{bmatrix}$</p>
+<h2 id="四元数与旋转矩阵与姿态变化矩阵"><a href="#四元数与旋转矩阵与姿态变化矩阵" class="headerlink" title="四元数与旋转矩阵与姿态变化矩阵"></a>四元数与旋转矩阵与姿态变化矩阵</h2><p> 假设单位四元数$q=w+xi+yj+zk$,其中$||q||=x^2+y^2+z^2+w^2=1$，那么旋转矩阵 :</p>
+<p>$R(q)=\begin{bmatrix}1-2y^2-2z^2&amp;2xy-2zw&amp;2xz+2yw\\2xy+2zw&amp;1-2x^2-2z^2&amp;2yz-2xw\\2xz-2yw&amp;2yz+2xw&amp;1-2x^2-2y^2\end{bmatrix}$</p>
+<p>$c^E_b=\begin{bmatrix}w^2+x^2-y^2-z^2&amp;2xy-2zw&amp;2xz+2yw\\2xy+2zw&amp;w^2-x^2+y^2-z^2&amp;2yz-2xw\\2xz-2yw&amp;2yz+2xw&amp;w^2-x^2-y^2+z^2\end{bmatrix}$</p>
+<h2 id="四元数与姿态角"><a href="#四元数与姿态角" class="headerlink" title="四元数与姿态角"></a>四元数与姿态角</h2><img src="/posts/68728ca3/image-20240716173419183.png" class title="image-20240716173419183">
+<p>$2(xz-wy)=-\sin{\gamma}$</p>
+<p>$2(yz+xw)=\sin{\theta}\cos{\gamma}$</p>
+<p>$w^2-x^2-y^2+z^2=\cos{\theta}\cos{\gamma}$</p>
+<p>$2(xy+zw)=\cos{\gamma}\sin{\psi}$</p>
+<p>$w^2+x^2-y^2-z^2=\cos{\gamma}\cos{\psi}$</p>
+<p>由上述公式可得 :</p>
+<p>$\gamma=-\arcsin{(2(xz-wy))}$</p>
+<p>$\theta=\arctan(\frac{2(yz+xw)}{w^2-x^2-y^2+z^2})$</p>
+<p>$\psi=\arctan{\frac{2(xy+zw)}{w^2+x^2-y^2-z^2}}$</p>
+<h2 id="四元数姿态解算"><a href="#四元数姿态解算" class="headerlink" title="四元数姿态解算"></a>四元数姿态解算</h2><h3 id="重力加速度归一化"><a href="#重力加速度归一化" class="headerlink" title="重力加速度归一化"></a>重力加速度归一化</h3><h3 id="重力分量提取"><a href="#重力分量提取" class="headerlink" title="重力分量提取"></a>重力分量提取</h3><h3 id="求出姿态误差"><a href="#求出姿态误差" class="headerlink" title="求出姿态误差"></a>求出姿态误差</h3><h3 id="误差积分"><a href="#误差积分" class="headerlink" title="误差积分"></a>误差积分</h3><h3 id="互补滤波"><a href="#互补滤波" class="headerlink" title="互补滤波"></a>互补滤波</h3><h3 id="解四元数微分方程"><a href="#解四元数微分方程" class="headerlink" title="解四元数微分方程"></a>解四元数微分方程</h3><h3 id="四元数归一化"><a href="#四元数归一化" class="headerlink" title="四元数归一化"></a>四元数归一化</h3><h3 id="四元数求欧拉角"><a href="#四元数求欧拉角" class="headerlink" title="四元数求欧拉角"></a>四元数求欧拉角</h3><p>参考链接 :</p>
+<p><a href="https://www.3dgep.com/understanding-quaternions/#The_Complex_Plane">understanding-quaternions</a></p>
+<p><a href="https://juejin.cn/post/7140527372100435976">从复数到四元数</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/45404840">三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换 - 知乎 (zhihu.com)</a></p>
+<p><a href="https://blog.sciencenet.cn/blog-2777453-1075307.html">科学网—0034: 四元数与姿态矩阵（旋转矩阵）转换的公式 - 何成文的博文 (sciencenet.cn)</a></p>
+<p><a href="https://blog.csdn.net/guanjianhe/article/details/95608801">四元数解算姿态角解析_四元数姿态解算-CSDN 博客</a></p>
+<p><a href="https://gitcode.csdn.net/662b46fac647e032687df7f1.html?dp_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mzc3MDE0NSwiZXhwIjoxNzIxNzI3MzQ5LCJpYXQiOjE3MjExMjI1NDksInVzZXJuYW1lIjoid2VpeGluXzQ4NTUxNDExIn0.XNQEvQZ0hsGNzhkasX1q7Q9K-oWgF5Sn_l199R6cyIc">四元数——姿态解算_线性代数_m0_73654084-GitCode 开源社区 (csdn.net)</a></p>
+<p><span style="background:yellow"><a href="https://blog.csdn.net/zhangyufeikk/article/details/94594646">从原理到代码 梳理姿态更新计算的四元数算法_四元数姿态解算原理-CSDN 博客</a></span></p>
+<p><a href="https://blog.csdn.net/weixin_45632220/article/details/117735223">旋转矩阵及左右乘的意义，看这一篇就够了_旋转矩阵左乘和右乘的几何意义-CSDN 博客</a></p>
+]]></content>
+      <categories>
+        <category>math</category>
       </categories>
   </entry>
   <entry>
@@ -199,184 +411,6 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <p><a href="https://blog.csdn.net/liuyiming2019/article/details/108938333">【高数】高数第四章节——不定积分&amp;换元积分&amp;分部积分_四种典型部分分式的积分-CSDN 博客</a></p>
 <p><a href="https://blog.csdn.net/liuyiming2019/article/details/108942293">【高数】高数第五章节——定积分&amp;积分上限函数&amp;牛顿——莱布尼兹公式&amp;反常积分与广义积分_定积分求导法则在高数的那一节-CSDN 博客</a></p>
 <p><a href="https://blog.csdn.net/hsl1958941040/article/details/123841175">不定积分、定积分的区别与联系_定积分和不定积分区别-CSDN 博客</a></p>
-]]></content>
-      <categories>
-        <category>math</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>坐标系旋转</title>
-    <url>/posts/68728ca3/</url>
-    <content><![CDATA[<p>施工中</p>
-<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><p><style>.neoopdgxhlxe{zoom:80%;}</style><img src="/posts/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="neoopdgxhlxe" alt="img"></p>
-<p><style>.ihpcjfhksxvr{zoom:67%;}</style><img src="/posts/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="ihpcjfhksxvr" alt="img"></p>
-<p>坐标轴以原点为圆心转动，不管怎么转，转后坐标系都可以通过三个角在原坐标系上表达。</p>
-<p>欧拉角可能会导致万向节死锁情况出现，任一坐标轴旋转角度为 90 度时，就会由两个轴的旋转动作起到的作用相同，形成死锁</p>
-<p><style>.wrmevtswspym{zoom: 33%;}</style><img src="/posts/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="wrmevtswspym" alt="img"></p>
-<h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>1.坐标变换</p>
-<p><style>.gpdeilqpxdtt{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722102204803.png" class="gpdeilqpxdtt" alt="image-20240722102204803"></p>
-<p>如图所示，对于点 P 在不同坐标系下的表示，红色坐标系由黑色坐标系绕原点旋转$\alpha $° 得来；</p>
-<p>其坐标变换关系如下 :</p>
-<p>$P_{xa} =OM-P_{xa}M=P_{xb}<em>\cos{\alpha}-IP_{xb}</em>\cos{\alpha}$</p>
-<p>$=P_{xb}<em>\cos{\alpha}-PI</em>{\sin{\alpha}}*{\cos{\alpha}}$</p>
-<p> $=P_{xb}<em>\cos{\alpha}-\frac{PP_{xb}}{\cos{\alpha}}</em>{\sin{\alpha}}*{\cos{\alpha}}$</p>
-<p>$=P_{xb}<em>\cos{\alpha}-PP_{xb}</em>{\sin{\alpha}}$</p>
-<p>$=P_{xb}*\cos{\alpha} -P_{yb}{\sin{\alpha}}$</p>
-<p>$P_{ya}=P_{xb}\sin{\alpha}+P_{yb}\cos{\alpha}$</p>
-<p>$P_{za}=P_{zb}$</p>
-<p>由上述式子可得矩阵 :</p>
-<img src="/posts/68728ca3/image-20240722103355214.png" class title="image-20240722103355214">
-<p><style>.lemkfquconpb{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104206337.png" class="lemkfquconpb" alt="image-20240722104206337"></p>
-<p>想写出坐标系 B 相对于坐标系 A 的旋转矩阵，只需将坐标系 B 相对于坐标系 A 的方向余弦写成矩阵形式 :</p>
-<p><style>.cbkwuodlymyw{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104249976.png" class="cbkwuodlymyw" alt="image-20240722104249976"></p>
-<p><style>.yebwpezovsmu{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722104500401.png" class="yebwpezovsmu" alt="image-20240722104500401"></p>
-<p><style>.jkpcilxuvouf{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722112100493.png" class="jkpcilxuvouf" alt="image-20240722112100493"></p>
-<img src="/posts/68728ca3/image-20240722112317352.png" class title="image-20240722112317352">
-<p>上为坐标系旋转，下为向量旋转</p>
-<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p><style>.pikgaeelbvtn{zoom:80%;}</style><img src="/posts/68728ca3/image-20240715145743748.png" class="pikgaeelbvtn" alt="image-20240715145743748"></p>
-<p>物理意义：按照特定的方向旋转 90 度</p>
-<h2 id="四元数的定义"><a href="#四元数的定义" class="headerlink" title="四元数的定义"></a>四元数的定义</h2><p>· 对于基{ 1,i,j,k }的线性组合，向量形式 : $q = \begin{bmatrix}a\\b\\c\\d\end{bmatrix}$，( $i^2=j^2=k^2=ijk=-1$ )</p>
-<p>· 将四元数的虚实部分开，使用三维向量来表示虚部，将它表示为标量和向量的有序形式 : $q = [ s , \vec{v} ]$, 其中 $\vec{v} = \begin{bmatrix}x\\y\\z\end{bmatrix}$, $\{ s\quad x\quad y\quad z \}\subseteq \mathbb{R}$</p>
-<h2 id="四元数乘法"><a href="#四元数乘法" class="headerlink" title="四元数乘法"></a>四元数乘法</h2><p>$q_1q_2 = (a+bi+cj+dk)(e+fi+gj+hk)$ (复数式)</p>
-<p>$=(a,\vec{v})(e,\vec{u})$</p>
-<p>$=(ae-\vec{v}\centerdot\vec{u})+(a\vec{u}+e\vec{v}+\vec{v}\times\vec{u})$</p>
-<p>$=[ae-\vec{v}\centerdot\vec{u}， a\vec{u}+e\vec{v}+\vec{v}\times\vec{u}]$ ( 矢量式 )</p>
-<p>矩阵形式 :</p>
-<p>$q_1q_2\neq q_2q_1$ <span style="background:yellow">左乘不等于右乘</span></p>
-<p><style>.mzwbltijfico{zoom: 33%;}</style><img src="/posts/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="mzwbltijfico" alt="img"></p>
-<p>$q_1q_2= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;-d&amp;c\\c&amp;d&amp;a&amp;-b\\d&amp;-c&amp;b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
-<p>$q_2q_1= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;d&amp;-c\\c&amp;-d&amp;a&amp;b\\d&amp;c&amp;-b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
-<p>左乘：左为动作，右为被操作对象</p>
-<p>右乘：右为动作，左为被操作对象</p>
-<h2 id="纯四元数"><a href="#纯四元数" class="headerlink" title="纯四元数"></a>纯四元数</h2><p>仅有虚部的四元数,也被称为单位四元数</p>
-<script type="math/tex; mode=display">q=[0,\vec{v}]=xi+yj+zk</script><img src="/posts/68728ca3/image-20240716093117829.png" class title="image-20240716093117829">
-<p>若：</p>
-<img src="/posts/68728ca3/image-20240716091605318.png" class title="image-20240716091605318">
-<p>此时</p>
-<img src="/posts/68728ca3/image-20240716091620078.png" class title="image-20240716091620078">
-<img src="/posts/68728ca3/image-20240716091628174.png" class title="image-20240716091628174">
-<img src="/posts/68728ca3/image-20240716091641286.png" class title="image-20240716091641286">
-<img src="/posts/68728ca3/image-20240716091655289.png" class title="image-20240716091655289">
-<img src="/posts/68728ca3/image-20240716091713099.png" class title="image-20240716091713099">
-<h2 id="实四元数"><a href="#实四元数" class="headerlink" title="实四元数"></a>实四元数</h2><p>虚部为 0 的四元数$q=[s,0]$</p>
-<img src="/posts/68728ca3/image-20240716091852076.png" class title="image-20240716091852076">
-<p>该乘积与虚部为 0 的两个虚数乘积相似</p>
-<h2 id="四元数与标量乘积"><a href="#四元数与标量乘积" class="headerlink" title="四元数与标量乘积"></a>四元数与标量乘积</h2><p>( 标量 : 只有大小，没有方向的量 )<br>$\lambda=[\lambda,\vec{0}]$</p>
-<img src="/posts/68728ca3/image-20240716092143817.png" class title="image-20240716092143817">
-<h2 id="单位四元数"><a href="#单位四元数" class="headerlink" title="单位四元数"></a>单位四元数</h2><p>可通过向量与标量表示</p>
-<script type="math/tex; mode=display">\vec{v}=\upsilon\hat{\nu}</script><p>其中$\upsilon=|\vec\nu|$，$|\hat{\nu}|=1$</p>
-<p>即$\upsilon$表示$\vec{v}$的方向,$\hat{\nu}$表示$\vec{v}$的长度</p>
-<img src="/posts/68728ca3/image-20240716094406781.png" class title="image-20240716094406781">
-<p>我们可以使用一个向量（仅表示方向故长度为 0）和一个标量（仅表示长度没有方向）来表示单位四元数</p>
-<img src="/posts/68728ca3/image-20240716094511774.png" class title="image-20240716094511774">
-<p>使用单位四元数与四元数加法来表达普通四元数，且该结构形式与虚数结构形式（$z=a+bi$）相似</p>
-<img src="/posts/68728ca3/image-20240716095129025.png" class title="image-20240716095129025">
-<h2 id="共轭四元数-conjugate"><a href="#共轭四元数-conjugate" class="headerlink" title="共轭四元数 (conjugate)"></a>共轭四元数 (conjugate)</h2><img src="/posts/68728ca3/image-20240716095546420.png" class title="image-20240716095546420"> <img src="/posts/68728ca3/image-20240716095604518.png" class title="image-20240716095604518">
-<h2 id="四元数的模-norm"><a href="#四元数的模-norm" class="headerlink" title="四元数的模 (norm)"></a>四元数的模 (norm)</h2><p>在复数中 :</p>
-<img src="/posts/68728ca3/image-20240716101954773.png" class title="image-20240716101954773">
-<p>则共轭四元数也可 :</p>
-<img src="/posts/68728ca3/image-20240716102031318.png" class title="image-20240716102031318">
-<img src="/posts/68728ca3/image-20240716102041248.png" class title="image-20240716102041248">
-<h2 id="四元数归一化-normalization"><a href="#四元数归一化-normalization" class="headerlink" title="四元数归一化 (normalization)"></a>四元数归一化 (normalization)</h2><p>即表示为单位向量模式</p>
-<p>向量除以向量的模</p>
-<img src="/posts/68728ca3/image-20240716102809602.png" class title="image-20240716102809602">
-<h2 id="四元数逆变-inverse"><a href="#四元数逆变-inverse" class="headerlink" title="四元数逆变 (inverse)"></a>四元数逆变 (inverse)</h2><img src="/posts/68728ca3/image-20240716102912448.png" class title="image-20240716102912448">
-<img src="/posts/68728ca3/image-20240716102928445.png" class title="image-20240716102928445">
-<p>对于单位四元数，有 :</p>
-<img src="/posts/68728ca3/image-20240716103011373.png" class title="image-20240716103011373">
-<h2 id="四元数的点乘-dot-product"><a href="#四元数的点乘-dot-product" class="headerlink" title="四元数的点乘 (dot product)"></a>四元数的点乘 (dot product)</h2><img src="/posts/68728ca3/image-20240716103106917.png" class title="image-20240716103106917">
-<img src="/posts/68728ca3/image-20240716103126039.png" class title="image-20240716103126039">
-<p>对于单位四元数，有 :</p>
-<img src="/posts/68728ca3/image-20240716103143979.png" class title="image-20240716103143979">
-<h2 id="三位空间旋转公式"><a href="#三位空间旋转公式" class="headerlink" title="三位空间旋转公式"></a>三位空间旋转公式</h2><p>由于实际中要旋转的向量在三维空间，所以将 $q_a$ 看做是第四维（实数部）为<code>0</code>的<strong>纯四元数</strong>，则 $q_a=[0,a]$ 或 $q_a=(0+x_ai+y_aj+z_ak)$) ，那么得到<strong>三维空间旋转公式</strong>:</p>
-<script type="math/tex; mode=display">q_aq_b=[−a\centerdot b,s_ba+a×b]</script><h2 id="四元数与三维旋转"><a href="#四元数与三维旋转" class="headerlink" title="四元数与三维旋转"></a>四元数与三维旋转</h2><p>虚数 _ i（$i^2=-1$），即该虚数所在点绕圆心逆时针旋转 90 度；同理 _-i 即顺时针旋转 90 度</p>
-<p><style>.rpqwfeflqlrw{zoom:50%;}</style><img src="/posts/68728ca3/image-20240716084319542.png" class="rpqwfeflqlrw" alt="image-20240716084319542"></p>
-<h3 id="推导-（纯四元数）"><a href="#推导-（纯四元数）" class="headerlink" title="推导 （纯四元数）"></a>推导 （纯四元数）</h3><ol>
-<li><p>定义一个四元数 q，使要旋转的向量旋转$\theta$ 度，v 是单位化转轴方向</p>
-<p> $q=\cos\theta+i\sin\theta$ ( 复数式 )</p>
-<p> $q=[\cos\theta,v\sin\theta]$ ( 坐标 )</p>
-</li>
-<li><p>计算四元数 q 与向量 p 的积，其中$p=[0,p]$ ( 纯四元数 )</p>
-</li>
-<li><p>引用<strong>三维空间旋转公式</strong>，旋转数 $q$ 对应 $q_b$, 待旋转向量 $p$ 对应 $p_a$ :</p>
-<script type="math/tex; mode=display">p' = qp=[-p\centerdot v\sin\theta,\cos\theta p+v\sin\theta\times p]</script></li>
-<li><p>当向量 p 与$v$ 正交( 垂直 )，此时$v\centerdot p=0$ ，同时$p’$变成了纯四元数 :</p>
-<script type="math/tex; mode=display">p'=qp=[0,\cos\theta p+v\sin\theta\times p]</script></li>
-<li><p>其中 $p’=qp$ 与 $p’=pq$ 结果不同，前者为逆时针，后者为顺时针</p>
-</li>
-</ol>
-<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><ol>
-<li><p>例，将矢量 p 绕 z（k）轴旋转 45 度，则四元数$q=[\cos\theta,\sin\theta k]=[\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}k]$</p>
-</li>
-<li><p>选一向量 p，使与 z 轴正交，假如 p 在 x（i）轴上，此时</p>
-<script type="math/tex; mode=display">p=[0,2i+0j+0k]</script></li>
-<li><p>由于 i 与 k 正交，点积为 0 :</p>
-<img src="/posts/68728ca3/image-20240716145305409.png" class title="image-20240716145305409">
-<img src="/posts/68728ca3/image-20240716151737501.png" class title="image-20240716151737501">
-</li>
-<li><p>若 $p’=pq$ ,则结果为 $[0,\sqrt{2}i-\sqrt{2}j]$,旋转方向相反</p>
-</li>
-<li>红色绕蓝色逆时针旋转 45 度得到黄色<br><style>.orkkndgbhvte{zoom: 50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-13.png" class="orkkndgbhvte" alt="img"></li>
-</ol>
-<h3 id="非纯四元数旋转"><a href="#非纯四元数旋转" class="headerlink" title="非纯四元数旋转"></a>非纯四元数旋转</h3><ol>
-<li><p>一个正常四元数 q，与 p 不正交(p 仍为上文中的 p=[0.2i])，设定 q 的矢量部分与 p 夹角为 45 度,计算 p 绕 q 旋转$\theta$角度后得到的向量</p>
-<img src="/posts/68728ca3/image-20240716152337654.png" class title="image-20240716152337654">
-</li>
-<li><p>代入<strong>三位空间旋转公式</strong></p>
-<img src="/posts/68728ca3/image-20240716152435482.png" class title="image-20240716152435482">
-</li>
-<li><p>替换已知量</p>
-<img src="/posts/68728ca3/image-20240716154207402.png" class title="image-20240716154207402">
-</li>
-<li><p>计算结果已经不是纯四元数，且没有旋转 45 度，模长也不是 2（而是$\sqrt{3}$）,用图像表示 :</p>
-</li>
-<li><p><style>.hrorrfvxdcxu{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-2.png" class="hrorrfvxdcxu" alt="img"></p>
-</li>
-</ol>
-<blockquote id="fn_注">
-<sup>注</sup>. 此时严格来讲，p’在 3 为空间中表示是不正确的，因为它是一个 4 维向量，图片中只展示了这个四元数的像两部分<a href="#reffn_注" title="Jump back to footnote [注] in the text."> &#8617;</a>
-</blockquote>
-<ol>
-<li><p>如何将其转变为纯四元数？Hamilton 发现，将 qp 右乘 q 的逆，将得到一个纯四元数，且该四元数的向量部分保持不变 : (因为 q 为单位四元数，此时 q 的逆等于 q 的共轭四元数)</p>
-<img src="/posts/68728ca3/image-20240716155056302.png" class title="image-20240716155056302">
-<p>$\theta = 45^\circ$</p>
-<img src="/posts/68728ca3/image-20240716155124298.png" class title="image-20240716155124298">
-<img src="/posts/68728ca3/image-20240716155346584.png" class title="image-20240716155346584">
-<p>记$qpq^-1$为$p’$</p>
-<img src="/posts/68728ca3/image-20240716155404171.png" class title="image-20240716155404171">
-<p>求得 p’的模长与 p 相等</p>
-<p><style>.fqmodhxcihsa{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-3.png" class="fqmodhxcihsa" alt="img"></p>
-</li>
-<li><p>观察上图可发现，红色向量绕紫色向量旋转了 90 度而非 45 度，得到黄色向量，因此为了正确的让一个向量绕某个轴向量旋转某个角度，必须以目标角度的一般来计算 ，得到<strong>旋转四元数</strong>的一般形式:</p>
-<img src="/posts/68728ca3/image-20240716161001706.png" class title="image-20240716161001706">
-</li>
-</ol>
-<h2 id="小总结-四元数表达形式"><a href="#小总结-四元数表达形式" class="headerlink" title="小总结-四元数表达形式"></a>小总结-四元数表达形式</h2><p>矢量式 $\vec{Q}=q_0+\vec{q}$,其中$\vec{q}=q_1\vec{i}+q_2\vec{j}+q_3\vec{k}$</p>
-<p>复数式 $\vec{Q}=q_0+q_1\vec{i}+q_2\vec{j}+q_3\vec{k}$</p>
-<p>三角式 $\vec{Q}=\cos{\frac{\theta}{2}}+\vec{u}\sin{\frac{\theta}{2}}$,其中$\vec{u}=\vec{i}+\vec{j}+\vec{k}$</p>
-<p>矩阵式 $\vec{Q}=\begin{bmatrix} q_0\\q_1\\q_2\\q_3\end{bmatrix}$</p>
-<h2 id="四元数与旋转矩阵与姿态变化矩阵"><a href="#四元数与旋转矩阵与姿态变化矩阵" class="headerlink" title="四元数与旋转矩阵与姿态变化矩阵"></a>四元数与旋转矩阵与姿态变化矩阵</h2><p> 假设单位四元数$q=w+xi+yj+zk$,其中$||q||=x^2+y^2+z^2+w^2=1$，那么旋转矩阵 :</p>
-<p>$R(q)=\begin{bmatrix}1-2y^2-2z^2&amp;2xy-2zw&amp;2xz+2yw\\2xy+2zw&amp;1-2x^2-2z^2&amp;2yz-2xw\\2xz-2yw&amp;2yz+2xw&amp;1-2x^2-2y^2\end{bmatrix}$</p>
-<p>$c^E_b=\begin{bmatrix}w^2+x^2-y^2-z^2&amp;2xy-2zw&amp;2xz+2yw\\2xy+2zw&amp;w^2-x^2+y^2-z^2&amp;2yz-2xw\\2xz-2yw&amp;2yz+2xw&amp;w^2-x^2-y^2+z^2\end{bmatrix}$</p>
-<h2 id="四元数与姿态角"><a href="#四元数与姿态角" class="headerlink" title="四元数与姿态角"></a>四元数与姿态角</h2><img src="/posts/68728ca3/image-20240716173419183.png" class title="image-20240716173419183">
-<p>$2(xz-wy)=-\sin{\gamma}$</p>
-<p>$2(yz+xw)=\sin{\theta}\cos{\gamma}$</p>
-<p>$w^2-x^2-y^2+z^2=\cos{\theta}\cos{\gamma}$</p>
-<p>$2(xy+zw)=\cos{\gamma}\sin{\psi}$</p>
-<p>$w^2+x^2-y^2-z^2=\cos{\gamma}\cos{\psi}$</p>
-<p>由上述公式可得 :</p>
-<p>$\gamma=-\arcsin{(2(xz-wy))}$</p>
-<p>$\theta=\arctan(\frac{2(yz+xw)}{w^2-x^2-y^2+z^2})$</p>
-<p>$\psi=\arctan{\frac{2(xy+zw)}{w^2+x^2-y^2-z^2}}$</p>
-<h2 id="四元数姿态解算"><a href="#四元数姿态解算" class="headerlink" title="四元数姿态解算"></a>四元数姿态解算</h2><h3 id="重力加速度归一化"><a href="#重力加速度归一化" class="headerlink" title="重力加速度归一化"></a>重力加速度归一化</h3><h3 id="重力分量提取"><a href="#重力分量提取" class="headerlink" title="重力分量提取"></a>重力分量提取</h3><h3 id="求出姿态误差"><a href="#求出姿态误差" class="headerlink" title="求出姿态误差"></a>求出姿态误差</h3><h3 id="误差积分"><a href="#误差积分" class="headerlink" title="误差积分"></a>误差积分</h3><h3 id="互补滤波"><a href="#互补滤波" class="headerlink" title="互补滤波"></a>互补滤波</h3><h3 id="解四元数微分方程"><a href="#解四元数微分方程" class="headerlink" title="解四元数微分方程"></a>解四元数微分方程</h3><h3 id="四元数归一化"><a href="#四元数归一化" class="headerlink" title="四元数归一化"></a>四元数归一化</h3><h3 id="四元数求欧拉角"><a href="#四元数求欧拉角" class="headerlink" title="四元数求欧拉角"></a>四元数求欧拉角</h3><p>参考链接 :</p>
-<p><a href="https://www.3dgep.com/understanding-quaternions/#The_Complex_Plane">understanding-quaternions</a></p>
-<p><a href="https://juejin.cn/post/7140527372100435976">从复数到四元数</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/45404840">三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换 - 知乎 (zhihu.com)</a></p>
-<p><a href="https://blog.sciencenet.cn/blog-2777453-1075307.html">科学网—0034: 四元数与姿态矩阵（旋转矩阵）转换的公式 - 何成文的博文 (sciencenet.cn)</a></p>
-<p><a href="https://blog.csdn.net/guanjianhe/article/details/95608801">四元数解算姿态角解析_四元数姿态解算-CSDN 博客</a></p>
-<p><a href="https://gitcode.csdn.net/662b46fac647e032687df7f1.html?dp_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mzc3MDE0NSwiZXhwIjoxNzIxNzI3MzQ5LCJpYXQiOjE3MjExMjI1NDksInVzZXJuYW1lIjoid2VpeGluXzQ4NTUxNDExIn0.XNQEvQZ0hsGNzhkasX1q7Q9K-oWgF5Sn_l199R6cyIc">四元数——姿态解算_线性代数_m0_73654084-GitCode 开源社区 (csdn.net)</a></p>
-<p><span style="background:yellow"><a href="https://blog.csdn.net/zhangyufeikk/article/details/94594646">从原理到代码 梳理姿态更新计算的四元数算法_四元数姿态解算原理-CSDN 博客</a></span></p>
-<p><a href="https://blog.csdn.net/weixin_45632220/article/details/117735223">旋转矩阵及左右乘的意义，看这一篇就够了_旋转矩阵左乘和右乘的几何意义-CSDN 博客</a></p>
 ]]></content>
       <categories>
         <category>math</category>
