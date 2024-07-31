@@ -103,6 +103,28 @@
       </categories>
   </entry>
   <entry>
+    <title>PID</title>
+    <url>/posts/c3f78667/</url>
+    <content><![CDATA[<p>施工中</p>
+<p>PID控制器是最常用的反馈控制器之一，通过调整比例（P）、积分（I）和微分（D）三个参数来实现控制。</p>
+<ul>
+<li><strong>比例控制（P）</strong>：根据当前误差值调整控制输出，反应迅速，但可能会有稳态误差。</li>
+<li><strong>积分控制（I）</strong>：根据误差的累积调整控制输出，消除稳态误差，但可能会导致超调。</li>
+<li><strong>微分控制（D）</strong>：根据误差的变化率调整控制输出，增加系统的阻尼，减少超调。</li>
+</ul>
+<p>PID控制器的公式如下：</p>
+<script type="math/tex; mode=display">
+u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制输出</p>
+<p>$e(t)$：误差</p>
+<p>$K_p$ ：比例</p>
+<p>$K_i$ ：积分</p>
+<p>$K_d$ ：微分增益</p>
+]]></content>
+      <categories>
+        <category>PID</category>
+      </categories>
+  </entry>
+  <entry>
     <title>stm32初始化uart -ing</title>
     <url>/posts/abe992b9/</url>
     <content><![CDATA[<h2 id="开启时钟复用"><a href="#开启时钟复用" class="headerlink" title="开启时钟复用"></a>开启时钟复用</h2><p><code>RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE);</code> </p>
@@ -139,28 +161,6 @@
       </categories>
   </entry>
   <entry>
-    <title>PID</title>
-    <url>/posts/c3f78667/</url>
-    <content><![CDATA[<p>施工中</p>
-<p>PID控制器是最常用的反馈控制器之一，通过调整比例（P）、积分（I）和微分（D）三个参数来实现控制。</p>
-<ul>
-<li><strong>比例控制（P）</strong>：根据当前误差值调整控制输出，反应迅速，但可能会有稳态误差。</li>
-<li><strong>积分控制（I）</strong>：根据误差的累积调整控制输出，消除稳态误差，但可能会导致超调。</li>
-<li><strong>微分控制（D）</strong>：根据误差的变化率调整控制输出，增加系统的阻尼，减少超调。</li>
-</ul>
-<p>PID控制器的公式如下：</p>
-<script type="math/tex; mode=display">
-u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制输出</p>
-<p>$e(t)$：误差</p>
-<p>$K_p$ ：比例</p>
-<p>$K_i$ ：积分</p>
-<p>$K_d$ ：微分增益</p>
-]]></content>
-      <categories>
-        <category>PID</category>
-      </categories>
-  </entry>
-  <entry>
     <title>伺服电机控制探究</title>
     <url>/posts/83e63798/</url>
     <content><![CDATA[<p>施工中</p>
@@ -185,13 +185,13 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
     <title>四元数</title>
     <url>/posts/68728ca3/</url>
     <content><![CDATA[<p>施工中</p>
-<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><p><style>.cuyubqqkskwe{zoom:80%;}</style><img src="/posts/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="cuyubqqkskwe" alt="img"></p>
-<p><style>.guoimbxfjrzc{zoom:67%;}</style><img src="/posts/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="guoimbxfjrzc" alt="img"></p>
+<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><p><style>.ycodgddeyegl{zoom:80%;}</style><img src="/posts/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="ycodgddeyegl" alt="img"></p>
+<p><style>.gtnimhyvmviw{zoom:67%;}</style><img src="/posts/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="gtnimhyvmviw" alt="img"></p>
 <p>坐标轴以原点为圆心转动，不管怎么转，转后坐标系都可以通过三个角在原坐标系上表达。</p>
 <p>欧拉角可能会导致万向节死锁情况出现，任一坐标轴旋转角度为 90 度时，就会由两个轴的旋转动作起到的作用相同，形成死锁</p>
-<p><style>.ryvzemoebivg{zoom: 33%;}</style><img src="/posts/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="ryvzemoebivg" alt="img"></p>
+<p><style>.awcrnggjlvwn{zoom: 33%;}</style><img src="/posts/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="awcrnggjlvwn" alt="img"></p>
 <h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>1.坐标变换</p>
-<p><style>.nbsigdpsejju{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722102204803.png" class="nbsigdpsejju" alt="image-20240722102204803"></p>
+<p><style>.cniwrlgitsoo{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722102204803.png" class="cniwrlgitsoo" alt="image-20240722102204803"></p>
 <p>如图所示，对于点 P 在不同坐标系下的表示，红色坐标系由黑色坐标系绕原点旋转$\alpha $° 得来；</p>
 <p>其坐标变换关系如下 :</p>
 <p>$P_{xa} =OM-P_{xa}M=P_{xb}<em>\cos{\alpha}-IP_{xb}</em>\cos{\alpha}$</p>
@@ -203,14 +203,14 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <p>$P_{za}=P_{zb}$</p>
 <p>由上述式子可得矩阵 :</p>
 <img src="/posts/68728ca3/image-20240722103355214.png" class title="image-20240722103355214">
-<p><style>.lxrtzgcqetmq{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104206337.png" class="lxrtzgcqetmq" alt="image-20240722104206337"></p>
+<p><style>.oarbxbwlwtei{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104206337.png" class="oarbxbwlwtei" alt="image-20240722104206337"></p>
 <p>想写出坐标系 B 相对于坐标系 A 的旋转矩阵，只需将坐标系 B 相对于坐标系 A 的方向余弦写成矩阵形式 :</p>
-<p><style>.ryorlwdmpoiq{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104249976.png" class="ryorlwdmpoiq" alt="image-20240722104249976"></p>
-<p><style>.uvtqofenxggg{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722104500401.png" class="uvtqofenxggg" alt="image-20240722104500401"></p>
-<p><style>.oitpxpeujqmy{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722112100493.png" class="oitpxpeujqmy" alt="image-20240722112100493"></p>
+<p><style>.xilpogguvgwf{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104249976.png" class="xilpogguvgwf" alt="image-20240722104249976"></p>
+<p><style>.rqbvourhuszt{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722104500401.png" class="rqbvourhuszt" alt="image-20240722104500401"></p>
+<p><style>.tksorhrbmylq{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722112100493.png" class="tksorhrbmylq" alt="image-20240722112100493"></p>
 <img src="/posts/68728ca3/image-20240722112317352.png" class title="image-20240722112317352">
 <p>上为坐标系旋转，下为向量旋转</p>
-<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p><style>.eudeskhewbjr{zoom:80%;}</style><img src="/posts/68728ca3/image-20240715145743748.png" class="eudeskhewbjr" alt="image-20240715145743748"></p>
+<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p><style>.hedinxnjgdxy{zoom:80%;}</style><img src="/posts/68728ca3/image-20240715145743748.png" class="hedinxnjgdxy" alt="image-20240715145743748"></p>
 <p>物理意义：按照特定的方向旋转 90 度</p>
 <h2 id="四元数的定义"><a href="#四元数的定义" class="headerlink" title="四元数的定义"></a>四元数的定义</h2><p>· 对于基{ 1,i,j,k }的线性组合，向量形式 : $q = \begin{bmatrix}a\\b\\c\\d\end{bmatrix}$，( $i^2=j^2=k^2=ijk=-1$ )</p>
 <p>· 将四元数的虚实部分开，使用三维向量来表示虚部，将它表示为标量和向量的有序形式 : $q = [ s , \vec{v} ]$, 其中 $\vec{v} = \begin{bmatrix}x\\y\\z\end{bmatrix}$, $\{ s\quad x\quad y\quad z \}\subseteq \mathbb{R}$</p>
@@ -220,7 +220,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <p>$=[ae-\vec{v}\centerdot\vec{u}， a\vec{u}+e\vec{v}+\vec{v}\times\vec{u}]$ ( 矢量式 )</p>
 <p>矩阵形式 :</p>
 <p>$q_1q_2\neq q_2q_1$ <span style="background:yellow">左乘不等于右乘</span></p>
-<p><style>.xgjpalnepaxf{zoom: 33%;}</style><img src="/posts/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="xgjpalnepaxf" alt="img"></p>
+<p><style>.yajyfvspkykx{zoom: 33%;}</style><img src="/posts/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="yajyfvspkykx" alt="img"></p>
 <p>$q_1q_2= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;-d&amp;c\\c&amp;d&amp;a&amp;-b\\d&amp;-c&amp;b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
 <p>$q_2q_1= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;d&amp;-c\\c&amp;-d&amp;a&amp;b\\d&amp;c&amp;-b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
 <p>左乘：左为动作，右为被操作对象</p>
@@ -267,7 +267,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <img src="/posts/68728ca3/image-20240716103143979.png" class title="image-20240716103143979">
 <h2 id="三位空间旋转公式"><a href="#三位空间旋转公式" class="headerlink" title="三位空间旋转公式"></a>三位空间旋转公式</h2><p>由于实际中要旋转的向量在三维空间，所以将 $q_a$ 看做是第四维（实数部）为<code>0</code>的<strong>纯四元数</strong>，则 $q_a=[0,a]$ 或 $q_a=(0+x_ai+y_aj+z_ak)$) ，那么得到<strong>三维空间旋转公式</strong>:</p>
 <script type="math/tex; mode=display">q_aq_b=[−a\centerdot b,s_ba+a×b]</script><h2 id="四元数与三维旋转"><a href="#四元数与三维旋转" class="headerlink" title="四元数与三维旋转"></a>四元数与三维旋转</h2><p>虚数 _ i（$i^2=-1$），即该虚数所在点绕圆心逆时针旋转 90 度；同理 _-i 即顺时针旋转 90 度</p>
-<p><style>.vtuljbsphrsx{zoom:50%;}</style><img src="/posts/68728ca3/image-20240716084319542.png" class="vtuljbsphrsx" alt="image-20240716084319542"></p>
+<p><style>.iqfigblwbvkh{zoom:50%;}</style><img src="/posts/68728ca3/image-20240716084319542.png" class="iqfigblwbvkh" alt="image-20240716084319542"></p>
 <h3 id="推导-（纯四元数）"><a href="#推导-（纯四元数）" class="headerlink" title="推导 （纯四元数）"></a>推导 （纯四元数）</h3><ol>
 <li><p>定义一个四元数 q，使要旋转的向量旋转$\theta$ 度，v 是单位化转轴方向</p>
 <p> $q=\cos\theta+i\sin\theta$ ( 复数式 )</p>
@@ -293,7 +293,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 </li>
 <li><p>若 $p’=pq$ ,则结果为 $[0,\sqrt{2}i-\sqrt{2}j]$,旋转方向相反</p>
 </li>
-<li>红色绕蓝色逆时针旋转 45 度得到黄色<br><style>.gvgqotwrvrnt{zoom: 50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-13.png" class="gvgqotwrvrnt" alt="img"></li>
+<li>红色绕蓝色逆时针旋转 45 度得到黄色<br><style>.uwcnoadmwxtp{zoom: 50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-13.png" class="uwcnoadmwxtp" alt="img"></li>
 </ol>
 <h3 id="非纯四元数旋转"><a href="#非纯四元数旋转" class="headerlink" title="非纯四元数旋转"></a>非纯四元数旋转</h3><ol>
 <li><p>一个正常四元数 q，与 p 不正交(p 仍为上文中的 p=[0.2i])，设定 q 的矢量部分与 p 夹角为 45 度,计算 p 绕 q 旋转$\theta$角度后得到的向量</p>
@@ -307,7 +307,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 </li>
 <li><p>计算结果已经不是纯四元数，且没有旋转 45 度，模长也不是 2（而是$\sqrt{3}$）,用图像表示 :</p>
 </li>
-<li><p><style>.vdwqdizaunkk{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-2.png" class="vdwqdizaunkk" alt="img"></p>
+<li><p><style>.kfgemygcpyla{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-2.png" class="kfgemygcpyla" alt="img"></p>
 </li>
 </ol>
 <blockquote id="fn_注">
@@ -322,7 +322,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <p>记$qpq^-1$为$p’$</p>
 <img src="/posts/68728ca3/image-20240716155404171.png" class title="image-20240716155404171">
 <p>求得 p’的模长与 p 相等</p>
-<p><style>.krrzigadepoy{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-3.png" class="krrzigadepoy" alt="img"></p>
+<p><style>.tkbkrpotmefe{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-3.png" class="tkbkrpotmefe" alt="img"></p>
 </li>
 <li><p>观察上图可发现，红色向量绕紫色向量旋转了 90 度而非 45 度，得到黄色向量，因此为了正确的让一个向量绕某个轴向量旋转某个角度，必须以目标角度的一般来计算 ，得到<strong>旋转四元数</strong>的一般形式:</p>
 <img src="/posts/68728ca3/image-20240716161001706.png" class title="image-20240716161001706">
@@ -415,19 +415,19 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <h4 id="Taylor多项式近似值"><a href="#Taylor多项式近似值" class="headerlink" title="Taylor多项式近似值"></a>Taylor多项式近似值</h4><img src="/posts/7b740b99/image-20240730110404572.png" class title="image-20240730110404572">
 <h3 id="欧拉-Euler-方法"><a href="#欧拉-Euler-方法" class="headerlink" title="欧拉(Euler)方法"></a>欧拉(Euler)方法</h3><h4 id="向前欧拉公式、向后欧拉公式"><a href="#向前欧拉公式、向后欧拉公式" class="headerlink" title="向前欧拉公式、向后欧拉公式"></a>向前欧拉公式、向后欧拉公式</h4><img src="/posts/7b740b99/image-20240730112740523.png" class title="image-20240730112740523">
 <p><a href="https://www.bilibili.com/video/BV1v3411b7DK/?spm_id_from=333.788&amp;vd_source=d16ffe4c52f07b9a7e89fb3bddfc8e0f">【数值分析】轻松掌握欧拉法｜考试宝典｜简单易懂_哔哩哔哩_bilibili</a></p>
-<p><style>.iqwrmohunztx{zoom: 67%;}</style><img src="/posts/7b740b99/image-20240730145750638.png" class="iqwrmohunztx" alt="image-20240730145750638"></p>
+<p><style>.zijhojheckey{zoom: 67%;}</style><img src="/posts/7b740b99/image-20240730145750638.png" class="zijhojheckey" alt="image-20240730145750638"></p>
 <p>x的每步步进为h</p>
-<p><style>.lghngkhqbwly{zoom: 50%;}</style><img src="/posts/7b740b99/image-20240730145828321.png" class="lghngkhqbwly" alt="image-20240730145828321"></p>
-<p><style>.kukohizwduuk{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730145750638.png" class="kukohizwduuk" alt="image-20240730145750638"></p>
+<p><style>.muuqdskhkxvw{zoom: 50%;}</style><img src="/posts/7b740b99/image-20240730145828321.png" class="muuqdskhkxvw" alt="image-20240730145828321"></p>
+<p><style>.bobqwqxymcyd{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730145750638.png" class="bobqwqxymcyd" alt="image-20240730145750638"></p>
 <p><a href="https://www.bilibili.com/video/BV12r4y1Q7Ae/?spm_id_from=333.788&amp;vd_source=d16ffe4c52f07b9a7e89fb3bddfc8e0f">【数值分析】轻松掌握梯形法改进欧拉法｜考试宝典｜速成_哔哩哔哩_bilibili</a></p>
-<p><style>.qdlutaxixvzq{zoom:50%;}</style><img src="/posts/7b740b99/image-20240730150332455.png" class="qdlutaxixvzq" alt="image-20240730150332455"></p>
-<p><style>.iapqyvqpupbt{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730150533001.png" class="iapqyvqpupbt" alt="image-20240730150533001"><img src="/posts/7b740b99/image-20240730152635592.png" class title="image-20240730152635592"></p>
-<p><style>.qpibtykbvboc{zoom: 50%;}</style><img src="/posts/7b740b99/image-20240730152635592.png" class="qpibtykbvboc" alt="image-20240730152635592"></p>
-<p><style>.hgybktwdjwoo{zoom:50%;}</style><img src="/posts/7b740b99/image-20240730152944990.png" class="hgybktwdjwoo" alt="image-20240730152944990"></p>
+<p><style>.tqhjxuvcfhcy{zoom:50%;}</style><img src="/posts/7b740b99/image-20240730150332455.png" class="tqhjxuvcfhcy" alt="image-20240730150332455"></p>
+<p><style>.hancceebdgnw{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730150533001.png" class="hancceebdgnw" alt="image-20240730150533001"><img src="/posts/7b740b99/image-20240730152635592.png" class title="image-20240730152635592"></p>
+<p><style>.sjluuhwgwjly{zoom: 50%;}</style><img src="/posts/7b740b99/image-20240730152635592.png" class="sjluuhwgwjly" alt="image-20240730152635592"></p>
+<p><style>.etvwbhctpwek{zoom:50%;}</style><img src="/posts/7b740b99/image-20240730152944990.png" class="etvwbhctpwek" alt="image-20240730152944990"></p>
 <p>当h趋近于0时，梯形法和改进欧拉法得到极限值相同</p>
-<h3 id="龙格-库塔方法"><a href="#龙格-库塔方法" class="headerlink" title="龙格-库塔方法"></a>龙格-库塔方法</h3><p><style>.alfpmtafmino{}</style><img src="/posts/7b740b99/image-20240730160946340.png" class="alfpmtafmino" alt="image-20240730160946340"></p>
+<h3 id="龙格-库塔方法"><a href="#龙格-库塔方法" class="headerlink" title="龙格-库塔方法"></a>龙格-库塔方法</h3><p><style>.updkctwbjfcm{}</style><img src="/posts/7b740b99/image-20240730160946340.png" class="updkctwbjfcm" alt="image-20240730160946340"></p>
 <p><a href="https://www.bilibili.com/video/BV1rF41187YM/?spm_id_from=333.788&amp;vd_source=d16ffe4c52f07b9a7e89fb3bddfc8e0f">【数值分析】轻松理解龙格-库塔方法｜考前必看｜简单易懂_哔哩哔哩_bilibili</a></p>
-<p><style>.pgrgkvgsxjue{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730155752933.png" class="pgrgkvgsxjue" alt="image-20240730155752933"></p>
+<p><style>.epyjhxkmoshb{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730155752933.png" class="epyjhxkmoshb" alt="image-20240730155752933"></p>
 <img src="/posts/7b740b99/image-20240730161016428.png" class title="image-20240730161016428">
 <h1 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><h3 id="原函数"><a href="#原函数" class="headerlink" title="原函数"></a>原函数</h3><p>如果在区间 I 上，$F’(x)=f(x)$ 或 $dF(x)=f(x)dx$ , 则称 F(x) 为 f(x) 在 I 上的一个<strong>原函数</strong></p>
 <h3 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h3><p>设 F(x)是 f(x)的任一原函数，则 f(x)的全部原函数的一般表达式 F(x)+C 称为 f(x)的<strong>不定积分</strong>，记为 $\int f(x)dx$</p>
@@ -466,6 +466,49 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 ]]></content>
       <categories>
         <category>test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>四元数姿态解算</title>
+    <url>/posts/af54305b/</url>
+    <content><![CDATA[<div class="note danger no-icon simple"><p>本文绝大多数内容为参考链接1、2的整理和理解，大都复制粘贴</p>
+</div>
+<div class="note info no-icon simple"><p>灰色为本人补充或理解内容，如此条所示</p>
+</div>
+<h1 id="四元数姿态阶段原理理解"><a href="#四元数姿态阶段原理理解" class="headerlink" title="四元数姿态阶段原理理解"></a>四元数姿态阶段原理理解</h1><h2 id="常用关系式—参考链接2-p5"><a href="#常用关系式—参考链接2-p5" class="headerlink" title="常用关系式—参考链接2-p5"></a>常用关系式—参考链接2-p5</h2><h3 id="坐标变换"><a href="#坐标变换" class="headerlink" title="坐标变换"></a>坐标变换</h3><img src="/posts/af54305b/image-20240731101657179.png" class title="image-20240731101657179">
+<img src="/posts/af54305b/image-20240731101718365.png" class title="image-20240731101718365">
+<img src="/posts/af54305b/image-20240731101733836.png" class title="image-20240731101733836">
+<img src="/posts/af54305b/image-20240731110807938.png" class title="image-20240731110807938">
+<img src="/posts/af54305b/image-20240731110907248.png" class title="image-20240731110907248">
+<img src="/posts/af54305b/image-20240731111006750.png" class title="image-20240731111006750">
+<h3 id="矢量的叉乘"><a href="#矢量的叉乘" class="headerlink" title="矢量的叉乘"></a>矢量的叉乘</h3><img src="/posts/af54305b/image-20240731111104302.png" class title="image-20240731111104302">
+<div class="note info no-icon simple"><p><strong>r</strong>的模代表<strong>r</strong>的长度，单位矢量表示<strong>r</strong>的方向</p>
+</div>
+<h3 id="哥氏定理"><a href="#哥氏定理" class="headerlink" title="哥氏定理"></a>哥氏定理</h3><img src="/posts/af54305b/image-20240731111309859.png" class title="image-20240731111309859">
+<h2 id="姿态更新计算的四元数算法"><a href="#姿态更新计算的四元数算法" class="headerlink" title="姿态更新计算的四元数算法"></a>姿态更新计算的四元数算法</h2><h3 id="四元数与姿态阵间的关系"><a href="#四元数与姿态阵间的关系" class="headerlink" title="四元数与姿态阵间的关系"></a>四元数与姿态阵间的关系</h3><div class="note info no-icon simple"><p><a href="https://wdxxzh.github.io/posts/68728ca3/">四元数相关计算方法</a></p>
+<p><strong>向量点乘</strong>: 又称内积、数量积，结果是一个向量在另一个向量方向上投影的长度，为一个标量。$\vec{a}\centerdot\vec{b}=|a||b|\cos{\theta}$，$\vec{a}\centerdot\vec{b}=\vec{b}\centerdot\vec{a}$</p>
+<p><strong>向量叉乘</strong>: 又称外积、向量积，两向量的叉积与这两个向量组成的坐标平面垂直，结果为一个法向量。$\vec{a}\times\vec{b}=|a||b|\sin{\theta}$，$\vec{a}\times\vec{b}$与$\vec{b}\times\vec{a}$的结果为两个大小相等，方向相反的向量。</p>
+</div>
+<img src="/posts/af54305b/image-20240731141209942.png" class title="image-20240731141209942">
+<div class="note info no-icon simple"><p>$OO’=(\vec{r}\centerdot\vec{u})\vec{u}$:  $\vec{r}\centerdot\vec{u}$，为$\vec{r}$在$\vec{u}$方向上的投影长度，乘以$\vec{u}$相当于给这个投影方向，方向与$\vec{u}$方向一致。</p>
+<p>$\vec{O’B}=\vec{u}\times\vec{O’A}$: O’B为垂直于由O’A和向量u构成的坐标系平面的向量，且依据右手定则，为$\vec{u}\times\vec{O’A}$而非$\vec{O’A}\times\vec{u}$</p>
+<p><strong>三重矢积计算公式(也被称为拉格朗日公式): </strong></p>
+<script type="math/tex; mode=display">(\vec{a}\times\vec{b})\times\vec{c}=(\vec{a}\centerdot\vec{c})\vec{b}-(\vec{b}\centerdot\vec{c})\vec{a}</script><script type="math/tex; mode=display">\vec{a}\times(\vec{b}\times\vec{c})=(\vec{a}\centerdot\vec{c})\vec{b}-(\vec{a}\centerdot\vec{b})\vec{c}</script><p>在 <img src="/posts/af54305b/image-20240731151705307.png" class title="image-20240731151705307"></p>
+<p>中，$\vec{u}$为单位向量，所以$\vec{u}\centerdot\vec{u}=1$，又因$\vec{u}\centerdot\vec{r}=\vec{r}\centerdot\vec{u}$，故上式计算结果为<img src="/posts/af54305b/image-20240731152343545.png" class title="image-20240731152343545"></p>
+</div>
+<img src="/posts/af54305b/image-20240731141219900.png" class title="image-20240731141219900">
+<img src="/posts/af54305b/image-20240731144714459.png" class title="image-20240731144714459">
+<img src="/posts/af54305b/image-20240731144726694.png" class title="image-20240731144726694">
+<img src="/posts/af54305b/image-20240731144743919.png" class title="image-20240731144743919">
+<img src="/posts/af54305b/image-20240731144759217.png" class title="image-20240731144759217">
+<img src="/posts/af54305b/image-20240731144616387.png" class title="image-20240731144616387">
+<div class="note no-icon simple"><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接 :"></a>参考链接 :</h1><p>1.<a href="https://www.doc88.com/p-43973791892306.html?s=like&amp;id=1">四元数解算姿态完全解析及资料汇总 - 道客巴巴 (doc88.com)</a></p>
+<p>2.<a href="https://book.sciencereading.cn/shop/book/Booksimple/show.do?id=BB45EE804E6493EB6E053020B0A0AB410000">惯性导航（第三版） (sciencereading.cn)</a></p>
+<p>3.<a href="https://baike.baidu.com/item/捷联惯导系统/4110350">捷联惯导系统_百度百科 (baidu.com)</a></p>
+</div>
+]]></content>
+      <categories>
+        <category>math</category>
       </categories>
   </entry>
   <entry>
