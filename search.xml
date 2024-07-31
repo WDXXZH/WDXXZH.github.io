@@ -401,7 +401,7 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <img src="/posts/7b740b99/image-20240717113911665.png" class title="image-20240717113911665">
 </li>
 </ol>
-<h2 id="常微分解法"><a href="#常微分解法" class="headerlink" title="常微分解法"></a>常微分解法</h2><p>只有线性常系数微分方程，且自由项是某些特殊类型的函数时，才可以肯定得到解；而绝大多数变系数方程、非线性方程都“解不出来“，<mark class="hl-label $$\frac{dy}{dx}=y^2+x^2$$">eg.</mark> </p>
+<h2 id="常微分解法"><a href="#常微分解法" class="headerlink" title="常微分解法"></a>常微分解法</h2><p>只有线性常系数微分方程，且自由项是某些特殊类型的函数时，才可以肯定得到解；而绝大多数变系数方程、非线性方程都“解不出来“，<mark class="hl-label $\frac{dy}{dx}=y^2+x^2$">eg.</mark> </p>
 <h3 id="常微分方程的离散化——数值解法"><a href="#常微分方程的离散化——数值解法" class="headerlink" title="常微分方程的离散化——数值解法"></a>常微分方程的离散化——数值解法</h3><img src="/posts/7b740b99/image-20240730095014098.png" class title="image-20240730095014098">
 <div class="note default no-icon simple"><p>李普希茨条件: 限制函数增量变化大小的一种不等式形式的条件。</p>
 <p>Lipschitz连续，要求函数图像的曲线上任意两点连线的斜率一致有界，就是任意的斜率都小于同一个常数，这个常数就是Lipschitz常数。</p>
@@ -415,19 +415,19 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <h4 id="Taylor多项式近似值"><a href="#Taylor多项式近似值" class="headerlink" title="Taylor多项式近似值"></a>Taylor多项式近似值</h4><img src="/posts/7b740b99/image-20240730110404572.png" class title="image-20240730110404572">
 <h3 id="欧拉-Euler-方法"><a href="#欧拉-Euler-方法" class="headerlink" title="欧拉(Euler)方法"></a>欧拉(Euler)方法</h3><h4 id="向前欧拉公式、向后欧拉公式"><a href="#向前欧拉公式、向后欧拉公式" class="headerlink" title="向前欧拉公式、向后欧拉公式"></a>向前欧拉公式、向后欧拉公式</h4><img src="/posts/7b740b99/image-20240730112740523.png" class title="image-20240730112740523">
 <p><a href="https://www.bilibili.com/video/BV1v3411b7DK/?spm_id_from=333.788&amp;vd_source=d16ffe4c52f07b9a7e89fb3bddfc8e0f">【数值分析】轻松掌握欧拉法｜考试宝典｜简单易懂_哔哩哔哩_bilibili</a></p>
-<p><style>.ryvfosieyvuu{zoom: 67%;}</style><img src="/posts/7b740b99/image-20240730145750638.png" class="ryvfosieyvuu" alt="image-20240730145750638"></p>
+<p><style>.iqwrmohunztx{zoom: 67%;}</style><img src="/posts/7b740b99/image-20240730145750638.png" class="iqwrmohunztx" alt="image-20240730145750638"></p>
 <p>x的每步步进为h</p>
-<p><style>.naloonknmbna{zoom: 50%;}</style><img src="/posts/7b740b99/image-20240730145828321.png" class="naloonknmbna" alt="image-20240730145828321"></p>
-<p><style>.gqsmxsnfvqpe{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730145750638.png" class="gqsmxsnfvqpe" alt="image-20240730145750638"></p>
+<p><style>.lghngkhqbwly{zoom: 50%;}</style><img src="/posts/7b740b99/image-20240730145828321.png" class="lghngkhqbwly" alt="image-20240730145828321"></p>
+<p><style>.kukohizwduuk{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730145750638.png" class="kukohizwduuk" alt="image-20240730145750638"></p>
 <p><a href="https://www.bilibili.com/video/BV12r4y1Q7Ae/?spm_id_from=333.788&amp;vd_source=d16ffe4c52f07b9a7e89fb3bddfc8e0f">【数值分析】轻松掌握梯形法改进欧拉法｜考试宝典｜速成_哔哩哔哩_bilibili</a></p>
-<p><style>.ktzzpjcniobh{zoom:50%;}</style><img src="/posts/7b740b99/image-20240730150332455.png" class="ktzzpjcniobh" alt="image-20240730150332455"></p>
-<p><style>.nqlkmcolekeu{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730150533001.png" class="nqlkmcolekeu" alt="image-20240730150533001"><img src="/posts/7b740b99/image-20240730152635592.png" class title="image-20240730152635592"></p>
-<p><style>.vlbvxwxzycaj{zoom: 50%;}</style><img src="/posts/7b740b99/image-20240730152635592.png" class="vlbvxwxzycaj" alt="image-20240730152635592"></p>
-<p><style>.qvidetyqbtyl{zoom:50%;}</style><img src="/posts/7b740b99/image-20240730152944990.png" class="qvidetyqbtyl" alt="image-20240730152944990"></p>
+<p><style>.qdlutaxixvzq{zoom:50%;}</style><img src="/posts/7b740b99/image-20240730150332455.png" class="qdlutaxixvzq" alt="image-20240730150332455"></p>
+<p><style>.iapqyvqpupbt{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730150533001.png" class="iapqyvqpupbt" alt="image-20240730150533001"><img src="/posts/7b740b99/image-20240730152635592.png" class title="image-20240730152635592"></p>
+<p><style>.qpibtykbvboc{zoom: 50%;}</style><img src="/posts/7b740b99/image-20240730152635592.png" class="qpibtykbvboc" alt="image-20240730152635592"></p>
+<p><style>.hgybktwdjwoo{zoom:50%;}</style><img src="/posts/7b740b99/image-20240730152944990.png" class="hgybktwdjwoo" alt="image-20240730152944990"></p>
 <p>当h趋近于0时，梯形法和改进欧拉法得到极限值相同</p>
-<h3 id="龙格-库塔方法"><a href="#龙格-库塔方法" class="headerlink" title="龙格-库塔方法"></a>龙格-库塔方法</h3><p><style>.gynscuqlsopm{}</style><img src="/posts/7b740b99/image-20240730160946340.png" class="gynscuqlsopm" alt="image-20240730160946340"></p>
+<h3 id="龙格-库塔方法"><a href="#龙格-库塔方法" class="headerlink" title="龙格-库塔方法"></a>龙格-库塔方法</h3><p><style>.alfpmtafmino{}</style><img src="/posts/7b740b99/image-20240730160946340.png" class="alfpmtafmino" alt="image-20240730160946340"></p>
 <p><a href="https://www.bilibili.com/video/BV1rF41187YM/?spm_id_from=333.788&amp;vd_source=d16ffe4c52f07b9a7e89fb3bddfc8e0f">【数值分析】轻松理解龙格-库塔方法｜考前必看｜简单易懂_哔哩哔哩_bilibili</a></p>
-<p><style>.yaxhjhiirqnj{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730155752933.png" class="yaxhjhiirqnj" alt="image-20240730155752933"></p>
+<p><style>.pgrgkvgsxjue{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730155752933.png" class="pgrgkvgsxjue" alt="image-20240730155752933"></p>
 <img src="/posts/7b740b99/image-20240730161016428.png" class title="image-20240730161016428">
 <h1 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><h3 id="原函数"><a href="#原函数" class="headerlink" title="原函数"></a>原函数</h3><p>如果在区间 I 上，$F’(x)=f(x)$ 或 $dF(x)=f(x)dx$ , 则称 F(x) 为 f(x) 在 I 上的一个<strong>原函数</strong></p>
 <h3 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h3><p>设 F(x)是 f(x)的任一原函数，则 f(x)的全部原函数的一般表达式 F(x)+C 称为 f(x)的<strong>不定积分</strong>，记为 $\int f(x)dx$</p>
