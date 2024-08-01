@@ -1,46 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>函数指针与typedef</title>
-    <url>/posts/1fd5e519/</url>
-    <content><![CDATA[<h1 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h1><p>格式:</p>
-<p><code>指针类型 (*函数指针名称)(函数指针参数)</code></p>
-<ul>
-<li>定义一个函数指针 func_1</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;func\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> (*func_1)(<span class="type">int</span>) = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%p\r\n&quot;</span>,func_1);</span><br><span class="line">	func_1 = &amp;func;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%p\r\n%p\r\n&quot;</span>,func,func_1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> <strong>结果 :</strong></p>
-<img src="/posts/1fd5e519/image-20240723152721091.png" class title="image-20240723152721091">
-<ul>
-<li><p>定义一个参数和返回值都是函数的函数指针 MyFunction</p>
-<p>其中<code>int(*MyFunction(void (* pArg)(void)))(int)</code></p>
-<p>第一个 int 表明 MyFunction 类型</p>
-<p>第二个 int 表明 MyFunction 返回类型</p>
-<p>(void (* pArg)(void)) 为 MyFunction 的参数，为一个没有类型和返回值的函数</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">FunArg</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunArg，一个没有参数和返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">FunReturn</span><span class="params">(<span class="type">int</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunReturn，一个有int参数和int返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>(*MyFunction(<span class="type">void</span> (* pArg)(<span class="type">void</span>)))(<span class="type">int</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MyFunction，一个有函数参数和函数返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    MyFunction(FunArg);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>结果 :</strong></p>
- <img src="/posts/1fd5e519/image-20240723161822577.png" class title="image-20240723161822577">
-<p><strong>MyFunction 被成功调用，但 FunArg 未被调用，FunArg 只是 MyFunction 被成功调用需满足的条件。</strong></p>
-<h1 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h1><p><code>typedef 原类型名 新名称</code></p>
-<p>目的 : 增强代码的可读性</p>
-<p><code>void FunArg()--&gt;void (*FunArg)()--&gt;typedef void (*PFN_ARG)()</code></p>
-<p>typedef 与函数指针</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">FunArg</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunArg，一个没有参数和返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">FunReturn</span><span class="params">(<span class="type">int</span> arg)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunReturn，一个有int参数和int返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">void</span><span class="params">(*PFN_ARG)</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">int</span><span class="params">(*PFN_RETURN)</span><span class="params">(<span class="type">int</span>)</span>;</span><br><span class="line"></span><br><span class="line">PFN_RETURN <span class="title function_">MyFunction</span><span class="params">(PFN_ARG arg)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MyFunction，一个有函数参数和函数返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> FunReturn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    MyFunction(FunArg);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>结果 :</strong></p>
-<img src="/posts/1fd5e519/image-20240723161732004.png" class title="image-20240723161732004">
-<p>个人解读 :</p>
-<p> 定义过<code>typedef void(*PFN_ARG)(void);</code>和<code>typedef int(*PFN_RETURN)(int);</code>后，可使用 PFN_ARG 定义一个没有参数和返回值的函数，使用 PFN_RETURN 定义一个参数和返回值都是 int 的函数。</p>
-<p> 在<code>PFN_RETURN MyFunction(PFN_ARG arg)</code>中，可看出 MyFunction 的参数是一个没有参数和返回值的函数，在 MyFunction 中用 arg 命名；而 MyFunction 是一个参数和返回值都为 int 函数的函数，所以 MyFunction 函数内，返回值为<code>return FunReturn;</code>，因为 FunReturn 是一个返回值为 int 的函数。</p>
-<div class="note no-icon simple"><p><strong>参考链接 :</strong></p>
-<p><a href="https://blog.csdn.net/Dasis/article/details/123110098?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=typedef函数指针&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-123110098.142^v100^pc_search_result_base4&amp;spm=1018.2226.3001.4187">C 语言基础入门 48 篇<em>38</em>函数指针与 typedef（函数指针即指向函数的指针、函数指针定义 int (*pfn)(int)、typedef 给数据类型起别名，起到的作用一致、typedef 简化函数指针）_函数指针 typedef-CSDN 博客</a></p>
-</div>]]></content>
-      <categories>
-        <category>C语言</category>
-      </categories>
-  </entry>
-  <entry>
     <title>BT 和 BLE</title>
     <url>/posts/0/</url>
     <content><![CDATA[<p>施工中</p>
@@ -103,6 +63,46 @@
       </categories>
   </entry>
   <entry>
+    <title>函数指针与typedef</title>
+    <url>/posts/1fd5e519/</url>
+    <content><![CDATA[<h1 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h1><p>格式:</p>
+<p><code>指针类型 (*函数指针名称)(函数指针参数)</code></p>
+<ul>
+<li>定义一个函数指针 func_1</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;func\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> (*func_1)(<span class="type">int</span>) = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%p\r\n&quot;</span>,func_1);</span><br><span class="line">	func_1 = &amp;func;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%p\r\n%p\r\n&quot;</span>,func,func_1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>结果 :</strong></p>
+<img src="/posts/1fd5e519/image-20240723152721091.png" class title="image-20240723152721091">
+<ul>
+<li><p>定义一个参数和返回值都是函数的函数指针 MyFunction</p>
+<p>其中<code>int(*MyFunction(void (* pArg)(void)))(int)</code></p>
+<p>第一个 int 表明 MyFunction 类型</p>
+<p>第二个 int 表明 MyFunction 返回类型</p>
+<p>(void (* pArg)(void)) 为 MyFunction 的参数，为一个没有类型和返回值的函数</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">FunArg</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunArg，一个没有参数和返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">FunReturn</span><span class="params">(<span class="type">int</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunReturn，一个有int参数和int返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>(*MyFunction(<span class="type">void</span> (* pArg)(<span class="type">void</span>)))(<span class="type">int</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MyFunction，一个有函数参数和函数返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    MyFunction(FunArg);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>结果 :</strong></p>
+ <img src="/posts/1fd5e519/image-20240723161822577.png" class title="image-20240723161822577">
+<p><strong>MyFunction 被成功调用，但 FunArg 未被调用，FunArg 只是 MyFunction 被成功调用需满足的条件。</strong></p>
+<h1 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h1><p><code>typedef 原类型名 新名称</code></p>
+<p>目的 : 增强代码的可读性</p>
+<p><code>void FunArg()--&gt;void (*FunArg)()--&gt;typedef void (*PFN_ARG)()</code></p>
+<p>typedef 与函数指针</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">FunArg</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunArg，一个没有参数和返回值的函数\r\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">FunReturn</span><span class="params">(<span class="type">int</span> arg)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FunReturn，一个有int参数和int返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">void</span><span class="params">(*PFN_ARG)</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">int</span><span class="params">(*PFN_RETURN)</span><span class="params">(<span class="type">int</span>)</span>;</span><br><span class="line"></span><br><span class="line">PFN_RETURN <span class="title function_">MyFunction</span><span class="params">(PFN_ARG arg)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MyFunction，一个有函数参数和函数返回值的函数\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> FunReturn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    MyFunction(FunArg);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>结果 :</strong></p>
+<img src="/posts/1fd5e519/image-20240723161732004.png" class title="image-20240723161732004">
+<p>个人解读 :</p>
+<p> 定义过<code>typedef void(*PFN_ARG)(void);</code>和<code>typedef int(*PFN_RETURN)(int);</code>后，可使用 PFN_ARG 定义一个没有参数和返回值的函数，使用 PFN_RETURN 定义一个参数和返回值都是 int 的函数。</p>
+<p> 在<code>PFN_RETURN MyFunction(PFN_ARG arg)</code>中，可看出 MyFunction 的参数是一个没有参数和返回值的函数，在 MyFunction 中用 arg 命名；而 MyFunction 是一个参数和返回值都为 int 函数的函数，所以 MyFunction 函数内，返回值为<code>return FunReturn;</code>，因为 FunReturn 是一个返回值为 int 的函数。</p>
+<div class="note default flat"><p><strong>参考链接 :</strong></p>
+<p><a href="https://blog.csdn.net/Dasis/article/details/123110098?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=typedef函数指针&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-123110098.142^v100^pc_search_result_base4&amp;spm=1018.2226.3001.4187">C 语言基础入门 48 篇<em>38</em>函数指针与 typedef（函数指针即指向函数的指针、函数指针定义 int (*pfn)(int)、typedef 给数据类型起别名，起到的作用一致、typedef 简化函数指针）_函数指针 typedef-CSDN 博客</a></p>
+</div>]]></content>
+      <categories>
+        <category>C语言</category>
+      </categories>
+  </entry>
+  <entry>
     <title>PID</title>
     <url>/posts/c3f78667/</url>
     <content><![CDATA[<p>施工中</p>
@@ -151,7 +151,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <h2 id="设置中断"><a href="#设置中断" class="headerlink" title="设置中断"></a>设置中断</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 开启中断</span></span><br><span class="line">NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;</span><br><span class="line"><span class="comment">// 抢占优先级 1</span></span><br><span class="line">NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 子优先级 7</span></span><br><span class="line">NVIC_InitStructure.NVIC_IRQChannelSubPriority = <span class="number">7</span>;</span><br><span class="line"><span class="comment">// IRQ通道使能</span></span><br><span class="line">NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;</span><br><span class="line"><span class="comment">// 初始化NVIC寄存器</span></span><br><span class="line">NVIC_Init(&amp;NVIC_InitStructure);</span><br></pre></td></tr></table></figure>
 <mark class="hl-label blue">例程:</mark> 
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Usart1Init</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> uiBaud)</span></span><br><span class="line">&#123;</span><br><span class="line">  GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">  USART_InitTypeDef USART_InitStructure;</span><br><span class="line">  NVIC_InitTypeDef NVIC_InitStructure;</span><br><span class="line"></span><br><span class="line">  RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// A9</span></span><br><span class="line">  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;</span><br><span class="line">  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;</span><br><span class="line">  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">  GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// A10</span></span><br><span class="line">  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;</span><br><span class="line">  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;</span><br><span class="line">  GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 波特率 115200</span></span><br><span class="line">  USART_InitStructure.USART_BaudRate = <span class="number">115200</span>;</span><br><span class="line">  <span class="comment">// 数据位长度8bit</span></span><br><span class="line">  USART_InitStructure.USART_WordLength = USART_WordLength_8b;</span><br><span class="line">  <span class="comment">// 停止位位数 1</span></span><br><span class="line">  USART_InitStructure.USART_StopBits = USART_StopBits_1;</span><br><span class="line">  <span class="comment">// 奇偶校验使能 奇偶 no  偶 even  奇 odd</span></span><br><span class="line">  USART_InitStructure.USART_Parity = USART_Parity_No;</span><br><span class="line">  <span class="comment">// 硬件流控制模式使能，用于处理数据丢失，一般不启用</span></span><br><span class="line">  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;</span><br><span class="line">  <span class="comment">// 发送接收模式使能 全部使能</span></span><br><span class="line">  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;</span><br><span class="line">  <span class="comment">// 初始化串口1</span></span><br><span class="line">  USART_Init(USART1, &amp;USART_InitStructure);</span><br><span class="line">  USART_ITConfig(USART1, USART_IT_TXE, DISABLE);</span><br><span class="line">  USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);</span><br><span class="line">  USART_ClearFlag(USART1, USART_FLAG_TC);</span><br><span class="line">  USART_Cmd(USART1, ENABLE);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开启中断</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;</span><br><span class="line">  <span class="comment">// 抢占优先级 1</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = <span class="number">1</span>;</span><br><span class="line">  <span class="comment">// 子优先级 7</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelSubPriority = <span class="number">7</span>;</span><br><span class="line">  <span class="comment">// IRQ通道使能</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;</span><br><span class="line">  <span class="comment">// 初始化NVIC寄存器</span></span><br><span class="line">  NVIC_Init(&amp;NVIC_InitStructure);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note no-icon simple"><p>参考链接: </p>
+<div class="note default flat"><p><strong>参考链接: </strong></p>
 <p><a href="https://blog.csdn.net/zxh1592000/article/details/78656609">STM32系统学习——USART（串口通信）_usart智能卡通信-CSDN博客</a></p>
 <p><a href="https://blog.csdn.net/AriesPIG/article/details/119840979">STM32之USART-串口通信（含串口实验详细解析）_stm32 串口11bit-CSDN博客</a></p>
 <p><a href="https://blog.csdn.net/weixin_44234693/article/details/127452908">浅谈STM32 USART串口中断配置函数USART_ITConfig（）的编程思路-CSDN博客</a></p>
@@ -185,13 +185,13 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
     <title>四元数</title>
     <url>/posts/68728ca3/</url>
     <content><![CDATA[<p>施工中</p>
-<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><p><style>.tqskptjhkcqb{zoom:80%;}</style><img src="/posts/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="tqskptjhkcqb" alt="img"></p>
-<p><style>.rjwsqovirllo{zoom:67%;}</style><img src="/posts/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="rjwsqovirllo" alt="img"></p>
+<h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><p><style>.pyqbheqgwqkj{zoom:80%;}</style><img src="/posts/68728ca3/d8153dec0e89c3d08b97716b72d01018.gif" class="pyqbheqgwqkj" alt="img"></p>
+<p><style>.fkvfetlrpres{zoom:67%;}</style><img src="/posts/68728ca3/b287b97e2d89452f4112256a80ccbd7d.png" class="fkvfetlrpres" alt="img"></p>
 <p>坐标轴以原点为圆心转动，不管怎么转，转后坐标系都可以通过三个角在原坐标系上表达。</p>
 <p>欧拉角可能会导致万向节死锁情况出现，任一坐标轴旋转角度为 90 度时，就会由两个轴的旋转动作起到的作用相同，形成死锁</p>
-<p><style>.quwdkiqoibgt{zoom: 33%;}</style><img src="/posts/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="quwdkiqoibgt" alt="img"></p>
+<p><style>.xzqrabcidoxn{zoom: 33%;}</style><img src="/posts/68728ca3/6d5e0fc22daf476d9b5ac99941bf4c02.gif" class="xzqrabcidoxn" alt="img"></p>
 <h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>1.坐标变换</p>
-<p><style>.xhcszmhydmlp{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722102204803.png" class="xhcszmhydmlp" alt="image-20240722102204803"></p>
+<p><style>.dvbiqoxerqit{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722102204803.png" class="dvbiqoxerqit" alt="image-20240722102204803"></p>
 <p>如图所示，对于点 P 在不同坐标系下的表示，红色坐标系由黑色坐标系绕原点旋转$\alpha $° 得来；</p>
 <p>其坐标变换关系如下 :</p>
 <p>$P_{xa} =OM-P_{xa}M=P_{xb}<em>\cos{\alpha}-IP_{xb}</em>\cos{\alpha}$</p>
@@ -203,14 +203,14 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <p>$P_{za}=P_{zb}$</p>
 <p>由上述式子可得矩阵 :</p>
 <img src="/posts/68728ca3/image-20240722103355214.png" class title="image-20240722103355214">
-<p><style>.uetsxuonhgly{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104206337.png" class="uetsxuonhgly" alt="image-20240722104206337"></p>
+<p><style>.pjjpwpwvpujm{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104206337.png" class="pjjpwpwvpujm" alt="image-20240722104206337"></p>
 <p>想写出坐标系 B 相对于坐标系 A 的旋转矩阵，只需将坐标系 B 相对于坐标系 A 的方向余弦写成矩阵形式 :</p>
-<p><style>.andjxbxntvqx{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104249976.png" class="andjxbxntvqx" alt="image-20240722104249976"></p>
-<p><style>.iftmriyojanr{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722104500401.png" class="iftmriyojanr" alt="image-20240722104500401"></p>
-<p><style>.ndtmzgexbpwi{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722112100493.png" class="ndtmzgexbpwi" alt="image-20240722112100493"></p>
+<p><style>.ejuqtmktlsis{zoom:80%;}</style><img src="/posts/68728ca3/image-20240722104249976.png" class="ejuqtmktlsis" alt="image-20240722104249976"></p>
+<p><style>.lnynpeqqwwyq{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722104500401.png" class="lnynpeqqwwyq" alt="image-20240722104500401"></p>
+<p><style>.ndiyibuwfsfr{zoom:67%;}</style><img src="/posts/68728ca3/image-20240722112100493.png" class="ndiyibuwfsfr" alt="image-20240722112100493"></p>
 <img src="/posts/68728ca3/image-20240722112317352.png" class title="image-20240722112317352">
 <p>上为坐标系旋转，下为向量旋转</p>
-<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p><style>.mprtszzweupx{zoom:80%;}</style><img src="/posts/68728ca3/image-20240715145743748.png" class="mprtszzweupx" alt="image-20240715145743748"></p>
+<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p><style>.ulrkyrtnoxmu{zoom:80%;}</style><img src="/posts/68728ca3/image-20240715145743748.png" class="ulrkyrtnoxmu" alt="image-20240715145743748"></p>
 <p>物理意义：按照特定的方向旋转 90 度</p>
 <h2 id="四元数的定义"><a href="#四元数的定义" class="headerlink" title="四元数的定义"></a>四元数的定义</h2><p>· 对于基{ 1,i,j,k }的线性组合，向量形式 : $q = \begin{bmatrix}a\\b\\c\\d\end{bmatrix}$，( $i^2=j^2=k^2=ijk=-1$ )</p>
 <p>· 将四元数的虚实部分开，使用三维向量来表示虚部，将它表示为标量和向量的有序形式 : $q = [ s , \vec{v} ]$, 其中 $\vec{v} = \begin{bmatrix}x\\y\\z\end{bmatrix}$, $\{ s\quad x\quad y\quad z \}\subseteq \mathbb{R}$</p>
@@ -220,7 +220,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <p>$=[ae-\vec{v}\centerdot\vec{u}， a\vec{u}+e\vec{v}+\vec{v}\times\vec{u}]$ ( 矢量式 )</p>
 <p>矩阵形式 :</p>
 <p>$q_1q_2\neq q_2q_1$ <span style="background:yellow">左乘不等于右乘</span></p>
-<p><style>.ciftehxgxfdu{zoom: 33%;}</style><img src="/posts/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="ciftehxgxfdu" alt="img"></p>
+<p><style>.lgfhcnreyloq{zoom: 33%;}</style><img src="/posts/68728ca3/2063df47336e43f886c2fdd27bfaa231.gif" class="lgfhcnreyloq" alt="img"></p>
 <p>$q_1q_2= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;-d&amp;c\\c&amp;d&amp;a&amp;-b\\d&amp;-c&amp;b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
 <p>$q_2q_1= \begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;d&amp;-c\\c&amp;-d&amp;a&amp;b\\d&amp;c&amp;-b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}$</p>
 <p>左乘：左为动作，右为被操作对象</p>
@@ -267,7 +267,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <img src="/posts/68728ca3/image-20240716103143979.png" class title="image-20240716103143979">
 <h2 id="三位空间旋转公式"><a href="#三位空间旋转公式" class="headerlink" title="三位空间旋转公式"></a>三位空间旋转公式</h2><p>由于实际中要旋转的向量在三维空间，所以将 $q_a$ 看做是第四维（实数部）为<code>0</code>的<strong>纯四元数</strong>，则 $q_a=[0,a]$ 或 $q_a=(0+x_ai+y_aj+z_ak)$) ，那么得到<strong>三维空间旋转公式</strong>:</p>
 <script type="math/tex; mode=display">q_aq_b=[−a\centerdot b,s_ba+a×b]</script><h2 id="四元数与三维旋转"><a href="#四元数与三维旋转" class="headerlink" title="四元数与三维旋转"></a>四元数与三维旋转</h2><p>虚数 _ i（$i^2=-1$），即该虚数所在点绕圆心逆时针旋转 90 度；同理 _-i 即顺时针旋转 90 度</p>
-<p><style>.bylnfqijriip{zoom:50%;}</style><img src="/posts/68728ca3/image-20240716084319542.png" class="bylnfqijriip" alt="image-20240716084319542"></p>
+<p><style>.whxrgnserqgi{zoom:50%;}</style><img src="/posts/68728ca3/image-20240716084319542.png" class="whxrgnserqgi" alt="image-20240716084319542"></p>
 <h3 id="推导-（纯四元数）"><a href="#推导-（纯四元数）" class="headerlink" title="推导 （纯四元数）"></a>推导 （纯四元数）</h3><ol>
 <li><p>定义一个四元数 q，使要旋转的向量旋转$\theta$ 度，v 是单位化转轴方向</p>
 <p> $q=\cos\theta+i\sin\theta$ ( 复数式 )</p>
@@ -293,7 +293,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 </li>
 <li><p>若 $p’=pq$ ,则结果为 $[0,\sqrt{2}i-\sqrt{2}j]$,旋转方向相反</p>
 </li>
-<li>红色绕蓝色逆时针旋转 45 度得到黄色<br><style>.trdcncxkrcbf{zoom: 50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-13.png" class="trdcncxkrcbf" alt="img"></li>
+<li>红色绕蓝色逆时针旋转 45 度得到黄色<br><style>.tjvfteykgery{zoom: 50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-13.png" class="tjvfteykgery" alt="img"></li>
 </ol>
 <h3 id="非纯四元数旋转"><a href="#非纯四元数旋转" class="headerlink" title="非纯四元数旋转"></a>非纯四元数旋转</h3><ol>
 <li><p>一个正常四元数 q，与 p 不正交(p 仍为上文中的 p=[0.2i])，设定 q 的矢量部分与 p 夹角为 45 度,计算 p 绕 q 旋转$\theta$角度后得到的向量</p>
@@ -307,7 +307,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 </li>
 <li><p>计算结果已经不是纯四元数，且没有旋转 45 度，模长也不是 2（而是$\sqrt{3}$）,用图像表示 :</p>
 </li>
-<li><p><style>.xnszkytjhrtd{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-2.png" class="xnszkytjhrtd" alt="img"></p>
+<li><p><style>.ybedoogjkebp{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-2.png" class="ybedoogjkebp" alt="img"></p>
 </li>
 </ol>
 <blockquote id="fn_注">
@@ -322,7 +322,7 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <p>记$qpq^-1$为$p’$</p>
 <img src="/posts/68728ca3/image-20240716155404171.png" class title="image-20240716155404171">
 <p>求得 p’的模长与 p 相等</p>
-<p><style>.sjhwtmzjuogn{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-3.png" class="sjhwtmzjuogn" alt="img"></p>
+<p><style>.hrmbcgvcjqun{zoom:50%;}</style><img src="/posts/68728ca3/Quaternion-Rotation-3.png" class="hrmbcgvcjqun" alt="img"></p>
 </li>
 <li><p>观察上图可发现，红色向量绕紫色向量旋转了 90 度而非 45 度，得到黄色向量，因此为了正确的让一个向量绕某个轴向量旋转某个角度，必须以目标角度的一般来计算 ，得到<strong>旋转四元数</strong>的一般形式:</p>
 <img src="/posts/68728ca3/image-20240716161001706.png" class title="image-20240716161001706">
@@ -345,7 +345,8 @@ u(t) = K_pe(t)+K_i \int e(t)dt+K_d\frac{de(t)}{dt}</script><p>$U(t)$:：控制�
 <p>$\gamma=-\arcsin{(2(xz-wy))}$</p>
 <p>$\theta=\arctan(\frac{2(yz+xw)}{w^2-x^2-y^2+z^2})$</p>
 <p>$\psi=\arctan{\frac{2(xy+zw)}{w^2+x^2-y^2-z^2}}$</p>
-<div class="note no-icon simple"><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接 :"></a>参考链接 :</h1><p>1.<a href="https://www.3dgep.com/understanding-quaternions/#The_Complex_Plane">understanding-quaternions</a></p>
+<div class="note default flat"><p><strong>参考链接 :</strong></p>
+<p>1.<a href="https://www.3dgep.com/understanding-quaternions/#The_Complex_Plane">understanding-quaternions</a></p>
 <p>2.<a href="https://juejin.cn/post/7140527372100435976">从复数到四元数</a></p>
 <p>3.<a href="https://zhuanlan.zhihu.com/p/45404840">三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换 - 知乎 (zhihu.com)</a></p>
 <p>4.<a href="https://blog.sciencenet.cn/blog-2777453-1075307.html">科学网—0034: 四元数与姿态矩阵（旋转矩阵）转换的公式 - 何成文的博文 (sciencenet.cn)</a></p>
@@ -415,19 +416,19 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <h4 id="Taylor多项式近似值"><a href="#Taylor多项式近似值" class="headerlink" title="Taylor多项式近似值"></a>Taylor多项式近似值</h4><img src="/posts/7b740b99/image-20240730110404572.png" class title="image-20240730110404572">
 <h3 id="欧拉-Euler-方法"><a href="#欧拉-Euler-方法" class="headerlink" title="欧拉(Euler)方法"></a>欧拉(Euler)方法</h3><h4 id="向前欧拉公式、向后欧拉公式"><a href="#向前欧拉公式、向后欧拉公式" class="headerlink" title="向前欧拉公式、向后欧拉公式"></a>向前欧拉公式、向后欧拉公式</h4><img src="/posts/7b740b99/image-20240730112740523.png" class title="image-20240730112740523">
 <p><a href="https://www.bilibili.com/video/BV1v3411b7DK/?spm_id_from=333.788&amp;vd_source=d16ffe4c52f07b9a7e89fb3bddfc8e0f">【数值分析】轻松掌握欧拉法｜考试宝典｜简单易懂_哔哩哔哩_bilibili</a></p>
-<p><style>.lwwgfcvtqlyh{zoom: 67%;}</style><img src="/posts/7b740b99/image-20240730145750638.png" class="lwwgfcvtqlyh" alt="image-20240730145750638"></p>
+<p><style>.jiaguhcpizyo{zoom: 67%;}</style><img src="/posts/7b740b99/image-20240730145750638.png" class="jiaguhcpizyo" alt="image-20240730145750638"></p>
 <p>x的每步步进为h</p>
-<p><style>.fxfwxtgvoxbc{zoom: 50%;}</style><img src="/posts/7b740b99/image-20240730145828321.png" class="fxfwxtgvoxbc" alt="image-20240730145828321"></p>
-<p><style>.nixqsmuwvaqw{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730145750638.png" class="nixqsmuwvaqw" alt="image-20240730145750638"></p>
+<p><style>.nlzcofxblbpj{zoom: 50%;}</style><img src="/posts/7b740b99/image-20240730145828321.png" class="nlzcofxblbpj" alt="image-20240730145828321"></p>
+<p><style>.phnknhvfyrbf{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730145750638.png" class="phnknhvfyrbf" alt="image-20240730145750638"></p>
 <p><a href="https://www.bilibili.com/video/BV12r4y1Q7Ae/?spm_id_from=333.788&amp;vd_source=d16ffe4c52f07b9a7e89fb3bddfc8e0f">【数值分析】轻松掌握梯形法改进欧拉法｜考试宝典｜速成_哔哩哔哩_bilibili</a></p>
-<p><style>.srjdetwpooty{zoom:50%;}</style><img src="/posts/7b740b99/image-20240730150332455.png" class="srjdetwpooty" alt="image-20240730150332455"></p>
-<p><style>.plfwgdtgfroj{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730150533001.png" class="plfwgdtgfroj" alt="image-20240730150533001"><img src="/posts/7b740b99/image-20240730152635592.png" class title="image-20240730152635592"></p>
-<p><style>.gpfhuttcwbpv{zoom: 50%;}</style><img src="/posts/7b740b99/image-20240730152635592.png" class="gpfhuttcwbpv" alt="image-20240730152635592"></p>
-<p><style>.txsbfppjnpmg{zoom:50%;}</style><img src="/posts/7b740b99/image-20240730152944990.png" class="txsbfppjnpmg" alt="image-20240730152944990"></p>
+<p><style>.wyesblotkjhx{zoom:50%;}</style><img src="/posts/7b740b99/image-20240730150332455.png" class="wyesblotkjhx" alt="image-20240730150332455"></p>
+<p><style>.oibzhhedgeqg{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730150533001.png" class="oibzhhedgeqg" alt="image-20240730150533001"><img src="/posts/7b740b99/image-20240730152635592.png" class title="image-20240730152635592"></p>
+<p><style>.lbiokifnycjj{zoom: 50%;}</style><img src="/posts/7b740b99/image-20240730152635592.png" class="lbiokifnycjj" alt="image-20240730152635592"></p>
+<p><style>.luwjcvkndkwh{zoom:50%;}</style><img src="/posts/7b740b99/image-20240730152944990.png" class="luwjcvkndkwh" alt="image-20240730152944990"></p>
 <p>当h趋近于0时，梯形法和改进欧拉法得到极限值相同</p>
-<h3 id="龙格-库塔方法"><a href="#龙格-库塔方法" class="headerlink" title="龙格-库塔方法"></a>龙格-库塔方法</h3><p><style>.fhsueaupuddy{}</style><img src="/posts/7b740b99/image-20240730160946340.png" class="fhsueaupuddy" alt="image-20240730160946340"></p>
+<h3 id="龙格-库塔方法"><a href="#龙格-库塔方法" class="headerlink" title="龙格-库塔方法"></a>龙格-库塔方法</h3><p><style>.kpsswpaxhzdw{}</style><img src="/posts/7b740b99/image-20240730160946340.png" class="kpsswpaxhzdw" alt="image-20240730160946340"></p>
 <p><a href="https://www.bilibili.com/video/BV1rF41187YM/?spm_id_from=333.788&amp;vd_source=d16ffe4c52f07b9a7e89fb3bddfc8e0f">【数值分析】轻松理解龙格-库塔方法｜考前必看｜简单易懂_哔哩哔哩_bilibili</a></p>
-<p><style>.jmmqvdhgmueu{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730155752933.png" class="jmmqvdhgmueu" alt="image-20240730155752933"></p>
+<p><style>.kznjwbgjaaci{zoom:67%;}</style><img src="/posts/7b740b99/image-20240730155752933.png" class="kznjwbgjaaci" alt="image-20240730155752933"></p>
 <img src="/posts/7b740b99/image-20240730161016428.png" class title="image-20240730161016428">
 <h1 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><h3 id="原函数"><a href="#原函数" class="headerlink" title="原函数"></a>原函数</h3><p>如果在区间 I 上，$F’(x)=f(x)$ 或 $dF(x)=f(x)dx$ , 则称 F(x) 为 f(x) 在 I 上的一个<strong>原函数</strong></p>
 <h3 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h3><p>设 F(x)是 f(x)的任一原函数，则 f(x)的全部原函数的一般表达式 F(x)+C 称为 f(x)的<strong>不定积分</strong>，记为 $\int f(x)dx$</p>
@@ -435,7 +436,8 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <h3 id="定积分"><a href="#定积分" class="headerlink" title="定积分"></a>定积分</h3><p>设函数 f(x)在[a,b]上有界，在[a,b]中==任意==插入若干分点$a=x_0&lt;x_1&lt;x_2&lt;…&lt;x_{n-1}&lt;x_n=b$,把区间[a,b]分成 n 个小区间，各小区间长度依次为$\Delta x_i=x_i-x_{i-1},(i=1,2,…,n)$,在各小区间上==任取==一点$\xi_i(\xi_i \in \Delta x_i)$,作乘积$f(\xi_i)\Delta x_i(i=1,2,…,n)$，并作和$S=\sum_{i=1}^n{f(\xi_i)\Delta x_i}$</p>
 <p>定积分是一种求和运算，求一个具体的函数在具体的区间内，与 x 轴围成图形的具体面积</p>
 <img src="/posts/7b740b99/20200523164722792.png" class width="20200523164722792">
-<div class="note no-icon simple"><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接 :"></a>参考链接 :</h1><p>1.<a href="https://blog.csdn.net/baidu_39491365/article/details/89856302">什么是微分？导数和微分的区别是什么？微分和积分的联系？_微分积分的区别和联系-CSDN 博客</a></p>
+<div class="note default flat"><p><strong>参考链接 :</strong></p>
+<p>1.<a href="https://blog.csdn.net/baidu_39491365/article/details/89856302">什么是微分？导数和微分的区别是什么？微分和积分的联系？_微分积分的区别和联系-CSDN 博客</a></p>
 <p>2.<a href="https://blog.csdn.net/weixin_43148062/article/details/106302533">高等数学导数公式、微分公式和积分公式大全_常用微分公式 知乎-CSDN 博客</a></p>
 <p>3.<a href="https://blog.csdn.net/weixin_40163242/article/details/89003225">高等数学上核心概念：谈谈导数，微分，积分之间的关系（导数篇）_微分、积分、微积分、导数之详细辨别-CSDN 博客</a></p>
 <p>4.<a href="https://blog.csdn.net/weixin_40163242/article/details/89004822">高等数学上核心概念：谈谈导数，微分，积分之间的关系（微分篇）_极限导数微分积分四者关系图-CSDN 博客</a></p>
@@ -517,17 +519,23 @@ f'(x_0)=\lim_{\vartriangle x\to 0} \frac{\vartriangle y}{n(\vartriangle x)}= \li
 <img src="/posts/af54305b/image-20240731163018511.png" class title="image-20240731163018511">
 <img src="/posts/af54305b/image-20240731163030518.png" class title="image-20240731163030518">
 <div class="note success flat"><p><strong>反对称矩阵</strong></p>
-<p>定义: 设A为n维方阵，若有A’=-A，则称矩阵A维反对称矩阵。</p>
+<p>定义: 设A为n维方阵，若有A’=-A，则称矩阵A为反对称矩阵。</p>
 <p>反对称矩阵主对角线上的元素全为0，主对角线两侧对称的元素符号相反。</p>
 <p><strong>向量的反对称矩阵</strong></p>
 <p> <img src="/posts/af54305b/image-20240801101412702.png" class title="image-20240801101412702"></p>
-<p><style>.lduexypvnwpi{zoom:80%;}</style><img src="/posts/af54305b/image-20240801095647170.png" class="lduexypvnwpi" alt="image-20240801095647170"></p>
+<p><style>.ljwldbxhucji{zoom:80%;}</style><img src="/posts/af54305b/image-20240801095647170.png" class="ljwldbxhucji" alt="image-20240801095647170"></p>
 </div>
 <h3 id="四元数微分方程"><a href="#四元数微分方程" class="headerlink" title="四元数微分方程"></a>四元数微分方程</h3><div class="note success flat"><p>看不太懂。。。先放着</p>
 </div>
 <img src="/posts/af54305b/image-20240801102147995.png" class title="image-20240801102147995">
 <img src="/posts/af54305b/image-20240801102255120.png" class title="image-20240801102255120">
-<div class="note default flat"><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接 :"></a>参考链接 :</h1><p>1.<a href="https://www.doc88.com/p-43973791892306.html?s=like&amp;id=1">四元数解算姿态完全解析及资料汇总 - 道客巴巴 (doc88.com)</a></p>
+<h3 id="四元数微分方程的毕卡求解法"><a href="#四元数微分方程的毕卡求解法" class="headerlink" title="四元数微分方程的毕卡求解法"></a>四元数微分方程的毕卡求解法</h3><div class="note success flat"><p>不确定是否有用,也没看懂，先不写</p>
+</div>
+<h3 id="四元数的初值确定和规范化处理"><a href="#四元数的初值确定和规范化处理" class="headerlink" title="四元数的初值确定和规范化处理"></a>四元数的初值确定和规范化处理</h3><img src="/posts/af54305b/image-20240801111536569.png" class title="image-20240801111536569">
+<img src="/posts/af54305b/image-20240801111559651.png" class title="image-20240801111559651">
+<img src="/posts/af54305b/image-20240801111614397.png" class title="image-20240801111614397">
+<div class="note default flat"><p><strong>参考链接</strong></p>
+<p>1.<a href="https://www.doc88.com/p-43973791892306.html?s=like&amp;id=1">四元数解算姿态完全解析及资料汇总 - 道客巴巴 (doc88.com)</a></p>
 <p>2.<a href="https://book.sciencereading.cn/shop/book/Booksimple/show.do?id=BB45EE804E6493EB6E053020B0A0AB410000">惯性导航（第三版） (sciencereading.cn)</a></p>
 <p>3.<a href="https://baike.baidu.com/item/捷联惯导系统/4110350">捷联惯导系统_百度百科 (baidu.com)</a></p>
 <p>4.<a href="https://blog.csdn.net/qq_35043589/article/details/78878850">叉乘与反对称矩阵-CSDN博客</a></p>
